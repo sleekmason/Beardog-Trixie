@@ -1,0 +1,22 @@
+                       
+                    WELCOME TO BEARDOG!
+                        
+    Welcome to the Beardog bookworm minimal
+    version. This version has only the packages
+    necessary to get a good start on your own.
+    
+    Please visit the forum for more information.
+    https://sourceforge.net/p/lilidog/discussion/
+
+    To install Beardog, click on the green button
+    in the tray, or from: Menu ---> All Programs
+    ---> System ---> Install Beardog. Passwords 
+    are 'user' for username, and 'live' for root.
+    
+    The debian installer is also an option should
+    you prefer. Reboot to access the menu.
+
+    After installation, use the welcome script to
+    see other initial setup options. You can also
+    type 'welcome' in a terminal for later use.
+
