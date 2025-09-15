@@ -115,7 +115,6 @@ killall -SIGUSR1 tint2
 
 export -f tint2-battery-options
 export -f tint2-low-battery-level
-export -f tint2-low-battery-options
 export -f tint2-panel-battery-level
 export -f tint2-panel-battery-options
 
@@ -129,7 +128,7 @@ else
 notify-send --urgency low 'Low battery notification enabled'
 fi
 yad --title "Extra Notifications" --button=gtk-ok:0 --form --center --width=300 --borders=16 \
---height=380 --text="\nExtra Battery Notifications\n" --text-align=center \
+--height=365 --text="\nExtra Battery Notifications\n" --text-align=center \
 --window-icon=utilities-system-monitor \
     --form \
     --field="                  Percentage On/Off!info":FBTN "bash -c 'tint2-panel-battery-options'" \
@@ -139,9 +138,6 @@ yad --title "Extra Notifications" --button=gtk-ok:0 --form --center --width=300 
     --field="":LBL "" \
     --field="         Low Notification On/Off!info":FBTN "bash -c 'tint2-battery-options'" \
     --field="         Notification Threshhold!emblem-system":FBTN "bash -c 'tint2-low-battery-level '" \
-    --field="":LBL "" \
-    --field="":LBL "" \
-    --field="           Xfce4 Power Manager !emblem-system":FBTN "bash -c 'xfce4-power-manager-settings'" \
 exit
 else
 notify-send --urgency low 'No battery found' ;

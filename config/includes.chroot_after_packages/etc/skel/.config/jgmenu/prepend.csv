@@ -65,7 +65,7 @@ Xkill,               xkill,                                         edit-delete
 ^tag(configuration)
 Openbox,             obconf,                                                               obconf
 System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
-Power Manager,       xfce4-power-manager-settings,                                         org.xfce.powermanager
+Power Manager,       mate-power-preferences,                                               mate-power-manager
 Tint2 Settings,      tint2conf,                                                            tint2
 Keybinds,            geany ~/.config/openbox/sxhkdrc-open,                                 document-properties
 Jgmenu,              geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
