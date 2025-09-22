@@ -336,7 +336,7 @@ _update
 #_add_installers
 _remove_packages
 _add_backports
-#_upgrade_kernel
+_upgrade_kernel
 _sourcechanger
 _add_lightdm
 _add_slick
@@ -356,7 +356,7 @@ _update
 #_add_installers
 _remove_packages
 _add_backports
-#_upgrade_kernel
+_upgrade_kernel
 _sourcechanger
 _add_lightdm
 _add_slick
