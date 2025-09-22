@@ -39,7 +39,6 @@ mate-power-manager >/dev/null 2>&1 &
 xfsettingsd --daemon &
 pnmixer &
 sxhkd -c "$HOME/.config/openbox/sxhkdrc-open" &
-gxkb &
 
 ### Start Thunar Daemon if thunar is installed. Uncomment the three lines below to enable.
 # if type 'thunar' &> /dev/null; then
