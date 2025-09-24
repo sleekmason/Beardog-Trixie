@@ -1,6 +1,6 @@
 ---
 componentName:   beardog
-welcomeStyleCalamares: true
+welcomeStyleCalamares: false
 welcomeExpandingLogo: true
 windowExpanding: normal
 windowSize: 800px,580px
