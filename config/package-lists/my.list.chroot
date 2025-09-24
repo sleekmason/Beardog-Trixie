@@ -122,6 +122,7 @@ python3-pycurl
 python3-six
 python3-xdg
 python3-xlib
+qt5ct
 qt5-gtk-platformtheme
 qt6-gtk-platformtheme
 rename

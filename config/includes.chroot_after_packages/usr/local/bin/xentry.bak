@@ -206,44 +206,6 @@ _add_conky() {
         run_it
 }
 
-_add_themes() {
-      _msg="Install extra gtk3 themes with all the Lilidog options?"
-      do_it() { wget https://raw.githubusercontent.com/sleekmason/packages/master/themechooser-trixie.zip --show-progress -q
-                unzip "/tmp/themechooser-trixie.zip" 
-		  # Backup and copy over /usr/share/themes
-          if ! test -e "/usr/share/themes.bak"; then
-          cp -r "/usr/share/themes" "/usr/share/themes.bak"
-          fi
-          cp -af /tmp/themechooser/themes/* "/usr/share/themes"
-		  # Backup and copy over /usr/share/geany
-          if ! test -e "/usr/share/geany.bak"; then
-          cp -r "/usr/share/geany" "/usr/share/geany.bak"
-          fi
-          cp -af /tmp/themechooser/geany/* "/usr/share/geany"
-		  # Backup and copy over /usr/share/xfce4
-          if ! test -e "/usr/share/xfce4.bak"; then
-          cp -r "/usr/share/xfce4" "/usr/share/xfce4.bak"
-          fi
-          cp -af /tmp/themechooser/xfce4/* "/usr/share/xfce4"
-          # Copy theme scripts to /usr/local/bin
-          cp -rf "/tmp/themechooser/scripts/." "/usr/local/bin/"
-          # Copy .desktop file to /usr/share/applications
-          cp -f "/tmp/themechooser/ld-auto-themes-other.desktop" "/usr/share/applications"
-          cp -f "/tmp/themechooser/ld-theme-reset.desktop" "/usr/share/applications"
-          cp -f "/tmp/themechooser/ld-themes.desktop" "/usr/share/applications"
-		  # copy lilidog-themes config files to ~/.config
-          cp -fr "/tmp/themechooser/lilidog-themes" /home/"${SUDO_USER}"/.config
-          # Copy Readme.lilidog-themes to /usr/share/lilidog
-          if test -e "/usr/share/lilidog"; then
-          cp -f "/tmp/themechooser/Readme.lilidog-themes" "/usr/share/lilidog"
-          fi
-          sed -i '/Themes,              ld-themes.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-          sed -i '/^Sounds/a Themes,              ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
-        see_it
-        no_see
-        run_it
-}
-
 _add_transparency() {
       _msg="Install transparency with picom and enable at login?"
       do_it() { apt-get update && apt-get install --install-recommends -y picom &&
@@ -291,7 +253,7 @@ _add_backports() {
 _upgrade_kernel() {
       _msg="Install backports kernel? (Also adds repositories.)"
       do_it() { echo 'deb http://deb.debian.org/debian trixie-backports main' | tee /etc/apt/sources.list.d/trixie-backports.list &&
-		        apt-get update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
+		        apt-get update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports firmware-linux ;}
         see_it
         no_see
         run_it
@@ -375,9 +337,8 @@ _update
 _remove_packages
 _add_backports
 _upgrade_kernel
-#_sourcechanger
+_sourcechanger
 _add_lightdm
-_add_themes
 _add_slick
 _add_conky
 _osprober
@@ -396,9 +357,8 @@ _update
 _remove_packages
 _add_backports
 _upgrade_kernel
-#_sourcechanger
+_sourcechanger
 _add_lightdm
-_add_themes
 _add_slick
 _add_conky
 _firmware
