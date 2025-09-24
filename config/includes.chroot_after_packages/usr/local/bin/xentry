@@ -208,8 +208,9 @@ _add_conky() {
 
 _add_themes() {
       _msg="Install extra gtk3 themes with all the Lilidog options?"
-      do_it() { wget https://raw.githubusercontent.com/sleekmason/packages/master/themechooser-trixie.zip --show-progress -q
-                unzip "/tmp/themechooser-trixie.zip" 
+      do_it() { cd /tmp || exit &&
+		  wget https://raw.githubusercontent.com/sleekmason/packages/master/themechooser-trixie.zip --show-progress -q
+          unzip "/tmp/themechooser-trixie.zip" >/dev/null 2>&1
 		  # Backup and copy over /usr/share/themes
           if ! test -e "/usr/share/themes.bak"; then
           cp -r "/usr/share/themes" "/usr/share/themes.bak"
@@ -237,6 +238,9 @@ _add_themes() {
           if test -e "/usr/share/lilidog"; then
           cp -f "/tmp/themechooser/Readme.lilidog-themes" "/usr/share/lilidog"
           fi
+          # Remove copies from /tmp
+          rm -fr "/tmp/themechooser"
+          rm -fr "/tmp/themechooser-trixie.zip"
           sed -i '/Themes,              ld-themes.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
           sed -i '/^Sounds/a Themes,              ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
         see_it
@@ -377,8 +381,8 @@ _add_backports
 _upgrade_kernel
 #_sourcechanger
 _add_lightdm
-_add_themes
 _add_slick
+_add_themes
 _add_conky
 _osprober
 _firmware
@@ -398,8 +402,8 @@ _add_backports
 _upgrade_kernel
 #_sourcechanger
 _add_lightdm
-_add_themes
 _add_slick
+_add_themes
 _add_conky
 _firmware
 _reboot
