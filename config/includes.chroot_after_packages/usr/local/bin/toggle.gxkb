@@ -6,7 +6,7 @@ if pgrep -xf gxkb > /dev/null; then
     pkill gxkb &
     sed -i 's/Hidden=.*/Hidden=true/' "$FILE"
     notify-send --urgency low 'GXKB Keyboard Switcher has been de-activated'
-    notify-send --urgency low 'The autostart feature has been disabled'
+    notify-send --urgency low 'GXKB autostart has been disabled'
 else
     gxkb &
     sed -i 's/Hidden=.*/Hidden=false/' "$FILE"
