@@ -23,7 +23,7 @@ read -p "   [0;33mAll Packages Necessary To Compile The Linux Kernel.[0m
 echo ""
 sudo apt update && sudo apt install bc bison dh-make pbuilder build-essential fakeroot \
 flex libelf-dev libncurses5-dev libssl-dev autoconf libparse-debcontrol-perl automake autopoint \
-autotools-dev debhelper dh-autoreconf dpkg-dev devscripts dh-strip-nondeterminism dwz \
+autotools-dev debhelper dh-autoreconf dpkg-dev devscripts dh-strip-nondeterminism libdw-dev dwz \
 gettext intltool-debian libarchive-zip-perl libfl-dev libdebhelper-perl \
 libfile-stripnondeterminism-perl libsub-override-perl libtool po-debconf
 echo ""
