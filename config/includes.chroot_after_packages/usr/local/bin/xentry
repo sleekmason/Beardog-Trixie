@@ -83,6 +83,15 @@ _update() {
 	run_it
 }
 
+-apt_location() {
+	  _msg="Update sources style to the new deb822 format? (If wanting to use the mirror changer script later, choose no.)"
+      do_it() { apt modernize-sources -y
+	  apt update ;}
+        see_it
+        no_see
+        run_it
+}
+
 _add_lightdm() {
       _msg="Add lightdm? (choose 'n' if wanting slick-greeter instead.)"
       do_it() { apt-get update && apt-get install -y lightdm lightdm-gtk-greeter-settings &&
@@ -372,6 +381,7 @@ _reboot() {
 
 if grep -q "#GRUB_DISABLE_OS_PROBER=false" "/etc/default/grub"; then
 _update
+-apt_location
 #_add_jgmenu
 #_add_notifications
 #_add_transparency
@@ -393,6 +403,7 @@ sed -i '/vmrestore.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
 fi
 else
 _update
+-apt_location
 #_add_jgmenu
 #_add_notifications
 #_add_transparency
