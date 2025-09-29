@@ -176,8 +176,8 @@ _add_conky() {
       _msg="Install Conky with custom configurations?"
       do_it() { cd /tmp &&
 		  rm -fr /tmp/conky*
-		  wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/conky-bear-trixie.zip --show-progress -q &&
-		        unzip -q conky-bear-trixie.zip
+		  wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/conky-bear-trixie2.zip --show-progress -q &&
+		        unzip -q conky-bear-trixie2.zip
 		        if test -f /home/"${SUDO_USER}"/.config/conky; then
 		        mv /home/"${SUDO_USER}"/.config/conky /home/"${SUDO_USER}"/.config/conky.bak &&
 		        cp -r /tmp/conky /home/"${SUDO_USER}"/.config
