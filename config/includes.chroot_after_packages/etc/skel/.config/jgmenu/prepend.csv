@@ -51,6 +51,7 @@ Jgmenu Match,        jg-menu-theme,                                 org.xfce.set
 Transparency,        transparency-system,                           org.xfce.settings.manager
 Tint2 Options,       tint2-options,                                 org.xfce.settings.manager
 Tint2 Toggle,        toggle.tint2,                                  org.xfce.settings.manager
+Sexy Bash,           toggle.sexy,                                   org.xfce.settings.manager
 OSprober,            osprober-toggle,                               org.xfce.settings.manager
 Xkill,               xkill,                                         edit-delete
 

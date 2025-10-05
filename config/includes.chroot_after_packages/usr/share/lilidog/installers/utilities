@@ -8,7 +8,6 @@ LD Update Checker, x-terminal-emulator -T 'LD apt update checker installer' -e b
 Pcmanfm,          x-terminal-emulator -T 'Pcmanfm Installer' -e bash -c "pcmanfm-installer",                                  applications-utilities
 Penguins Eggs,    x-terminal-emulator -T 'Penguins Eggs Installer' -e bash -c "penguins-eggs-installer",                      applications-utilities
 Qemu VM,          x-terminal-emulator -T 'Qemu Installer' -e bash -c "qemu-installer",                                        applications-utilities
-Sexy Bash Prompt, x-terminal-emulator -T 'Sexy Bash Prompt Installer' -e bash -c "sexy-bash-prompt-installer",                applications-utilities
 Synaptic,         x-terminal-emulator -T 'Synaptic Installer' -e bash -c "synaptic-installer",                                applications-utilities
 Xscreensaver,     x-terminal-emulator -T 'Xscreensaver Installer' -e bash -c "xscreensaver-installer",                        applications-utilities
 ZSH Shell,        x-terminal-emulator -T 'zsh Installer' -e bash -c "zsh-installer",                                          applications-utilities
