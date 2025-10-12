@@ -3,7 +3,7 @@
 
 full_fs=$(df ~ | tail -1 | awk '{print $1;}')  # find partition
 fs=$(basename "$full_fs")
-if ! grep -q "$fs" /proc/partitions; then
+if grep -q "$fs" /proc/partitions; then
 /usr/local/bin/installed-session &&
   yad --title "Welcome!" --window-icon=/usr/share/icons/ld-icons/paw-color.png \
 --width=488 --height=444 --center --escape-ok --undecorated --skip-taskbar \
