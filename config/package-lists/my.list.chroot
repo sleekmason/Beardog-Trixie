@@ -25,6 +25,7 @@ dbus-broker
 dbus-user-session
 dbus-x11
 dconf-gsettings-backend
+dconf-editor
 desktop-base
 dialog
 dnsmasq-base
