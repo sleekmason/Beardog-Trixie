@@ -1,6 +1,9 @@
 ### modify session to allow /sbin /usr/sbin ~/bin ~/.local/bin into path 
 ## during the session.
 
+# match what qt we can with gtk. - lucky backup for one.
+export QT_QPA_PLATFORMTHEME=gtk2
+
 # include sbin in PATH
 if [ -d "/sbin" ] ; then
     PATH="${PATH:+${PATH}:}/sbin"
