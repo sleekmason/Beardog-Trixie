@@ -1,9 +1,9 @@
                    
                       WELCOME!
                         
-    Thank you for trying out Beardog. For any bug
-    or further information please see the Lilidog 
-    support forum on Sourceforge.
+    Thank you for trying out Beardog. If problems
+    arise, or for further information, please see 
+    the Lilidog support forum on Sourceforge.
 
     https://sourceforge.net/p/lilidog/discussion/
     
