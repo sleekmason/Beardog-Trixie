@@ -393,7 +393,7 @@ _upgrade_kernel
 #_sourcechanger
 _add_lightdm
 _add_slick
-#_add_themes
+_add_themes
 _add_conky
 _osprober
 _firmware
@@ -415,7 +415,7 @@ _upgrade_kernel
 #_sourcechanger
 _add_lightdm
 _add_slick
-#_add_themes
+_add_themes
 _add_conky
 _firmware
 _reboot
