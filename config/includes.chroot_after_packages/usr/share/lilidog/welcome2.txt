@@ -5,18 +5,15 @@
     the packages necessary to get a good start at
     designing your system the way you want.
     
-    Please visit the forum for extra information.
+    Please visit the forum for more information:
     https://sourceforge.net/p/lilidog/discussion/
 
-    To install Beardog, click on the green button 
-    in the tray. Or try Menu --> All Programs -->
-    System --> Install Beardog. The passwords are  
-    'user' for username, and 'live' for root.
+    The live environment passwords are 'user' for 
+    username, and 'live' for root.
     
-    The debian installer is also an option should
-    you prefer. Reboot to access the menu.
+    To install Beardog, reboot the iso and choose 
+    'Start installer'.
 
     After installation, use the welcome script to
     see other initial setup options. You can also
-    type 'welcome' in a terminal for later use.
-
+    type 'welcome' in a terminal to use later.

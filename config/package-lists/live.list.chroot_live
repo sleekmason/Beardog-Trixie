@@ -2,7 +2,4 @@ live-boot
 live-config
 live-config-systemd
 systemd-sysv
-calamares
-calamares-settings-debian
-qml6-module-qtquick-window
 keyutils
