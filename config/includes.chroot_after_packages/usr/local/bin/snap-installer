@@ -5,11 +5,12 @@ read -p "   [0;33mSnap Installer[0m
    This will install Snapd and the Snap App Store, the app store 
    for Linux. A menu entry will be placed in the Quickgrab menu.
    
-   Please note that the installation can take a while on a slow
-   connection as snap searches for resources. 7 minutes here.
+   Please note that the installation can take a while for a slow
+   connection as snap searches for resources. About 7 minutes on
+   a fairly decent connection here.
    
-   [0;33mWhile the snap-store will open, logging out and back in
-   will be necessary for use.[0m
+   [0;33mLogging out and back in will be necessary for installed 
+   items to properly open.[0m
 
    [0;34mhttps://snapcraft.io//[0m
    
@@ -36,16 +37,14 @@ echo
 #echo
 echo "[0;32mEnabling and starting snapd service...[0m"
 sudo systemctl enable --now snapd.service &&
-sleep 4
+sleep 2
 echo
 echo "[0;32mInstalling the Snap Store ...[0m"
 sudo snap install snap-store &&
 sleep 2
 # for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect $i gtk-common-themes:gtk-3-themes; done &&
-export PATH="$PATH:/snap/bin"
-
-sed -i '/Snap Store,          /snap/bin/snap-store,                         applications-other/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Root Folders,^checkout(rootfiles),folder/a Snap Store,          /\snap/\bin/\snap-store,                         applications-other' ~/.config/jgmenu/prepend.csv &&
+sed -i '/Snap Store,         \/snap\/bin\/snap-store,              preferences-other/d' ~/.config/jgmenu/prepend.csv &&
+sed -i '/Root Folders,^checkout(rootfiles),folder/a Snap Store,         /snap/bin/snap-store,              preferences-other' ~/.config/jgmenu/prepend.csv
 killall -q jgmenu
 echo ""
 echo ""
