@@ -1,8 +1,13 @@
 ### modify session to allow /sbin /usr/sbin ~/bin ~/.local/bin into path 
 ## during the session.
 
-# match what qt we can with gtk. - lucky backup for one.
+# Make qt work for luckybackup - others
 export QT_QPA_PLATFORMTHEME=gtk2
+
+# include snaps in PATH
+if [ -d "/snap/bin" ] ; then
+    PATH="${PATH:+${PATH}:}/snap/bin"
+fi
 
 # include sbin in PATH
 if [ -d "/sbin" ] ; then

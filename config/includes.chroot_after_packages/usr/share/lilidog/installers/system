@@ -13,6 +13,7 @@ Lightdm Slick,    x-terminal-emulator -T 'Lightdm Slick Greeter Installer' -e ba
 Live-build Apps,  x-terminal-emulator -T 'Live-build Apps Installer' -e bash -c "live-build-apps-installer",      applications-utilities
 Mirror Changer,   x-terminal-emulator -T 'Debian Mirrors Changer' -e bash -c "sourcechanger",                     applications-utilities
 Polybar Panel,    x-terminal-emulator -T 'Polybar Installer' -e bash -c "polybar-installer",                      applications-utilities
+Snap Store,       x-terminal-emulator -T 'Snap Installer' -e bash -c "snap-installer",                            applications-utilities
 Sowm,             x-terminal-emulator -T 'Sowm Installer' -e bash -c "sowm-installer",                            applications-utilities
 Sowm w/ Borders,  x-terminal-emulator -T 'Sowm With Borders Installer' -e bash -c "sowm-borders-installer",       applications-utilities
 Tint2 Default,    x-terminal-emulator -T 'Tint2 Default Config Installer' -e bash -c "tint2-default-installer",   applications-utilities
