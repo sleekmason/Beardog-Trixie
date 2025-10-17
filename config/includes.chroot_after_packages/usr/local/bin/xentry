@@ -23,12 +23,16 @@ while getopts 'iq' OPTION; do
       i)
 	_interactive="yes"
 	echo ""
-	echo -e " [0;32m--------------------------------------------------[0m"
+	echo -e " [0;32m----------------------------------------------------------[0m"
 	echo ""
-	echo -e " [0;32m\n Entering interactive script to customize Beardog.\n[0m"
-	echo -e " [0;33m--------------------------------------------------[0m"
-	echo -e " [0;33m\n Please use letters 'y' or 'n' for selections.\n[0m"
-	echo -e " [0;33m--------------------------------------------------[0m"
+	echo -e " [0;32mEntering the interactive script for customizing Beardog.[0m"
+	echo ""
+	echo ""
+	echo -e " [0;33mPlease use the letters 'y' or 'n' for choice selections.\n[0m"
+	echo -e " [0;32mThese choices can also be found in the Beardog Installers.[0m"
+    echo -e " [0;32mAll items listed can be performed later if you would like.[0m"
+    echo ""
+	echo -e " [0;32m----------------------------------------------------------[0m"
 	echo ""
 	break
       ;;
@@ -313,8 +317,9 @@ _upgrade_kernel() {
 }
 
 _sourcechanger() {
-      _msg="Use netselect-apt to find a faster debian mirror?"
-      do_it() { apt install -y netselect-apt
+      _msg="Use netselect-apt to find a faster debian mirror? This can take a few minutes..."
+      do_it() { if ! test -e "/etc/apt/sources.list.d/debian.sources"; then
+		  apt install -y netselect-apt
 		        rm -rf /tmp/sourcechanger
 		        mkdir /tmp/sourcechanger
 		          if [ ! -e "/etc/apt/sources.list-original.bak" ]; then
@@ -345,6 +350,9 @@ _sourcechanger() {
                      sleep 2
                      cp -f "/etc/apt/sources.list-original.bak" "/etc/apt/sources.list"
                      apt update
+                  fi 
+                  else
+                     echo "   [0;31mOriginal /etc/apt/sources.list not found. Exiting.[0m"
                   fi ;}
         see_it
         no_see
@@ -383,6 +391,7 @@ _reboot() {
 
 if grep -q "#GRUB_DISABLE_OS_PROBER=false" "/etc/default/grub"; then
 _update
+_sourcechanger
 -apt_location
 #_add_jgmenu
 #_add_notifications
@@ -391,7 +400,6 @@ _update
 _remove_packages
 _add_backports
 _upgrade_kernel
-#_sourcechanger
 _add_lightdm
 _add_slick
 _add_themes
@@ -405,6 +413,7 @@ sed -i '/vmrestore.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
 fi
 else
 _update
+_sourcechanger
 -apt_location
 #_add_jgmenu
 #_add_notifications
@@ -413,7 +422,6 @@ _update
 _remove_packages
 _add_backports
 _upgrade_kernel
-#_sourcechanger
 _add_lightdm
 _add_slick
 _add_themes
