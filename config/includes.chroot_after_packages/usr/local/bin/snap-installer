@@ -10,7 +10,7 @@ read -p "   [0;33mSnap Installer[0m
    a fairly decent connection here.
    
    [0;33mLogging out and back in will be necessary for installed 
-   items to properly open.[0m
+   items to be called from menu entries without the full path.[0m
 
    [0;34mhttps://snapcraft.io//[0m
    
@@ -39,7 +39,7 @@ echo "[0;32mEnabling and starting snapd service...[0m"
 sudo systemctl enable --now snapd.service &&
 sleep 2
 echo
-echo "[0;32mInstalling the Snap Store ...[0m"
+echo "[0;32mInstalling the Snap Store ... This can take a while.[0m"
 sudo snap install snap-store &&
 sleep 2
 # for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect $i gtk-common-themes:gtk-3-themes; done &&
@@ -63,7 +63,7 @@ echo ""
 echo "---------------------------------------------------------------"
 else
 echo "" 
-echo "[0;32mPlease install Lilidog to use Snapd. exiting...[0m"
+echo "[0;32mPlease install Beardog to use Snap. Exiting...[0m"
 echo ""
 fi
 else
