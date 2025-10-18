@@ -302,8 +302,8 @@ _remove_packages() {
 
 _add_backports() {
       _msg="Add backports repositories and run Apt to update?"
-      do_it() { echo 'deb http://deb.debian.org/debian trixie-backports main' | tee /etc/apt/sources.list.d/trixie-backports.list &&
-		        apt-get update ;}
+      do_it() { cp -f "/usr/share/lilidog/extras/backports/trixie-backports.sources" "/etc/apt/sources.list.d" &&  
+                sudo apt update ;}
         see_it
         no_see
         run_it
@@ -311,8 +311,8 @@ _add_backports() {
 
 _upgrade_kernel() {
       _msg="Install backports kernel? (Also adds repositories.)"
-      do_it() { echo 'deb http://deb.debian.org/debian trixie-backports main' | tee /etc/apt/sources.list.d/trixie-backports.list &&
-		        apt-get update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
+      do_it() { cp -f "/usr/share/lilidog/extras/backports/trixie-backports.sources" "/etc/apt/sources.list.d" &&  
+                sudo apt update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
         see_it
         no_see
         run_it
