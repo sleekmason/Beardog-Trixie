@@ -23,16 +23,18 @@ while getopts 'iq' OPTION; do
       i)
 	_interactive="yes"
 	echo ""
-	echo -e " [0;32m----------------------------------------------------------[0m"
+	echo -e "                   [0;32mWELCOME TO BEARDOG![0m"
+	echo ""
+	echo -e " [0;32m--------------------------------------------------------[0m"
 	echo ""
 	echo -e " [0;32mEntering the interactive script for customizing Beardog.[0m"
 	echo ""
 	echo ""
 	echo -e " [0;33mPlease use the letters 'y' or 'n' for choice selections.\n[0m"
-	echo -e " [0;32mThese choices can also be found in the Beardog Installers.[0m"
-    echo -e " [0;32mAll items listed can be performed later if you would like.[0m"
+	echo -e " [0;32mThese items can also be found in the Beardog Installers,[0m"
+    echo -e " [0;32mso any of these options can be added at a later time.[0m"
     echo ""
-	echo -e " [0;32m----------------------------------------------------------[0m"
+	echo -e " [0;32m--------------------------------------------------------[0m"
 	echo ""
 	break
       ;;
@@ -88,7 +90,7 @@ _update() {
 }
 
 -apt_location() {
-	  _msg="Update sources style to the new deb822 format? (If wanting to use the mirror changer script later, choose no.)"
+	  _msg="Update sources style to the new deb822 format?"
       do_it() { apt modernize-sources -y
 	  apt update ;}
         see_it
@@ -221,24 +223,24 @@ _add_conky() {
 }
 
 _add_themes() {
-      _msg="Install extra gtk3 themes with all the Lilidog options?"
+      _msg="Install extra gtk3 & Openbox themes with all the Lilidog options?"
       do_it() { cd /tmp || exit &&
 		  wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/themechooser-trixie.zip --show-progress -q
           unzip -q "/tmp/themechooser-trixie.zip"
 		  # Backup and copy over /usr/share/themes
-          if ! test -e "/usr/share/themes.bak"; then
-          cp -r "/usr/share/themes" "/usr/share/themes.bak"
-          fi
+ #         if ! test -e "/usr/share/themes.bak"; then
+ #         cp -r "/usr/share/themes" "/usr/share/themes.bak"
+ #         fi
           cp -af /tmp/themechooser/themes/* "/usr/share/themes"
 		  # Backup and copy over /usr/share/geany
-          if ! test -e "/usr/share/geany.bak"; then
-          cp -r "/usr/share/geany" "/usr/share/geany.bak"
-          fi
+ #         if ! test -e "/usr/share/geany.bak"; then
+ #         cp -r "/usr/share/geany" "/usr/share/geany.bak"
+ #         fi
           cp -af /tmp/themechooser/geany/* "/usr/share/geany"
 		  # Backup and copy over /usr/share/xfce4
-          if ! test -e "/usr/share/xfce4.bak"; then
-          cp -r "/usr/share/xfce4" "/usr/share/xfce4.bak"
-          fi
+ #         if ! test -e "/usr/share/xfce4.bak"; then
+ #         cp -r "/usr/share/xfce4" "/usr/share/xfce4.bak"
+ #         fi
           cp -af /tmp/themechooser/xfce4/* "/usr/share/xfce4"
           # Copy theme scripts to /usr/local/bin
           cp -rf "/tmp/themechooser/scripts/." "/usr/local/bin/"
@@ -317,7 +319,7 @@ _upgrade_kernel() {
 }
 
 _sourcechanger() {
-      _msg="Use netselect-apt to find a faster debian mirror? This can take a few minutes..."
+      _msg="Use Netselect to find a faster debian mirror? Will take a few minutes..."
       do_it() { if ! test -e "/etc/apt/sources.list.d/debian.sources"; then
 		  apt install -y netselect-apt
 		        rm -rf /tmp/sourcechanger
@@ -341,7 +343,7 @@ _sourcechanger() {
                   fi
                   if apt-get update -eany; then
                      echo
-                     echo "   [0;32mSuccess! Enjoy your new debian mirror.[0m"
+                     echo "   [0;32mSuccess! Enjoy your new mirror sources.[0m"
                      echo
                   else
                      echo
@@ -352,7 +354,7 @@ _sourcechanger() {
                      apt update
                   fi 
                   else
-                     echo "   [0;31mOriginal /etc/apt/sources.list not found. Exiting.[0m"
+                     echo "   [0;31mDefault /etc/apt/sources.list not found. Exiting.[0m"
                   fi ;}
         see_it
         no_see
