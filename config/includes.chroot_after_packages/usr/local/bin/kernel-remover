@@ -103,6 +103,7 @@ if [ -z "$KernelList" ]; then
         echo "$MSG"
     else
         yad --center --borders=10 --width=400 --title="$TITLE" \
+            --window-icon="$COOLICON" \
             --text="<span foreground='white'>${MSG}</span>" \
             --button=gtk-ok:0 --gtk-theme="Adwaita:light"
     fi

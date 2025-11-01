@@ -31,7 +31,7 @@ Gparted,            gksudo gparted,                   gparted
 HW-Probe,           x-terminal-emulator -T 'Hw-Probe' -e bash -c "hw-probe-installer; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
 Font Viewer,        yad --font,                       preferences-desktop-font
 Color Chooser,      yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
-Kernel Remover,     x-terminal-emulator -T 'Kernel Remover' -e 'sudo kernel-remover -G dialog',     applications-accessories
+Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
 Check Firmware,     x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
 Update Options,     update-options,                   system-software-update
 Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
