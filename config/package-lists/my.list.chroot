@@ -15,6 +15,7 @@ btrfs-progs
 bzip2
 7zip
 ca-certificates
+catfish
 console-data
 console-setup
 cpio
@@ -138,6 +139,7 @@ sudo
 ssft
 strace
 sxhkd
+synaptic
 syslinux-common
 systemd-resolved
 systemd-timesyncd
