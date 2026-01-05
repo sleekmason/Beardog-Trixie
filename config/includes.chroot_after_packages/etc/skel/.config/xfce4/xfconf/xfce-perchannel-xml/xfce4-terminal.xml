@@ -18,7 +18,7 @@
   <property name="tab-activity-color" type="string" value="#aa0000"/>
   <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
   <property name="scrolling-lines" type="uint" value="10000"/>
-  <property name="font-name" type="string" value="JetBrains Mono Light 11"/>
+  <property name="font-name" type="string" value="JetBrains Mono Light 10"/>
   <property name="misc-default-geometry" type="string" value="80x26"/>
   <property name="misc-menubar-default" type="bool" value="false"/>
   <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
