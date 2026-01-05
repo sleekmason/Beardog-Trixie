@@ -394,7 +394,7 @@ _reboot() {
 
 if grep -q "#GRUB_DISABLE_OS_PROBER=false" "/etc/default/grub"; then
 _update
-_sourcechanger
+#_sourcechanger
 -apt_location
 #_add_jgmenu
 #_add_notifications
@@ -416,7 +416,7 @@ sed -i '/vmrestore.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
 fi
 else
 _update
-_sourcechanger
+#_sourcechanger
 -apt_location
 #_add_jgmenu
 #_add_notifications
