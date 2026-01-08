@@ -311,7 +311,7 @@ _add_backports() {
 }
 
 _upgrade_kernel() {
-      _msg="Install backports kernel? (Also adds repositories.)"
+      _msg="Install backports kernel? (Also adds repositories)"
       do_it() { cp -f "/usr/share/lilidog/extras/backports/trixie-backports.sources" "/etc/apt/sources.list.d" &&  
                 apt-get update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
         see_it
@@ -381,7 +381,7 @@ _firmware() {
 }
 
 _reboot() {
-      _msg="Reboot? - After kernel or lightdm installation."
+      _msg="Reboot? - (After Lightdm installation)"
       do_it() { sed -i '/welcome-backend.sh.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
 		  if ! grep hypervisor /proc/cpuinfo ; then
           sed -i '/vmrestore.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart

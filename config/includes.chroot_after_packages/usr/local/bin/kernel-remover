@@ -1,24 +1,20 @@
 #!/bin/bash
 # Made for Lilidog by sleekmason 31 Oct 2025
 
-#---------------------------------------------------------------------
-# Check for root privileges
-#---------------------------------------------------------------------
+# Check for root
 if [ "$(id -u)" -ne 0 ]; then
     printf "ERROR: This script must be run as root.\n" >&2
     exit 1
 fi
 
-#---------------------------------------------------------------------
-# Variables and defaults
-#---------------------------------------------------------------------
+# Variables
 TEXTDOMAIN="kernel-remover"
 export TEXTDOMAIN
 TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAINDIR
 
 TITLE="Kernel Remover"
-COOLICON="utilities-system-monitor"
+COOLICON="applications-engineering"
 CURRENTKERNEL=$(uname -r)
 CURRENT=" Cannot remove the active kernel  -  '${CURRENTKERNEL}'"
 
@@ -26,7 +22,6 @@ force=0
 frontend="yad"
 xtra=0
 
-#---------------------------------------------------------------------
 usage() {
     echo "$(basename "$0")"
     echo "     -G parameter    choose frontend (text | yad)"
@@ -34,7 +29,6 @@ usage() {
     echo "     -h              show this usage"
     exit 1
 }
-#---------------------------------------------------------------------
 
 while getopts fhxG: name; do
     case $name in
@@ -47,9 +41,7 @@ while getopts fhxG: name; do
 done
 shift $((OPTIND - 1))
 
-#---------------------------------------------------------------------
 # Determine frontend (text or yad)
-#---------------------------------------------------------------------
 if [ -z "$frontend" ]; then
     if [ -n "$DISPLAY" ] && command -v yad >/dev/null 2>&1; then
         frontend="yad"
@@ -58,7 +50,41 @@ if [ -z "$frontend" ]; then
     fi
 fi
 
-#---------------------------------------------------------------------
+if [ -n "$SUDO_USER" ]; then
+    REAL_USER="$SUDO_USER"
+else
+    REAL_USER="$(logname 2>/dev/null || id -un)"
+fi
+
+USER_HOME="$(getent passwd "$REAL_USER" | cut -d: -f6)"
+
+LOGDIR="$USER_HOME/.local/share"
+mkdir -p "$LOGDIR" || { echo "Failed to create log directory $LOGDIR"; exit 1; }
+LOGFILE="$LOGDIR/kernel-remover.log"
+touch "$LOGFILE" || { echo "Failed to create log file $LOGFILE"; exit 1; }
+chown "$REAL_USER:$REAL_USER" "$LOGDIR" "$LOGFILE"
+
+echo -e "\n===== Kernel Remover run on $(date '+%Y-%m-%d %H:%M:%S') =====\n" >> "$LOGFILE"
+
+exec > >(tee -a "$LOGFILE") 2>&1
+
+# Progress bar
+start_wait_dialog() {
+    yad --progress \
+        --title="$TITLE" \
+        --window-icon="$COOLICON" \
+        --center --width=420 --borders=10 \
+        --pulsate \
+        --no-buttons \
+        --auto-close \
+        --text="<span foreground='white'><b>Please wait…</b></span>" &
+    YAD_WAIT_PID=$!
+}
+
+stop_wait_dialog() {
+    kill "$YAD_WAIT_PID" 2>/dev/null
+}
+
 get_KernelList() {
     KernelList=""
     for v in /boot/vmlinuz-*; do
@@ -68,8 +94,8 @@ get_KernelList() {
         fi
     done
 }
-#---------------------------------------------------------------------
-remove_one_kernel() {
+
+remove_kernel() {
     Kernel=$1
     if [ "$Kernel" != "$CURRENTKERNEL" ]; then
         echo "Removing kernel: $Kernel"
@@ -82,14 +108,12 @@ remove_one_kernel() {
     fi
 }
 
-#---------------------------------------------------------------------
 # Main
-#---------------------------------------------------------------------
 if [ "$xtra" -eq 1 ]; then
     KernelList="$@"
     for i in ${KernelList}; do
         echo "Removing kernel $i"
-        remove_one_kernel "$i"
+        remove_kernel "$i"
     done
     echo "Removed: ${KernelList}"
     exit 0
@@ -105,7 +129,7 @@ if [ -z "$KernelList" ]; then
         yad --center --borders=10 --width=400 --title="$TITLE" \
             --window-icon="$COOLICON" \
             --text="<span foreground='white'>${MSG}</span>" \
-            --button=gtk-ok:0 --gtk-theme="Adwaita:light"
+            --button=gtk-ok:0
     fi
     exit 0
 fi
@@ -114,15 +138,13 @@ if [ "$force" -eq 1 ]; then
     echo "$CURRENT"
     for i in ${KernelList}; do
         echo "Removing kernel $i"
-        remove_one_kernel "$i"
+        remove_kernel "$i"
     done
     echo "Removed: ${KernelList}"
     exit 0
 fi
 
-#---------------------------------------------------------------------
 # User selection (YAD or TEXT)
-#---------------------------------------------------------------------
 if [ "$frontend" = "text" ]; then
     echo "$CURRENT"
     echo "Available kernels to remove:"
@@ -130,7 +152,6 @@ if [ "$frontend" = "text" ]; then
     echo
     read -rp "Enter kernel(s) to remove (space-separated): " CHOICE
 else
-    # Prepare list for yad
     yad_list=()
     for k in ${KernelList}; do
         yad_list+=(FALSE "$k")
@@ -147,25 +168,23 @@ else
         "${yad_list[@]}" \
         2>/dev/null)
 
-    # Remove any 'TRUE' text from selection
     CHOICE=$(echo "$CHOICE" | sed 's/\bTRUE\b//g')
 fi
 
 [ -z "$CHOICE" ] && exit 0
 
-#---------------------------------------------------------------------
-# Confirmation dialog before removal
-#---------------------------------------------------------------------
+# Confirmation dialog
 if [ "$frontend" = "text" ]; then
     echo
     echo "The following kernel(s) have been selected for removal: ${CHOICE}"
-    read -rp "Would you like to continue? [y/N]: " CONFIRM
+    echo "A log will be saved to $LOGFILE"
+    echo
+    read -rp "Would you like to continue? [y/N]: " CONFIRM </dev/tty
     case "$CONFIRM" in
         [yY][eE][sS]|[yY]) ;;
         *) echo "Operation canceled."; exit 0 ;;
     esac
 else
-    # Format selection as bullet list
     BULLETS=""
     for k in ${CHOICE}; do
         BULLETS="${BULLETS}• ${k}\n"
@@ -175,27 +194,30 @@ else
         --title="$TITLE" \
         --window-icon="$COOLICON" \
         --width=460 --center --borders=10 \
-        --text="<span foreground='white'>The following kernel(s) have been selected for removal:\n<b>${BULLETS}</b>\n\nWould you like to continue?</span>" \
+        --text="<span foreground='white'>The following kernel(s) have been selected for removal:\n<b>${BULLETS}</b>\n\nA log will be saved to ~/.local/share/kernel-remover.log\n\nWould you like to continue?</span>" \
         --button=gtk-yes:0 --button=gtk-no:1
     [ $? -ne 0 ] && exit 0
 fi
 
-#---------------------------------------------------------------------
-# Proceed with confirmed removal
-#---------------------------------------------------------------------
+# Removal
+[ "$frontend" = "yad" ] && start_wait_dialog
+
 for i in ${CHOICE}; do
     echo "Confirmed removal for $i"
-    remove_one_kernel "$i"
+    remove_kernel "$i"
 done
+
+[ "$frontend" = "yad" ] && stop_wait_dialog
 
 if [ "$frontend" = "yad" ]; then
     yad --info \
         --title="$TITLE" \
         --window-icon="$COOLICON" \
         --width=460 --center --borders=10 \
-        --text="<span foreground='white'>Removed kernel(s):<b> ${CHOICE}</b></span>" \
+        --text="<span foreground='white'>Removed kernel(s):<b> ${CHOICE}</b></span>"
 else
     echo "Removed kernel(s): ${CHOICE}"
+    echo "Log saved to $LOGFILE"
 fi
 
 exit 0
