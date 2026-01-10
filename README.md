@@ -163,6 +163,39 @@ located in the menu under Configuration. This changes the GTK theme,
 Openbox theme, Geany theme, LightDM, wallpaper, menu, and terminal
 theme all on the fly.
 
+### Building Lilidog:
+No need to wait for a new release if wanting to keep up with the latest.
+In fact, this is a great way to make personal changes, and to help with
+testing new features.
+
+How to build Lilidog, Beardog, or Waydog on your system.
+
+Go to https://github.com/sleekmason to select the Trixie version you
+would like to build. Here, I am using the Waydog-Trixie release:
+
+1. `sudo apt install -y git live-build`
+2. `git clone https://github.com/sleekmason/Waydog-Trixie.git`
+3. `cd Waydog-Trixie`
+4. `sudo lb build`
+
+Wait for the build to finish and look for the ISO in the top folder.
+
+To make it your own:  
+Change stuff!
+
+Then:  
+`lb clean`  (cleans the configuration for the next build)  
+`lb build`
+
+Items to possibly change:  
+Waydog-Trixie/config/package-lists/my.list.chroot  (package list)  
+Waydog-Trixie/config/includes.chroot_after_packages/ (main files)
+
+Of course there are other files that can also be changed in the build,
+but maybe keep it simple for a run or two. 
+
+Note * Change 'waydog-trixie' to whichever build you selected.
+
 Github: https://github.com/sleekmason/Lilidog
 
 #### Lilidog
