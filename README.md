@@ -9,19 +9,20 @@ installers. These are Awesome, dwm, i3, jwm, and sowm.
 
 ### Available Versions:
 
-There are currently 3 general builds: Lilidog, Beardog, and Waydog.  
+There are currently 3 builds available: Lilidog, Beardog, and Waydog.  
 
-- Lilidog - Comes with most everything necessary to get started.  This
+- Lilidog - Comes with most everything necessary to get started. This
 includes Firefox, LibreOffice, Geany, Thunar, xfce4-terminal, Pragha,
 Gpicview, Fastfetch, Jgmenu, and inxi among others.
 
-- Beardog - (Approx. 920 packages), is the 'bare' version of Lilidog.
-Beardog starts without a display manager on login, though one is
-provided in the welcome script.
+- Beardog - The 'bare' version of Lilidog. Beardog starts without a 
+display manager on login, though two different Lightdm versions can
+be installed from the initial welcome script.
 
-- Waydog - A version based on using Wayland instead of X11. This version
-has Labwc and Sway for window managers, with Waybar for the panel, and
-Waypaper to provide a wallpaper setter.  
+- Waydog - A version based on Wayland instead of X11. This version has
+Labwc and Sway compositors installed, with Waybar for the panel and 
+Waypaper to provide wallpapers.  Fully customized Niri and Wayfire
+WMs are available from the Waydog installers.
 
 ### NOTE - The DOWNLOAD button defaults to the full Openbox version.
 ## Click on FILES, and then RELEASES to access the other builds.
@@ -38,7 +39,7 @@ installation and build date.  Another way is to open a terminal and:
 
 `cat /usr/share/lilidog/GPL/current-build`
 
-Lilidog uses the 'stable' version of Debian, which is currently Bookworm
+Lilidog uses the 'stable' version of Debian, which is currently Trixie,
 and updates to most of the packages can be had with a quick:
 
 `sudo apt update && sudo apt upgrade`
@@ -63,7 +64,7 @@ or installing if you like what you see.
 
 ### Navigating Lilidog:
 
-After boot, you have the option to install or try out Lilidog live.
+After boot you have the option to install, or try out Lilidog live.
 The Live username is 'user' and the Live password is 'live'
 Once in a session, there are a few items that can shape your experience.
 Look in the "paw" icon in the tint2 panel for theming options.
@@ -89,7 +90,7 @@ the tint2 panel for some other nifty tint2 options, including toggles
 for the position (top or bottom), autohide, Tint2 time format (12/24H),
 and on/off, and theming options. 
 
-- Jgmenu is the menu for all versions.  Huge amount of customization are
+- Jgmenu is the menu for Lilidog and Beardog. Many customizations are
 available. Go to menu -> configuration -> jgmenu.conf for how to change
 and add items.
 
@@ -111,7 +112,7 @@ your own to add to the collection.
 over the icons to see what they are.  
 
 - Rofi and Dmenu for alternate menu sources. - ALT + F5 pulls the full
-Dmenu up, while ALT + F3 pulls up a customized rofi 'drun' menu.
+Dmenu up, while ALT + F3 pulls up a customized Rofi 'drun' menu.
 
 - Thunar is the default file manager.  Custom right-click options are
 already added as well. These include everything from "Open as Root", to
