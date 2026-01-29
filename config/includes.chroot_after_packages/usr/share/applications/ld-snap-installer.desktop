@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Snap Installer
+Name=Snap Store Installer
 Exec=snap-installer
 StartupNotify=false
 Terminal=true

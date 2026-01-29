@@ -17,3 +17,4 @@ Snap Store,       x-terminal-emulator -T 'Snap Installer' -e bash -c "snap-insta
 Sowm,             x-terminal-emulator -T 'Sowm Installer' -e bash -c "sowm-installer",                            applications-utilities
 Sowm w/ Borders,  x-terminal-emulator -T 'Sowm With Borders Installer' -e bash -c "sowm-borders-installer",       applications-utilities
 Tint2 Default,    x-terminal-emulator -T 'Tint2 Default Config Installer' -e bash -c "tint2-default-installer",   applications-utilities
+Wine,             x-terminal-emulator -T 'Wine Installer' -e bash -c "wine-installer",                            applications-utilities

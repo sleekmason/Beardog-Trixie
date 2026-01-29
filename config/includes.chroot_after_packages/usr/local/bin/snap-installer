@@ -3,14 +3,11 @@ echo ""
 read -p "   [0;33mSnap Installer[0m
 
    This will install Snapd and the Snap App Store, the app store 
-   for Linux. A menu entry will be placed in the Quickgrab menu.
+   for Linux.
    
    Please note that the installation can take a while for a slow
    connection as snap searches for resources. About 7 minutes on
    a fairly decent connection here.
-   
-   [0;33mLogging out and back in will be necessary for installed items
-   to be called from menu entries without the full path.[0m
 
    [0;34mhttps://snapcraft.io//[0m
    
@@ -21,58 +18,88 @@ read -p "   [0;33mSnap Installer[0m
    -------------------------------------------------------------[0m
    
    
-   Or close this terminal window to quit the install." ;
-   if : >/dev/tcp/8.8.8.8/53; then
-full_fs=$(df ~ | tail -1 | awk '{print $1;}')  # find partition
-fs=$(basename "$full_fs")
-if grep -q "$fs" /proc/partitions; then
+   Or, close this terminal window to quit the install." ;
+
+if [ -e /run/live/medium ] || [ -e /lib/live/mount ] || \
+   findmnt -n -o FSTYPE / | grep -Eq 'overlay|squashfs'; then
+    echo ""
+    echo "  [0;33m--------------------------------------------------------------[0m"
+    echo ""
+    echo "  [0;31mLive environment detected.[0m"
+    echo ""
+    echo "  Snap cannot be installed reliably in a live session."
+    echo "  Please install the system to use Snap."
+    echo ""
+    echo "  [0;33m--------------------------------------------------------------[0m"
+    echo ""
+    read -n1 -p " Press any key to quit this dialog ... "
+    exit 0
+fi
+
+sudo apt-get update
+sudo apt-get install -y snapd
 echo ""
-sudo apt update && sudo apt install -y snapd &&
-sleep 2
-echo
-#echo "[0;32mRestarting Snapd...[0m"
-#sudo systemctl restart snapd snapd.socket &&
-#sleep 4
-#sudo systemctl daemon-reload &&
-#echo
-echo "[0;32mEnabling and starting snapd service...[0m"
-sudo systemctl enable --now snapd.service &&
-sleep 2
-echo
-echo "[0;32mInstalling the Snap Store ... This can take a while.[0m"
-sudo snap install snap-store &&
-sleep 2
-# for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect $i gtk-common-themes:gtk-3-themes; done &&
+echo "  [0;32mEnabling snapd service...[0m"
+echo ""
+sudo systemctl enable --now snapd.socket
+sudo systemctl enable --now snapd.service
+
+sudo systemctl restart snapd
+
+echo -n "  Waiting for snapd to become ready..."
+echo ""
+for i in {1..60}; do
+    if snap version >/dev/null 2>&1; then
+        echo " done!"
+        break
+    fi
+    sleep 2
+done
+
+if ! snap version >/dev/null 2>&1; then
+    echo ""
+    echo "  [0;31mSnapd failed to start after waiting.[0m"
+    read -n1 -p " Press any key to quit this dialog... "
+    exit 1
+fi
+echo ""
+echo "  [0;32mInstalling the Snap Store... This can take a while.[0m"
+echo ""
+if ! sudo snap install snap-store; then
+    echo "  [0;31mSnap failed — temporarily disabling IPv6 for snapd...[0m"
+
+    sudo systemctl set-property snapd.service \
+        Environment=SNAPD_DISABLE_IPV6=1 --runtime
+
+    sudo systemctl restart snapd
+
+    echo "  [0;33mRetrying Snap Store install...[0m"
+    if ! sudo snap install snap-store; then
+        echo ""
+        echo "  [0;31mSnap installation failed even after workaround.[0m"
+        echo "  [0;31mPlease check network/DNS and try again.[0m"
+        read -n1 -p " Press any key to quit this dialog ... "
+        exit 1
+    fi
+fi
+
 sed -i '/Snap Store,         \/snap\/bin\/snap-store,              preferences-other/d' ~/.config/jgmenu/prepend.csv &&
 sed -i '/Root Folders,^checkout(rootfiles),folder/a Snap Store,         /snap/bin/snap-store,              preferences-other' ~/.config/jgmenu/prepend.csv
 killall -q jgmenu
+
 echo ""
-echo ""
-echo ""
-echo "---------------------------------------------------------------"
+echo "[0;32m-----------------------------------------------------------[0m"
 echo ""
 echo "[0;32mAll finished![0m"
 echo ""
-echo "[0;33mYou should find a Snap Store entry in the Quickgrab Menu. [0m" 
+echo "[0;33mYou should find a 'Snap Store' entry in the Quickgrab Menu. [0m" 
 echo "" 
-echo "[0;33mRemember, logging out and back in will be necessary for use.[0m"
+echo "[0;33mNote that logging out and back in may be necessary for use.[0m"
 echo "" 
-echo "[0;32mMenu entries will need to be removed manually if uninstalled." 
-echo "See Jgmenu Conf under Configuration in the menu for directions.[0m"
+echo "[0;31mMenu entries need to be removed manually if uninstalled." 
+echo "See Jgmenu under Configuration in the menu for directions.[0m"
 echo ""
-echo "---------------------------------------------------------------"
-else
-echo "" 
-echo "[0;32mPlease install Beardog to use Snap. Exiting...[0m"
+echo "[0;32m-----------------------------------------------------------[0m"
 echo ""
-fi
-else
-echo ""
- echo "   [0;31m-----------------------------------------------------[0m"
- echo ""
- echo "   [0;33mNo Internet connection. Please connect and try again.[0m"
- echo ""
- echo "   [0;31m-----------------------------------------------------[0m"
-echo ""
-fi
+
 read -n1 -p " Press any key to quit this dialog ... "
