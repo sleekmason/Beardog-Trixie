@@ -8,13 +8,13 @@ read -p "   [0;33mWine Installer[0m
    This installer will install Wine and the Winetricks package to
    provide a Wine GUI. Note, the i386 architecture will be added.
      
-   Wine Download size: 413 MB  Reqauired space: 2,237 MB
+   Wine Download size: 413MB - Required space: 2,237MB
    
    [0;34mhttps://www.winehq.org/[0m
    
    [0;32m--------------------------------------------------------------
 
-   Please press enter to install Wine and Winetricks.
+   Please press enter to install Wine with Winetricks.
 
    --------------------------------------------------------------[0m
 
