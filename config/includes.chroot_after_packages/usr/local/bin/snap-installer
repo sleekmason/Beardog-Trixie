@@ -9,7 +9,7 @@ read -p "   [0;33mSnap Installer[0m
    connection as snap searches for resources. About 7 minutes on
    a fairly decent connection here.
 
-   [0;34mhttps://snapcraft.io//[0m
+   [0;34mhttps://snapcraft.io/[0m
    
    [0;32m-------------------------------------------------------------
    
@@ -83,9 +83,12 @@ if ! sudo snap install snap-store; then
     fi
 fi
 
-sed -i '/Snap Store,         \/snap\/bin\/snap-store,              preferences-other/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Root Folders,^checkout(rootfiles),folder/a Snap Store,         /snap/bin/snap-store,              preferences-other' ~/.config/jgmenu/prepend.csv
+file="$HOME/.config/jgmenu/prepend.csv"
+if [[ -f "$file" ]] && grep -q "Quick Grab" "$file"; then
+sed -i '/Snap Store,         \/snap\/bin\/snap-store,              preferences-other/d' "$file" &&
+sed -i '/Root Folders,^checkout(rootfiles),folder/a Snap Store,         /snap/bin/snap-store,              preferences-other' "$file"
 killall -q jgmenu
+fi
 
 echo ""
 echo "[0;32m-----------------------------------------------------------[0m"

@@ -1,7 +1,7 @@
 #!/bin/bash
 read -p "   [0;33mWine Installer[0m
 
-   Wine (originally an acronym for 'Wine Is Not an Emulator' is a
+   Wine, originally an acronym for 'Wine Is Not an Emulator' is a
    compatibility layer capable of running Windows applications on
    several POSIX-compliant systems, such as Linux, macOS, & BSD.
    
@@ -38,9 +38,14 @@ echo ""
 sleep 1
 sudo apt update
 sudo apt install --install-recommends -y winehq-stable winetricks zenity || exit
-sed -i '/Winetricks,         winetricks,       winetricks/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Root Folders,^checkout(rootfiles),folder/a Winetricks,         winetricks,       winetricks' ~/.config/jgmenu/prepend.csv
+
+file="$HOME/.config/jgmenu/prepend.csv"
+if [[ -f "$file" ]] && grep -q "Quick Grab" "$file"; then
+sed -i '/Winetricks,         winetricks,                        winetricks/d' "$file" &&
+sed -i '/Root Folders,^checkout(rootfiles),folder/a Winetricks,         winetricks,                        winetricks' "$file"
 killall -q jgmenu
+fi
+
 echo ""
 echo "   [0;32mSetting up the environment...[0m"
 sleep 2

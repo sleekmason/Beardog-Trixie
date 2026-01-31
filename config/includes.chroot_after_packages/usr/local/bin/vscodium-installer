@@ -24,11 +24,16 @@ wget --prefer-family=IPv4 -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-
 echo ""
 echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
     | sudo tee /etc/apt/sources.list.d/vscodium.list
-echo""
+echo ""
 sudo apt update && sudo apt install codium
-sed -i '/VSCodium,          codium,                                  vscodium/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Root Folders,^checkout(rootfiles),folder/a VSCodium,          codium,                                  vscodium' ~/.config/jgmenu/prepend.csv
+
+file="$HOME/.config/jgmenu/prepend.csv"
+if [[ -f "$file" ]] && grep -q "Quick Grab" "$file"; then
+sed -i '/VSCodium,           codium,                            vscodium/d' "$file" &&
+sed -i '/Root Folders,^checkout(rootfiles),folder/a VSCodium,           codium,                            vscodium' "$file"
 killall -q jgmenu
+fi
+
 echo ""
 echo "[0;33m-------------------------------------------------------------------"
 echo ""

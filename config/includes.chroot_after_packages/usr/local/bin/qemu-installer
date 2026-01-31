@@ -18,10 +18,15 @@ read -p "   [0;33mQemu Installer[0m
    Or, close this terminal window to quit the install." ;
    if : >/dev/tcp/8.8.8.8/53; then
 echo "" 
-sudo apt update && sudo apt install --install-recommends qemu-system-x86 virt-manager &&
-sed -i '/VM Manager,         virt-manager,       virt-manager/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Root Folders,^checkout(rootfiles),folder/a VM Manager,         virt-manager,       virt-manager' ~/.config/jgmenu/prepend.csv
+sudo apt update && sudo apt install --install-recommends qemu-system-x86 virt-manager
+
+file="$HOME/.config/jgmenu/prepend.csv"
+if [[ -f "$file" ]] && grep -q "Quick Grab" "$file"; then
+sed -i '/VM Manager,         virt-manager,                      virt-manager/d' "$file" &&
+sed -i '/Root Folders,^checkout(rootfiles),folder/a VM Manager,         virt-manager,                      virt-manager' "$file"
 killall -q jgmenu
+fi
+
 echo ""
 echo "-----------------------------------------------------"
 echo ""
@@ -31,7 +36,7 @@ echo "[0;33mIf installed, You should find a new menu entry under 'Quick Grab'"
 echo "labeled 'VM Manager'[0m"
 echo "" 
 echo "[0;32mFor quick use, open a terminal where you have an ISO and use:"
-echo "kvm -cdrom <Your-Cool-ISO-amd64.hybrid.iso> -m 2048[0m"
+echo "qemu-system-x86_64 -enable-kvm -cdrom Your-Cool-ISO-amd64.hybrid.iso -m 2048[0m"
 echo "" 
 echo "[0;32mMenu entries will need to be removed manually if uninstalled." 
 echo "See Jgmenu Conf under Configuration in the menu for directions.[0m"
