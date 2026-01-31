@@ -19,11 +19,11 @@ Exit,               ld-logout,                 application-exit
 ^tag(quickgrab)
 Recent Files,^pipe(jgmenu_run ob --cmd="pipe-recent-files",folder
 Root Folders,^checkout(rootfiles),folder
-Geany Editor,       geany,          geany
+Geany,              geany,	                       geany
 Development,^checkout(development),applications-development
 
 ^tag(development)
-Icon Browser,       yad-icon-browser,              applications-science
+Icon Browser,       yad-icon-browser,                  applications-science
 
 ^tag(utilities)
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
