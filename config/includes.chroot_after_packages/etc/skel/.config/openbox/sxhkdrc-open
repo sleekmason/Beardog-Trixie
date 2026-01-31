@@ -23,7 +23,7 @@ mod4 + F1
 	jgmenu_run
 
 # Dmenu.
-mod4 + F5
+mod4 + F3
 	~/.config/dmenu/dmenu
 
 # Conky.
@@ -62,16 +62,12 @@ mod4 + u
 mod4 + Return
 	x-terminal-emulator
 
-# terminal.
-mod4 + t
-	x-terminal-emulator
-    
 # File Manager.	
-mod4 + f
+mod4 + t
 	thunar
 
 # File Manager split view.
-shift + mod4 + f
+shift + mod4 + t
 	splitview
 	
 # File Manager split vertical-horizontal.
