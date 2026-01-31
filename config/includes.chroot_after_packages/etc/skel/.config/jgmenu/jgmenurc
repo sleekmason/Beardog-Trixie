@@ -10,7 +10,7 @@ csv_name_format = %n
 
 icon_theme = Obsidian
 icon_theme_fallback = gnome
-icon_size = 16
+icon_size = 18
 icon_text_spacing = 12
 
 # tint2_look = 0
@@ -25,7 +25,7 @@ position_mode = pointer
 # tabs = 120
 # menu_margin_x = 0
 # menu_margin_y = 0
-menu_width = 180
+menu_width = 188
 # menu_height_min = 0
 # menu_height_max = 0
 # menu_height_mode = static
