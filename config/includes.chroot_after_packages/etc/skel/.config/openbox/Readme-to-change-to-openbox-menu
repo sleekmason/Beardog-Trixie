@@ -1,10 +1,17 @@
 ## Directions for changing the menu from jgmenu to openbox ##
 
-If you choose to change over to using the openbox menu, 
-you can simply backup the existing rc.xml, and then change 
-the name of rc.xml-original.bak to rc.xml.
+Change this code on, or about line 727 of ~/.config/openbox/rc.xml:
 
-Please note that you will need to adjust the menu.xml 
-by editing the file, as no menu editor exists anymore.
+        <action name="Execute">
+          <command>jgmenu_run</command>
+          
+to:
+          
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+          
+And then press 'Restart' from the menu, or 'openbox --reconfigure' from 
+your  terminal.
 
-To check out the current openbox menu, try 'Ctl +Alt + q'
+To check out the current openbox menu without changing the rc.xml file,
+use the keybind 'Ctl +Alt + q'
