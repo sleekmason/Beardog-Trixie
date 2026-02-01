@@ -1,0 +1,1 @@
+DMENU_OPTS="-p Type-to-search: -i -nb #182026 -nf #BDCED9 -sb #325F75 -sf #E1F4FF -fn Cantarell-10"

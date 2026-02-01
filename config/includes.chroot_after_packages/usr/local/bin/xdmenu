@@ -1,0 +1,119 @@
+#!/bin/bash
+# xdmenu – dmenu wrapper
+# Made by sleekmason 31 Jan 2026
+
+set -euo pipefail
+
+showhelp() {
+    echo "xdmenu - Wrapper for dmenu. Shows only programs with"
+    echo "  .desktop files, and any scripts in ~/bin or ~/.local/bin."
+    echo ""
+    echo "Usage:"
+    echo "  xdmenu [options]"
+    echo ""
+    echo "Options:"
+    echo "  --all      Show all programs available on the system."
+}
+
+if [[ "${1-}" == "--help" || "${1-}" == "-h" ]]; then
+    showhelp
+    exit 0
+fi
+
+CONFIG="$HOME/.config/dmenu/config"
+[[ -f "$CONFIG" ]] && source "$CONFIG"
+
+if [[ "${1-}" == "--all" ]]; then
+    shift
+    exec dmenu_run ${DMENU_OPTS:-} "$@"
+fi
+
+declare -A MENU_MAP
+
+DESKTOP_DIRS=(
+    "/usr/share/applications"
+    "$HOME/.local/share/applications"
+    "/var/lib/snapd/desktop/applications"
+)
+
+for d in "${DESKTOP_DIRS[@]}"; do
+    [[ -d "$d" ]] || continue
+
+    for f in "$d"/*.desktop; do
+        [[ -f "$f" ]] || continue
+
+        NAME=""
+        EXEC=""
+        TERMINAL="false"
+        in_desktop_entry=false
+
+        while IFS='=' read -r key value; do
+            case "$key" in
+                "[Desktop Entry]")
+                    in_desktop_entry=true
+                    continue
+                    ;;
+                \[*])
+                    break
+                    ;;
+            esac
+
+            [[ "$in_desktop_entry" == true ]] || continue
+
+            case "$key" in
+                Name) NAME="$value" ;;
+                Exec) EXEC="$value" ;;
+                Terminal) TERMINAL="$value" ;;
+            esac
+        done < "$f"
+
+        [[ -z "$NAME" || -z "$EXEC" ]] && continue
+
+        EXEC="${EXEC//%[UuFfiCk]/}"
+
+        EXEC="${EXEC#"${EXEC%%[![:space:]]*}"}"
+        EXEC="${EXEC%"${EXEC##*[![:space:]]}"}"
+        EXEC="${EXEC//  / }"
+
+        [[ "$TERMINAL" == true ]] && EXEC="x-terminal-emulator -e \"$EXEC\""
+
+        MENU_MAP["$NAME"]="$EXEC"
+    done
+done
+
+for dir in "$HOME/bin" "$HOME/.local/bin"; do
+    [[ -d "$dir" ]] || continue
+
+    for exe in "$dir"/*; do
+        [[ -x "$exe" ]] || continue
+
+        name=$(basename "$exe")
+        [[ -n "${MENU_MAP[$name]+x}" ]] && continue
+
+        needs_terminal=false
+
+        if file --mime-type "$exe" | grep -q 'text/'; then
+            first_lines="$(head -n 4 "$exe" 2>/dev/null || true)"
+        else
+            first_lines=""
+        fi
+
+        if grep -qE '(read|select)' <<<"$first_lines"; then
+            needs_terminal=true
+        fi
+
+        if [[ "$needs_terminal" == true ]]; then
+            EXEC="x-terminal-emulator -e \"$exe\""
+        else
+            EXEC="$exe"
+        fi
+
+        MENU_MAP["$name"]="$EXEC"
+    done
+done
+
+selected="$(printf '%s\n' "${!MENU_MAP[@]}" | sort -f | dmenu ${DMENU_OPTS:-})"
+
+if [[ -n "$selected" ]]; then
+    bash -c "${MENU_MAP[$selected]}" &
+fi
