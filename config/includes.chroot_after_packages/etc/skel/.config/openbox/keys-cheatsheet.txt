@@ -1,17 +1,16 @@
 # Cheat sheet for Lilidog Openbox added keybinds.
 # Note - "super" and "mod4" both represent the windows key.
 
-This List(.txt) =    super + l
-This list(dialog) =  super + k
+Keybinds List =      super + F1
 Refresh sxhkd keys = super + Escape
-Obkeybinds =         super + o
 Backgounds =         super + b
 Browser =            super + w
 Conky =              super + c
-jgmenu =             super + F1
-Dmenu =              super + F3 
-Editor =             super + e 
-File Manager =       super + t   
+Rofi                 super + F2
+Dmenu =		         super + F3
+Rofi Drun =	         super + F5
+Editor =             super + e
+File Manager =       super + t
 Fontsize =           super + F6
 Gammy =              super + g    
 Hotcorners =         super + F8

@@ -2,25 +2,13 @@
 # These are the keybinds used in openbox.
 #########################################################
 
-# sxhkd keybind list as a cheatsheet.txt.
-mod4 + l
-	geany ~/.config/openbox/keys-cheatsheet.txt
-       
-# sxhkd keybind list through a rofi dialog.
-mod4 + k
-	show-keybinds
-    
 # Reload sxhkd configuration.
 mod4 + Escape
 	pkill -USR1 -x sxhkd; notify-send --urgency low 'sxhkd configuration reloaded'
-		
-# Openbox Keybinds.
-mod4 + o
-	obkey
 
-# Jgmenu.
+# Keybinds.
 mod4 + F1
-	jgmenu_run
+	x-terminal-emulator -T "Keybinds" -e ld-keys
 
 # Dmenu.
 mod4 + F3

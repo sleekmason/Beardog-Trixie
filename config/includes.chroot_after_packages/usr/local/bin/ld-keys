@@ -1,0 +1,111 @@
+#!/bin/bash
+# Display sxhkd + Openbox keybindings
+# Created for Lilidog by sleekmason 5 Feb. 2026
+
+SXHKD_CONFIG="$HOME/.config/openbox/sxhkdrc-open"
+OB_CONFIG="$HOME/.config/openbox/rc.xml"
+
+clear
+
+HEAD_COLOR="\033[94m"
+GREEN="\033[32m"
+BLUE="\033[34m"
+YELLOW="\033[33m"
+RESET="\033[0m"
+KEY_WIDTH=30
+MAX_LINE=86
+
+# SXHKD keybinds
+awk -v BLUE="$BLUE" -v GREEN="$GREEN" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" -v YELLOW="$YELLOW" '
+BEGIN {
+    CKEY=YELLOW
+    CDET=BLUE
+    print YELLOW "SYSTEM KEYBINDS - SXHKD ( Adjust in ~/.config/openbox/sxhkdrc-open)" RESET
+    print YELLOW "------------------------------------------------------------------------" RESET
+}
+
+/^[ \t]*#/ || /^[ \t]*$/ { next }  # skip comments and blank lines
+
+!/^[ \t]/ { key=$0; next }
+
+{
+    cmd=$0
+    sub(/^[ \t]+/, "", cmd)
+
+    k=key
+    gsub(/mod4/, "Super", k)
+    gsub(/shift/, "Shift", k)
+    gsub(/ctrl/, "Ctrl", k)
+    gsub(/alt/, "Alt", k)
+    gsub(/[ ]*\+[ ]*/, "+", k)
+
+    line = sprintf(" %s%-*s%s  %s%s%s", CKEY, KEY_WIDTH, k, RESET, CDET, cmd, RESET)
+
+    if (length(line) > MAX_LINE) {
+        line = substr(line, 1, MAX_LINE-3) "..."
+    }
+
+    print line
+}
+' "$SXHKD_CONFIG"
+
+# Openbox keybinds
+echo
+echo -e " ${YELLOW}OPENBOX KEYBINDS - Legend: W=Super  S=Shift  C=Ctrl (~/.config/openbox/rc.xml)${RESET}"
+echo -e "${YELLOW}-------------------------------------------------------------------------------${RESET}"
+
+awk -v YELLOW="$YELLOW" -v GREEN="$GREEN" -v BLUE="$BLUE" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" '
+BEGIN {
+    CKEY=YELLOW
+    CACT=BLUE
+    CRESET=RESET
+}
+
+/<keybind key=/ {
+    key=$0
+    gsub(/.*key="/,"",key)
+    gsub(/".*/,"",key)
+    action=""
+    detail=""
+}
+
+/<action name=/ {
+    action=$0
+    gsub(/.*name="/,"",action)
+    gsub(/".*/,"",action)
+}
+
+/<to>/ {
+    detail=$0
+    gsub(/.*<to>/,"",detail)
+    gsub(/<\/to>.*/,"",detail)
+}
+
+/<execute>/ {
+    detail=$0
+    gsub(/.*<command>/,"",detail)
+    gsub(/<\/command>.*/,"",detail)
+}
+
+/<\/keybind>/ {
+    # extract desktop number if present
+    desktop_num = ""
+    if (key ~ /-[0-9]+$/) {
+        desktop_num = substr(key, match(key, /[0-9]+$/))
+    }
+
+    # prepend number to GoToDesktop or SendToDesktop
+    if ((action=="GoToDesktop" || action=="SendToDesktop") && desktop_num != "") {
+        action = action " " desktop_num
+    }
+
+    # print in 2 columns: key + action (no detail)
+    printf " %s%-*s%s  %s%-15s%s\n",
+        CKEY, KEY_WIDTH, key, CRESET,
+        CACT, action, CRESET
+}
+' "$OB_CONFIG" | sort
+
+echo
+read -n1 -s -r -p "Press any key to close..."
+echo
