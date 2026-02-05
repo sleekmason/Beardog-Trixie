@@ -13,6 +13,8 @@
     
     To install Beardog, reboot the iso and choose 
     'Start installer'.
+    
+    Try 'Super + F1' for a Beardog keybinds list.
 
     After installation, use the welcome script to
     see other initial setup options. You can also
