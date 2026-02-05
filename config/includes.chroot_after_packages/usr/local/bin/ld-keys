@@ -20,8 +20,8 @@ awk -v BLUE="$BLUE" -v GREEN="$GREEN" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH
 BEGIN {
     CKEY=YELLOW
     CDET=BLUE
-    print YELLOW "SYSTEM KEYBINDS - SXHKD ( Adjust in ~/.config/openbox/sxhkdrc-open)" RESET
-    print YELLOW "------------------------------------------------------------------------" RESET
+    print YELLOW " STANDARD KEYBINDS - SXHKD - (Adjust in: ~/.config/openbox/sxhkdrc-open)" RESET
+    print YELLOW " -----------------------------------------------------------------------" RESET
 }
 
 /^[ \t]*#/ || /^[ \t]*$/ { next }  # skip comments and blank lines
@@ -51,8 +51,8 @@ BEGIN {
 
 # Openbox keybinds
 echo
-echo -e " ${YELLOW}OPENBOX KEYBINDS - Legend: W=Super  S=Shift  C=Ctrl (~/.config/openbox/rc.xml)${RESET}"
-echo -e "${YELLOW}-------------------------------------------------------------------------------${RESET}"
+echo -e " ${YELLOW}OPENBOX KEYBINDS - W=Super  S=Shift  C=Ctrl (~/.config/openbox/rc.xml)${RESET}"
+echo -e " ${YELLOW}----------------------------------------------------------------------${RESET}"
 
 awk -v YELLOW="$YELLOW" -v GREEN="$GREEN" -v BLUE="$BLUE" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" '
 BEGIN {
