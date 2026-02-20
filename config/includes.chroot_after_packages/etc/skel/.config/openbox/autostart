@@ -1,20 +1,20 @@
 #### Openbox autostart - Place your commands here to have programs 
 ### activated on login. See 'man openbox' for more information.
 
+### Turn off X11 screen blanking. (10 min. default dpms display shutoff)
+# xset s off
+# xset -dpms
 
 ### For lxpanel or pcmanfm use as wallpaper setter. Allows for icons.
 # @lxpanel --profile LXDE &
 # pcmanfm --desktop --profile LXDE &
 
-
 ### For xfdesktop use. Allows for icons, menu, and wallpaper setter.
 ### Needs xfdesktop4: sudo apt update && sudo apt install xfdesktop4
 # ( sleep 3; xfdesktop >/dev/null 2>&1 ) &
 
-
 ### Other items not in use.
 # @xscreensaver -no-splash &
-
 
 ### Touchpad Settings
 ### To use tap-to-click and the syndaemon for movement during keystrokes,
@@ -25,10 +25,8 @@
 # synclient VertEdgeScroll=0 HorizEdgeScroll=0 TapButton1=1 2>/dev/null
 # syndaemon -i .5 -K -t -R -d &
 
-
 ### Mouse Pointer Highlighter - Uncomment the line below to activate on boot.
 # highlight-pointer -r 7 --show-cursor --hide-highlight --auto-hide-highlight --key-toggle-highlight 'H-space' -c violet -p green &
-
 
 ### Common startup programs. Comment any item no longer wanted.
 ~/.fehbg &
