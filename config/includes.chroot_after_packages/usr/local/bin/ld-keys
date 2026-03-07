@@ -15,39 +15,125 @@ RESET="\033[0m"
 KEY_WIDTH=30
 MAX_LINE=86
 
+# Use the followiing section to change the output names as desired.
+declare -A FRIENDLY_NAMES=(
+
+  ["pkill -USR1 -x sxhkd"]="Reload sxhkd"
+  ["ld-keys"]="Show Keybinds"
+
+  ["rofi-familiar"]="Rofi Full"
+  ["rofi -show drun"]="Rofi Apps"
+  ["xdmenu"]="Dmenu"
+  ["jgmenu_run"]="jgmenu"
+
+  ["ld-themes"]="Auto Themes"
+  ["light-dark-toggle"]="Light/Dark Theme Toggle"
+  ["custom-theme-toggle"]="Alt Theme Toggle"
+  ["toggle.ld"]="Hotcorners Toggle"
+
+  ["conky-toggle"]="Conky Toggle"
+  ["toggle.polybar"]="Toggle Polybar (if installed)"
+  ["toggle.tint2"]="Toggle Tint2"
+
+  ["x-terminal-emulator"]="Terminal"
+  ["thunar"]="Thunar File Manager"
+  ["splitview"]="Split View"
+  ["geany"]="Geany Editor"
+  ["pragha"]="Pragha Music Player"
+  ["x-www-browser"]="Web Browser"
+
+  ["toggle.gammy"]="Gammy Toggle"
+  ["xfconf-query"]="Thunar Window Split"
+  ["feh-set-wallpaper"]="Wallpapers"
+
+  ["ld-logout"]="Logout"
+  ["nakedquit"]="Logout Alternate"
+
+  ["pamixer --decrease"]="Volume Down"
+  ["pamixer --increase"]="Volume Up"
+  ["pamixer --toggle-mute"]="Volume Mute"
+
+  ["brightnessctl s 10%-"]="Brightness Down"
+  ["brightnessctl s 10%+"]="Brightness Up"
+
+  ["xfce4-screenshooter"]="Screenshot"
+  ["scrot-options"]="Scrot Options"
+)
+
 # SXHKD keybinds
-awk -v BLUE="$BLUE" -v GREEN="$GREEN" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" -v YELLOW="$YELLOW" '
-BEGIN {
-    CKEY=YELLOW
-    CDET=BLUE
-    print YELLOW " STANDARD KEYBINDS - SXHKD - (Adjust in: ~/.config/openbox/sxhkdrc-open)" RESET
-    print YELLOW " -----------------------------------------------------------------------" RESET
-}
-
-/^[ \t]*#/ || /^[ \t]*$/ { next }  # skip comments and blank lines
-
-!/^[ \t]/ { key=$0; next }
+echo -e " ${YELLOW}STANDARD KEYBINDS - SXHKD - (Adjust in: ~/.config/openbox/sxhkdrc-open)${RESET}"
+echo -e " ${YELLOW}-----------------------------------------------------------------------${RESET}"
 
 {
+for key in "${!FRIENDLY_NAMES[@]}"; do
+    echo "$key:::${FRIENDLY_NAMES[$key]}"
+done
+echo "__DATA__"
+cat "$SXHKD_CONFIG"
+} | awk -v BLUE="$BLUE" \
+        -v GREEN="$GREEN" \
+        -v RESET="$RESET" \
+        -v KEY_WIDTH="$KEY_WIDTH" \
+        -v MAX_LINE="$MAX_LINE" \
+        -v YELLOW="$YELLOW" '
+
+BEGIN{
+    CKEY=YELLOW
+    CDET=BLUE
+    mode="friendly"
+}
+
+mode=="friendly" && $0=="__DATA__" { mode="sxhkd"; next }
+
+mode=="friendly" {
+    split($0,p,":::")
+    friendly[p[1]]=p[2]
+    next
+}
+
+mode=="sxhkd" && /^[ \t]*#/ { next }
+mode=="sxhkd" && /^[ \t]*$/ { next }
+
+mode=="sxhkd" && !/^[ \t]/ {
+    key=$0
+    next
+}
+
+mode=="sxhkd" {
     cmd=$0
-    sub(/^[ \t]+/, "", cmd)
+    sub(/^[ \t]+/,"",cmd)
+    sub(/[ \t]+$/,"",cmd)
 
     k=key
-    gsub(/mod4/, "Super", k)
-    gsub(/shift/, "Shift", k)
-    gsub(/ctrl/, "Ctrl", k)
-    gsub(/alt/, "Alt", k)
-    gsub(/[ ]*\+[ ]*/, "+", k)
+    gsub(/mod4/,"Super",k)
+    gsub(/shift/,"Shift",k)
+    gsub(/ctrl/,"Ctrl",k)
+    gsub(/alt/,"Alt",k)
+    gsub(/[ ]*\+[ ]*/,"+",k)
 
-    line = sprintf(" %s%-*s%s  %s%s%s", CKEY, KEY_WIDTH, k, RESET, CDET, cmd, RESET)
+    label=cmd
 
-    if (length(line) > MAX_LINE) {
-        line = substr(line, 1, MAX_LINE-3) "..."
+    if (match(cmd, /^(x-terminal-emulator|xfce4-terminal|kitty|alacritty|gnome-terminal)[^e]*-e[ ]+([^ ]+)/, m)) {
+        label = m[2]
     }
+
+    bestlen=0
+    for (f in friendly) {
+        if (index(label, f) && length(f) > bestlen) {
+            label = friendly[f]
+            bestlen = length(f)
+        }
+    }
+
+    line=sprintf(" %s%-*s%s  %s%s%s",CKEY,KEY_WIDTH,k,RESET,CDET,label,RESET)
+
+    if(length(line)>MAX_LINE)
+        line=substr(line,1,MAX_LINE-3)"..."
 
     print line
 }
-' "$SXHKD_CONFIG"
+' | sort
+
 
 # Openbox keybinds
 echo
@@ -66,7 +152,6 @@ BEGIN {
     gsub(/.*key="/,"",key)
     gsub(/".*/,"",key)
     action=""
-    detail=""
 }
 
 /<action name=/ {
@@ -75,34 +160,17 @@ BEGIN {
     gsub(/".*/,"",action)
 }
 
-/<to>/ {
-    detail=$0
-    gsub(/.*<to>/,"",detail)
-    gsub(/<\/to>.*/,"",detail)
-}
-
-/<execute>/ {
-    detail=$0
-    gsub(/.*<command>/,"",detail)
-    gsub(/<\/command>.*/,"",detail)
-}
-
 /<\/keybind>/ {
-    # extract desktop number if present
-    desktop_num = ""
-    if (key ~ /-[0-9]+$/) {
-        desktop_num = substr(key, match(key, /[0-9]+$/))
-    }
+    desktop_num=""
+    if (key ~ /-[0-9]+$/)
+        desktop_num=substr(key,match(key,/[0-9]+$/))
 
-    # prepend number to GoToDesktop or SendToDesktop
-    if ((action=="GoToDesktop" || action=="SendToDesktop") && desktop_num != "") {
-        action = action " " desktop_num
-    }
+    if ((action=="GoToDesktop" || action=="SendToDesktop") && desktop_num!="")
+        action=action" "desktop_num
 
-    # print in 2 columns: key + action (no detail)
     printf " %s%-*s%s  %s%-15s%s\n",
-        CKEY, KEY_WIDTH, key, CRESET,
-        CACT, action, CRESET
+        CKEY,KEY_WIDTH,key,CRESET,
+        CACT,action,CRESET
 }
 ' "$OB_CONFIG" | sort
 
