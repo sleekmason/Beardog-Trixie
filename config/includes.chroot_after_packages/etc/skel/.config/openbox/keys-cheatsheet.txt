@@ -3,8 +3,9 @@
 
 Keybinds List =      super + F1
 Refresh sxhkd keys = super + Escape
-Backgounds =         super + b
-Browser =            super + w
+Wallpapers =         super + Shift + v
+Wallpapers random =  super + v
+Browser =            super + b
 Conky =              super + c
 Rofi                 super + F2
 Dmenu =		         super + F3

@@ -32,8 +32,8 @@ declare -A FRIENDLY_NAMES=(
   ["toggle.ld"]="Hotcorners Toggle"
 
   ["conky-toggle"]="Conky Toggle"
-  ["toggle.polybar"]="Toggle Polybar (if installed)"
-  ["toggle.tint2"]="Toggle Tint2"
+  ["toggle.polybar"]="Polybar Toggle (if installed)"
+  ["toggle.tint2"]="Tint2 Toggle"
 
   ["x-terminal-emulator"]="Terminal"
   ["thunar"]="Thunar File Manager"
@@ -45,7 +45,8 @@ declare -A FRIENDLY_NAMES=(
   ["toggle.gammy"]="Gammy Toggle"
   ["xfconf-query"]="Thunar Window Split"
   ["feh-set-wallpaper"]="Wallpapers"
-
+  ["wallpaper-keybind-toggle"]="Random Wallpaper"
+  
   ["ld-logout"]="Logout"
   ["nakedquit"]="Logout Alternate"
 

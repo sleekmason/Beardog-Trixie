@@ -67,8 +67,12 @@ mod4 + m
 	pragha
 
 # Wallpaper.
+mod4 + shift v
+	feh-set-wallpaper	
+
+# Wallpaper.
 mod4 + v
-	feh-set-wallpaper
+	wallpaper-keybind-toggle
     
 # Web browser.
 mod4 + b

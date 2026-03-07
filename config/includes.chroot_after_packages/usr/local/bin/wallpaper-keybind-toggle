@@ -1,0 +1,57 @@
+#!/bin/bash
+# Wallpaper keybind toggle
+# Reads: ~/.config/random-bg.conf for folders and dual monitor use.
+# Made by sleekmason for Lilidog 07 Mar 2026
+
+CONFIG="$HOME/.config/random-bg.conf"
+[ -f "$CONFIG" ] && source "$CONFIG"
+
+MULTI_MONITOR="${MULTI_MONITOR:-false}"
+LAST_FILE="$HOME/.cache/random-wallpaper-last"
+
+ACTIVE_DIRS=()
+for dir in "$imagedir1" "$imagedir2" "$imagedir3"; do
+    [[ -z "$dir" || "$dir" =~ ^# ]] && continue
+    dir="${dir/#\~/$HOME}"
+    [ -d "$dir" ] && ACTIVE_DIRS+=("$dir")
+done
+[ "${#ACTIVE_DIRS[@]}" -gt 0 ] || exit 1
+
+WALLPAPERS=()
+for d in "${ACTIVE_DIRS[@]}"; do
+    if [ -n "$recurs" ]; then
+        while IFS= read -r f; do
+            WALLPAPERS+=("$f")
+        done < <(find "$d" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.webp' \))
+    else
+        for f in "$d"/*.{jpg,png,webp}; do
+            [ -f "$f" ] && WALLPAPERS+=("$f")
+        done
+    fi
+done
+[ "${#WALLPAPERS[@]}" -gt 0 ] || exit 1
+
+LAST=""
+[ -f "$LAST_FILE" ] && LAST=$(cat "$LAST_FILE")
+
+CANDIDATES=()
+for f in "${WALLPAPERS[@]}"; do
+    [ "$f" != "$LAST" ] && CANDIDATES+=("$f")
+done
+[ "${#CANDIDATES[@]}" -eq 0 ] && CANDIDATES=("${WALLPAPERS[@]}")
+
+mapfile -t MONITORS < <(xrandr --query | awk '/ connected/ {print $1}')
+[ "${#MONITORS[@]}" -gt 0 ] || exit 1
+
+if [ "$MULTI_MONITOR" = true ]; then
+    WALLS=()
+    for mon in "${MONITORS[@]}"; do
+        WALLS+=("${CANDIDATES[RANDOM % ${#CANDIDATES[@]}]}")
+    done
+    feh --bg-scale "${WALLS[@]}"
+    echo "${WALLS[-1]}" > "$LAST_FILE"
+else
+    wall="${CANDIDATES[RANDOM % ${#CANDIDATES[@]}]}"
+    feh --bg-scale "$wall"
+    echo "$wall" > "$LAST_FILE"
+fi
