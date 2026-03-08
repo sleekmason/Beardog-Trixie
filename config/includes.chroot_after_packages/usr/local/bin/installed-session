@@ -4,15 +4,20 @@
 # Ensure gsettings for neofetch use.
 gsettings set org.gnome.desktop.interface gtk-theme "Fane"
 gsettings set org.gnome.desktop.interface icon-theme "Obsidian-Teal"
-# set thunar as default for inode/directory
+
+# Set thunar as default for inode/directory
 xdg-mime default thunar.desktop inode/directory
+
 # Remove face icons in $HOME
 rm -f "$HOME"/.face
 rm -f "$HOME"/.face.icon
+
 # Add ~/Pictures and ~/Pictures/wallpapers
 mkdir -p Pictures/wallpapers
-# Add bin paths
+
+# Add user directories and add to $PATH
 mkdir -p "$HOME/bin" "$HOME/.local/bin"
+
 # Change dim on battery to false
 gsettings set org.mate.power-manager idle-dim-battery false
 gsettings set org.mate.power-manager backlight-battery-reduce false
