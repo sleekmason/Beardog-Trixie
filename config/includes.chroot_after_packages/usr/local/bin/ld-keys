@@ -18,6 +18,7 @@ MAX_LINE=86
 # Use the followiing section to change the output names as desired.
 declare -A FRIENDLY_NAMES=(
 
+  ["pkill -USR1 -x sxhkd"]="Reload sxhkd"
   ["ld-keys"]="Show Keybinds"
 
   ["xdmenu"]="Dmenu"
@@ -49,7 +50,6 @@ declare -A FRIENDLY_NAMES=(
 
   ["xfce4-screenshooter"]="Screenshot"
   ["scrot-options"]="Scrot Options"
-  ["pkill -USR1 -x sxhkd; notify-send --urgency low 'sxhkd configuration reloaded'"]="Reload sxhkd"
 )
 
 # SXHKD keybinds
