@@ -13,10 +13,6 @@ mod4 + F1
 # Dmenu.
 mod4 + F3
 	xdmenu
-
-# Conky.
-mod4 + c
-	conky-toggle
         
 # Gammy.
 mod4 + g
@@ -25,18 +21,14 @@ mod4 + g
 # jgmenu.
 mod4 + j
 	jgmenu_run
-	
-# theme-changer.
-mod4 + a
-	ld-themes
 
 # Toggle tint2 panel on/off.
 ctrl + mod4 + t
 	toggle.tint2
-
-# Switch to light theme and back.
-mod4 + y
-	light-dark-toggle
+	
+# Picom.
+mod4 + p
+	toggle.picom
 
 # terminal.
 mod4 + Return
@@ -58,21 +50,13 @@ mod4 + s
 mod4 + e
 	geany  
 
-# Music.
-mod4 + m
-	pragha
-
 # Wallpaper.
 mod4 + shift v
 	feh-set-wallpaper	
 
-# Wallpaper.
+# Random BG.
 mod4 + v
 	wallpaper-keybind-toggle
-    
-# Web browser.
-mod4 + b
-	x-www-browser
 
 # Logout.
 mod4 + x

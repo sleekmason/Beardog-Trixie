@@ -25,7 +25,6 @@ declare -A FRIENDLY_NAMES=(
   ["jgmenu_run"]="jgmenu"
 
   ["ld-themes"]="Auto Themes"
-  ["light-dark-toggle"]="Light/Dark Theme Toggle"
   ["toggle.ld"]="Hotcorners Toggle"
 
   ["toggle.tint2"]="Tint2 Toggle"
@@ -36,9 +35,10 @@ declare -A FRIENDLY_NAMES=(
   ["geany"]="Geany Editor"
 
   ["toggle.gammy"]="Gammy Toggle"
+  ["toggle.picom"]="Picom Toggle (transparency)"
   ["xfconf-query"]="Thunar Window Split"
   ["feh-set-wallpaper"]="Wallpapers"
-  ["wallpaper-keybind-toggle"]="Random Wallpaper"
+  ["wallpaper-keybind-toggle"]="Random BG"
   
   ["ld-logout"]="Logout"
   ["nakedquit"]="Logout Alternate"
