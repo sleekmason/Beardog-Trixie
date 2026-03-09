@@ -17,6 +17,7 @@ fi
 sed -i "/^panel_shrink =/s/$trans/ $selection/g" ~/.config/tint2/tint2rc
 
 # restart tint2
-pkill -x tint2
-tint2 &
+killall -SIGUSR1 tint2
+killall pnmixer 2>/dev/null
+pnmixer >/dev/null 2>&1 &
 exit
