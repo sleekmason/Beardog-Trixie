@@ -7,7 +7,7 @@ yad --title "Tint2 Options" --escape-ok \
     --form \
     --field="":LBL "" \
     --field="                  Bar Size!object-flip-vertical":FBTN "tint2-iconsize" \
-    --field="                    Theme!org.xfce.settings.color":FBTN "tint2-theme-options" \
+    --field="                  Themes!org.xfce.settings.color":FBTN "tint2-theme-options" \
     --field="                   Battery!battery":FBTN "tint2-battery-notify" \
     --field="                 12H/24H!appointment-new":FBTN "tint2-12to24" \
     --field="                Autohide!preferences-desktop-display":FBTN "tint2-autohide" \
