@@ -105,17 +105,17 @@ mode=="sxhkd" {
 
     label=cmd
 
-    if (match(cmd, /^(x-terminal-emulator|xfce4-terminal|kitty|alacritty|gnome-terminal)[^e]*-e[ ]+([^ ]+)/, m)) {
-        label = m[2]
+    if (cmd ~ /(x-terminal-emulator|xfce4-terminal|kitty|alacritty|gnome-terminal).* -e /) {
+        split(cmd,a," -e ")
+        split(a[2],b," ")
+        label=b[1]
     }
 
     bestlen=0
     for (f in friendly) {
-        if (label ~ "(^|[ /])" f "($|[ ]|&)") {
-            if (length(f) > bestlen) {
-                label = friendly[f]
-                bestlen = length(f)
-            }
+        if (index(label, f) && length(f) > bestlen) {
+            label = friendly[f]
+            bestlen = length(f)
         }
     }
 
