@@ -286,7 +286,7 @@ yad --title "Icon Themes" --escape-ok --borders=14 \
 --form --geometry=240x450-270-352 \
 --text="Tint2 Icon Themes\n" --text-align=center --buttons-layout=edge \
 --window-icon=org.xfce.settings.color \
---button="Custom!org.xfce.settings.color:bash -c tint2-custom-color" \
+--button="Custom!org.xfce.settings.color:bash -c 'tint2-custom-color'" \
 --button="OK!gtk-ok:0" \
     --form --columns=2 \
     --field=" Light":FBTN "bash -c light >/dev/null 2>&1 &" \
