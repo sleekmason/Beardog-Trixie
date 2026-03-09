@@ -29,10 +29,6 @@ mod4 + j
 # theme-changer.
 mod4 + a
 	ld-themes
-   
-# Toggle polybar panel on/off.
-ctrl  + mod4 + p
-	toggle.polybar
 
 # Toggle tint2 panel on/off.
 ctrl + mod4 + t
