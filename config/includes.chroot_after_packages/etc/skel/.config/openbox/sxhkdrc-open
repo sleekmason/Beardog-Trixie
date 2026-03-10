@@ -23,8 +23,12 @@ mod4 + j
 	jgmenu_run
 
 # Toggle tint2 panel on/off.
-ctrl + mod4 + t
+mod4 + w
 	toggle.tint2
+	
+# Toggle tint2 Options.
+shift + mod4 + w
+	tint2-options
 	
 # Picom.
 mod4 + p

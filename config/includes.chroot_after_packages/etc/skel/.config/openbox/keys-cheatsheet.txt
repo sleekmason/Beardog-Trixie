@@ -16,7 +16,8 @@ hotcorners =         super + z
 Screenshot =         PrtSctr
 Scrot      =         alt + Print
 Terminal =           super + return
-Toggle tint2 =       ctrl super + t
+Toggle tint2 =       super + w
+Tint2 Options =      super + Shift + w
 Thunar split view =  Alt + s
 
 #Volume Controls
