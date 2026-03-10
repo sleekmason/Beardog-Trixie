@@ -36,6 +36,7 @@ Check Firmware,     x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmwa
 Update Options,     update-options,                   system-software-update
 Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
 Printer Setup,      x-terminal-emulator -T "Printer Setup" -e bash -c "printer-installer; read -srn1", printer
+All Keybinds,       x-terminal-emulator -T 'Beardog Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 USBImager,          /usr/local/bin/usbimager,         usbimager
 Synaptic,           gksudo synaptic,                  synaptic
 Install Extras,     ld-installers,                    preferences-system-search
@@ -68,7 +69,6 @@ Openbox,             obconf,                                                    
 System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
 Power Manager,       mate-power-preferences,                                               mate-power-manager
 Tint2 Options,       tint2-options,                                                        tint2conf
-Keybinds,            x-terminal-emulator -T "Keybinds" -e ld-keys,                         document-properties
 Jgmenu,              geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
 Wallpapers,          feh-set-wallpaper,                                                    preferences-desktop-display
 Grub Background,     x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
