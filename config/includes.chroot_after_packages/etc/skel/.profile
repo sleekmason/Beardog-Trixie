@@ -35,11 +35,11 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-if [ -d "/sbin" ] ; then
-    PATH="${PATH:+${PATH}:}/sbin"
-fi
 if [ -d "/usr/sbin" ] ; then
     PATH="${PATH:+${PATH}:}/usr/sbin"
+fi
+if [ -d "/sbin" ] ; then
+    PATH="${PATH:+${PATH}:}/sbin"
 fi
 
 ## autostart X on successful login to tty1

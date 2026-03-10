@@ -16,13 +16,12 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-if [ -d "/sbin" ] ; then
-    PATH="${PATH:+${PATH}:}/sbin"
-fi
 if [ -d "/usr/sbin" ] ; then
     PATH="${PATH:+${PATH}:}/usr/sbin"
 fi
-export PATH
+if [ -d "/sbin" ] ; then
+    PATH="${PATH:+${PATH}:}/sbin"
+fi
 
 # Disable overlay scrollbars
 # export GTK_OVERLAY_SCROLLING=0
