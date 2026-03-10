@@ -46,7 +46,7 @@ GXKB,                toggle.gxkb,                                   org.xfce.set
 Sounds,              notification-sounds,                           org.xfce.settings.manager
 OSprober,            osprober-toggle,                               org.xfce.settings.manager
 Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
-Random BG,           toggle-wallpaper-random,                       org.xfce.settings.manager
+BG Daemon,           toggle-wallpaper-random,                       org.xfce.settings.manager
 Jgmenu Icons,        jg-icon-changer,                               org.xfce.settings.manager
 Jgmenu Match,        jg-menu-theme,                                 org.xfce.settings.manager
 Picom On/Off,        toggle.picom,                                  org.xfce.settings.manager

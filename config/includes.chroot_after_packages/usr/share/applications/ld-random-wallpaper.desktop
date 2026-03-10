@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Random Wallpaper
+Name=Random BG Daemon
 Exec=toggle-wallpaper-random
 StartupNotify=false
 Terminal=false
