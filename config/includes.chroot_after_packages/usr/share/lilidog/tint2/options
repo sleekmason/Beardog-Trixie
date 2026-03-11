@@ -3,6 +3,7 @@ Tint2 Themes,               tint2-theme-options,     applications-graphics
 Tint2 12H/24H,              tint2-12to24,            time-admin
 Tint2 Autohide,             tint2-autohide,          preferences-desktop
 Tint2 Autoshrink,           tint2-shrink,            applications-accessories
-Tint2 Battery,              tint2-battery-notify,    applications-other
-Tint2 Transparency,         tint2-transparency,      preferences-desktop-personal
-
+Tint2 Battery,              tint2-battery-notify,    preferences-system
+Tint2 Transparency,         tint2-transparency,      preferences-other
+^sep()
+Tint2 Settings,             tint2conf,               tint2conf
