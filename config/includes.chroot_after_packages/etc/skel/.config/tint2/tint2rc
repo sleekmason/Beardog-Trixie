@@ -76,7 +76,7 @@ border_color_pressed = #000000 100
 panel_items = PLTSPPCP
 panel_size = 100% 22
 panel_margin = 0 0
-panel_padding = 2 0 2
+panel_padding = 2 0 3
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
@@ -145,7 +145,7 @@ mouse_scroll_down = iconify
 
 #-------------------------------------
 # System tray (notification area)
-systray_padding = 0 0 5
+systray_padding = 1 0 6
 systray_background_id = 0
 systray_sort = ascending
 systray_icon_size = 15 100
