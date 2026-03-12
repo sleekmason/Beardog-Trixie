@@ -28,20 +28,6 @@ if [ -n "$ZSH_VERSION" ]; then
     fi
 fi
 
-# Add directories to $PATH if not added.
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "/usr/sbin" ] ; then
-    PATH="${PATH:+${PATH}:}/usr/sbin"
-fi
-if [ -d "/sbin" ] ; then
-    PATH="${PATH:+${PATH}:}/sbin"
-fi
-
 ## autostart X on successful login to tty1
 ## Uncomment the following three lines
 #if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
