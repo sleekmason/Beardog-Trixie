@@ -4,298 +4,297 @@
 
 ozark(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2ozark\//g' "$FILE"
-       sed -i 's/\(coltint2ozark.*\)....*$/\1svg/g' "$FILE"      
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2ozark.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#CCDFE8 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#CCDFE8 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#CCDFE8 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#CCDFE8 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#CCDFE8 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #CCDFE8 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' \
+  -e 's/coltint2.*\//coltint2ozark\//g' \
+  -e 's/\(coltint2ozark.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#CCDFE8 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#CCDFE8 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#CCDFE8 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#CCDFE8 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#CCDFE8 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #CCDFE8 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 forge(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2forge\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2forge\//g' "$FILE"
-       sed -i 's/\(coltint2forge.*\)....*$/\1svg/g' "$FILE"       
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2forge.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#C6D7E6 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#C6D7E6 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#C6D7E6 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#C6D7E6 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#C6D7E6 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #C6D7E6 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2forge\//g' \
+  -e 's/coltint2.*\//coltint2forge\//g' \
+  -e 's/\(coltint2forge.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#C6D7E6 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#C6D7E6 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#C6D7E6 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#C6D7E6 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#C6D7E6 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #C6D7E6 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 creme(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2creme\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2creme\//g' "$FILE"
-       sed -i 's/\(coltint2creme.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2creme.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E1DFDB 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E1DFDB 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#E1DFDB 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#E1DFDB 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#E1DFDB 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #E1DFDB 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2creme\//g' \
+  -e 's/coltint2.*\//coltint2creme\//g' \
+  -e 's/\(coltint2creme.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E1DFDB 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E1DFDB 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#E1DFDB 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#E1DFDB 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#E1DFDB 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #E1DFDB 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 teladog(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2teladog\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2teladog\//g' "$FILE"
-       sed -i 's/\(coltint2teladog.*\)....*$/\1png/g' "$FILE" 
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2teladog.png"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2teladog\//g' \
+  -e 's/coltint2.*\//coltint2teladog\//g' \
+  -e 's/\(coltint2teladog.*\)....*$/\1png/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 teladog2(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2teladog2\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2teladog2\//g' "$FILE"
-       sed -i 's/\(coltint2teladog.*\)....*$/\1png/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2teladog2.png"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2teladog2\//g' \
+  -e 's/coltint2.*\//coltint2teladog2\//g' \
+  -e 's/\(coltint2teladog2.*\)....*$/\1png/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 telacircle(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2telacircle\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2telacircle\//g' "$FILE"
-       sed -i 's/\(coltint2telacircle.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2telacircle.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2telacircle\//g' \
+  -e 's/coltint2.*\//coltint2telacircle\//g' \
+  -e 's/\(coltint2telacircle.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 light(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2light\//g' "$FILE"
-       sed -i 's/\(coltint2light.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2light.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E3E3E3 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E3E3E3 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#E3E3E3 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#E3E3E3 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#E3E3E3 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' \
+  -e 's/coltint2.*\//coltint2light\//g' \
+  -e 's/\(coltint2light.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E3E3E3 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E3E3E3 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#E3E3E3 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#E3E3E3 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#E3E3E3 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
-}    
+}
+
 grey(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2grey\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2grey\//g' "$FILE"
-       sed -i 's/\(coltint2grey.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2grey.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#A2AAB3 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#A2AAB3 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#A2AAB3 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#A2AAB3 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#A2AAB3 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #A2AAB3 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2grey\//g' \
+  -e 's/coltint2.*\//coltint2grey\//g' \
+  -e 's/\(coltint2grey.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#A2AAB3 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#A2AAB3 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#A2AAB3 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#A2AAB3 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#A2AAB3 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #A2AAB3 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 adobe(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2adobe\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2adobe\//g' "$FILE"
-       sed -i 's/\(coltint2adobe.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2adobe.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#C2BEB2 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#C2BEB2 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#C2BEB2 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#C2BEB2 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#C2BEB2 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #C2BEB2 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2adobe\//g' \
+  -e 's/coltint2.*\//coltint2adobe\//g' \
+  -e 's/\(coltint2adobe.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#C2BEB2 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#C2BEB2 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#C2BEB2 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#C2BEB2 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#C2BEB2 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #C2BEB2 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 navy(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2navy\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2navy\//g' "$FILE"
-       sed -i 's/\(coltint2navy.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2navy.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#A0BED9 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#A0BED9 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#A0BED9 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#A0BED9 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#A0BED9 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #A0BED9 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2navy\//g' \
+  -e 's/coltint2.*\//coltint2navy\//g' \
+  -e 's/\(coltint2navy.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#A0BED9 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#A0BED9 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#A0BED9 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#A0BED9 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#A0BED9 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #A0BED9 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 green(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2green\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2green\//g' "$FILE"
-       sed -i 's/\(coltint2green.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2green.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#26E06A 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#26E06A 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#26E06A 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#26E06A 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#26E06A 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #26E06A 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2green\//g' \
+  -e 's/coltint2.*\//coltint2green\//g' \
+  -e 's/\(coltint2green.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#26E06A 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#26E06A 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#26E06A 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#26E06A 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#26E06A 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #26E06A 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 buuf(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2buuf\//g' "$FILE"
-       sed -i 's/coltint2.*\//coltint2buuf\//g' "$FILE"
-       sed -i 's/\(coltint2buuf.*\)....*$/\1png/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2buuf.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#CCC8BB 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#CCC8BB 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#CCC8BB 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#CCC8BB 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#CCC8BB 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #CCC8BB 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2buuf\//g' \
+  -e 's/coltint2.*\//coltint2buuf\//g' \
+  -e 's/\(coltint2buuf.*\)....*$/\1png/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#CCC8BB 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#CCC8BB 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#CCC8BB 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#CCC8BB 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#CCC8BB 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #CCC8BB 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 obsidian(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2obsidian\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2obsidian\//g' "$FILE"
-       sed -i 's/\(coltint2obsidian.*\)....*$/\1png/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2obsidian.png"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2obsidian\//g' \
+  -e 's/coltint2.*\//coltint2obsidian\//g' \
+  -e 's/\(coltint2obsidian.*\)....*$/\1png/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 papirus(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2papirus\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2papirus\//g' "$FILE"
-       sed -i 's/\(coltint2papirus.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2papirus.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2papirus\//g' \
+  -e 's/coltint2.*\//coltint2papirus\//g' \
+  -e 's/\(coltint2papirus.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 black(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2black\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2black\//g' "$FILE"
-       sed -i 's/\(coltint2black.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2black.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#000000 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#000000 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#000000 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#000000 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #000000 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2black\//g' \
+  -e 's/coltint2.*\//coltint2black\//g' \
+  -e 's/\(coltint2black.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#000000 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#000000 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#000000 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#000000 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #000000 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
+
 white(){
   FILE="$HOME/.config/tint2/tint2rc"
-  NOTIFY="$HOME/.config/tint2/executors/notifier"
-       sed -i 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2white\//g' "$FILE"  
-       sed -i 's/coltint2.*\//coltint2white\//g' "$FILE"
-       sed -i 's/\(coltint2white.*\)....*$/\1svg/g' "$FILE"
-       sed -i 's/^iconcolor=.*/iconcolor="coltint2white.svg"/g' "$NOTIFY"
-       sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/task_font_color =.*/task_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
-       sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
+  sed -i \
+  -e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2white\//g' \
+  -e 's/coltint2.*\//coltint2white\//g' \
+  -e 's/\(coltint2white.*\)....*$/\1svg/g' \
+  -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#ffffff 100/' \
+  -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#ffffff 100/' \
+  -e 's/task_font_color =.*/task_font_color = \#ffffff 100/' \
+  -e 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' \
+  -e 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' \
+  -e 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
   killall -SIGUSR1 tint2
   killall pnmixer 2>/dev/null
   pnmixer >/dev/null 2>&1 &
 }
 
 custom_color(){
-if test -e "$HOME/.config/tint2/customcolor.txt"; then
-FILE="$HOME/.config/tint2/tint2rc"	
-## Make the icon change in tint2rc.
-	sed -i 's/coltint2.*\//coltint2light\//g' "$FILE"
-	sed -i 's/\(coltint2light.*\)....*$/\1svg/g' "$FILE"
-	sed -i 's/\/usr\/share\/icons\/ld-icons\/coltint2light\//\~\/.config\/tint2\/tint2-custom\//g' "$FILE"
-# text colors
-COLOR_CHOICE=$( cat "$HOME/.config/tint2/customcolor.txt" )
-         sed -i 's/taskbar_name_font_color =.*/taskbar_name_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
-         sed -i 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
-         sed -i 's/task_font_color =.*/task_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
-         sed -i 's/clock_font_color =.*/clock_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
-         sed -i 's/tooltip_font_color =.*/tooltip_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
-         sed -i 's/^battery_font_color.*/battery_font_color = '"$COLOR_CHOICE"' 100/g' "$FILE"
-  killall -SIGUSR1 tint2
-  killall pnmixer 2>/dev/null
-  pnmixer >/dev/null 2>&1 &
-else
-exit
-fi 
+  if test -e "$HOME/.config/tint2/customcolor.txt"; then
+    FILE="$HOME/.config/tint2/tint2rc"
+    sed -i \
+    -e 's/coltint2.*\//coltint2light\//g' \
+    -e 's/\(coltint2light.*\)....*$/\1svg/g' \
+    -e 's/\/usr\/share\/icons\/ld-icons\/coltint2light\//\~\/.config\/tint2\/tint2-custom\//g' "$FILE"
+    COLOR_CHOICE=$(cat "$HOME/.config/tint2/customcolor.txt")
+    sed -i \
+    -e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \'"$COLOR_CHOICE"' 100/' \
+    -e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \'"$COLOR_CHOICE"' 100/' \
+    -e 's/task_font_color =.*/task_font_color = \'"$COLOR_CHOICE"' 100/' \
+    -e 's/clock_font_color =.*/clock_font_color = \'"$COLOR_CHOICE"' 100/' \
+    -e 's/tooltip_font_color =.*/tooltip_font_color = \'"$COLOR_CHOICE"' 100/' \
+    -e 's/^battery_font_color.*/battery_font_color = '"$COLOR_CHOICE"' 100/g' "$FILE"
+    killall -SIGUSR1 tint2
+    killall pnmixer 2>/dev/null
+    pnmixer >/dev/null 2>&1 &
+  else
+    exit
+  fi
 }
 
 export -f ozark
@@ -339,4 +338,3 @@ yad --title "Icon Themes" --escape-ok --borders=14 \
     --field=" Obsidian":FBTN "bash -c obsidian >/dev/null 2>&1 &" \
     --field=" Papirus":FBTN "bash -c papirus >/dev/null 2>&1 &" \
     --field=" Custom":FBTN "bash -c custom_color >/dev/null 2>&1 &"
-    
