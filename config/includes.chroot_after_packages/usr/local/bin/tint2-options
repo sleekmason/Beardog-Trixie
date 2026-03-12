@@ -11,8 +11,8 @@ yad --title "Tint2 Options" --escape-ok \
     --field="                  Themes!org.xfce.settings.color":FBTN "tint2-theme-options" \
     --field="                   Battery!battery":FBTN "tint2-battery-notify" \
     --field="                 12H/24H!appointment-new":FBTN "tint2-12to24" \
-    --field="                Autohide!preferences-desktop-display":FBTN "tint2-autohide" \
-    --field="             Autoshrink!object-flip-horizontal":FBTN "tint2-shrink" \
-    --field="         Transparency!applications-other":FBTN "tint2-transparency" \
+    --field="                 Autohide!preferences-desktop-display":FBTN "tint2-autohide" \
+    --field="              Autoshrink!object-flip-horizontal":FBTN "tint2-shrink" \
+    --field="          Transparency!applications-other":FBTN "tint2-transparency" \
     --field="":LBL "" \
     --field="           Settings GUI!tint2conf":FBTN "tint2conf"
