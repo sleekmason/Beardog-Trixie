@@ -2,7 +2,7 @@
 
 yad --title "Tint2 Options" --escape-ok \
 --center --width=250 --height=410 --borders=12 \
---button=" Reset!preferences-desktop:tint2-reset" \
+--button=" Reset All!document-revert:tint2-reset" \
 --button=" Exit!application-exit:0" \
 --window-icon=applications-utilities \
     --form \
