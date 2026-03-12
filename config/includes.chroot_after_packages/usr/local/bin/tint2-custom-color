@@ -46,3 +46,5 @@ FILE="$HOME/.config/tint2/tint2rc"
          sed -i 's/^battery_font_color.*/battery_font_color = '"$COLOR_CHOICE"' 100/g' "$FILE"
 fi
 killall -SIGUSR1 tint2
+killall pnmixer 2>/dev/null
+pnmixer >/dev/null 2>&1 &

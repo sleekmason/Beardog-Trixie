@@ -15,7 +15,9 @@ ozark(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#CCDFE8 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#CCDFE8 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #CCDFE8 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 forge(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -30,7 +32,9 @@ forge(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#C6D7E6 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#C6D7E6 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #C6D7E6 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 creme(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -45,7 +49,9 @@ creme(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#E1DFDB 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#E1DFDB 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #E1DFDB 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 teladog(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -60,7 +66,9 @@ teladog(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 teladog2(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -75,7 +83,9 @@ teladog2(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 telacircle(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -90,7 +100,9 @@ telacircle(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 light(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -105,7 +117,9 @@ light(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#E3E3E3 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#E3E3E3 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }    
 grey(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -120,7 +134,9 @@ grey(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#A2AAB3 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#A2AAB3 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #A2AAB3 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 adobe(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -135,7 +151,9 @@ adobe(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#C2BEB2 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#C2BEB2 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #C2BEB2 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 navy(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -150,7 +168,9 @@ navy(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#A0BED9 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#A0BED9 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #A0BED9 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 green(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -165,7 +185,9 @@ green(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#26E06A 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#26E06A 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #26E06A 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 buuf(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -180,7 +202,9 @@ buuf(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#CCC8BB 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#CCC8BB 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #CCC8BB 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 obsidian(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -195,7 +219,9 @@ obsidian(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 papirus(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -210,7 +236,9 @@ papirus(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 black(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -225,7 +253,9 @@ black(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#000000 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #000000 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 white(){
   FILE="$HOME/.config/tint2/tint2rc"
@@ -240,7 +270,9 @@ white(){
        sed -i 's/clock_font_color =.*/clock_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#ffffff 100/' "$FILE"
        sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 }
 
 custom_color(){
@@ -258,7 +290,9 @@ COLOR_CHOICE=$( cat "$HOME/.config/tint2/customcolor.txt" )
          sed -i 's/clock_font_color =.*/clock_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
          sed -i 's/tooltip_font_color =.*/tooltip_font_color = \'"$COLOR_CHOICE"' 100/' "$FILE"
          sed -i 's/^battery_font_color.*/battery_font_color = '"$COLOR_CHOICE"' 100/g' "$FILE"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 else
 exit
 fi 

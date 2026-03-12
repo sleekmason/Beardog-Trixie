@@ -10,71 +10,105 @@ noti=$(yad --width 310 --borders=12 --entry --title "Percentage Text Color" --ce
 case $noti in
   Ozark*)
      sed -i 's/^battery_font_color.*/battery_font_color = #CCDFE8 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Forge)
      sed -i 's/^battery_font_color.*/battery_font_color = #C6D7E6 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Creme)
      sed -i 's/^battery_font_color.*/battery_font_color = #E1DFDB 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Light)
      sed -i 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Green)
      sed -i 's/^battery_font_color.*/battery_font_color = #26E06A 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Red)
       sed -i 's/^battery_font_color.*/battery_font_color = #FF3352 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Blue)
       sed -i 's/^battery_font_color.*/battery_font_color = #31ECE5 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Orange)
       sed -i 's/^battery_font_color.*/battery_font_color = #FFA43E 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Teladog)
      sed -i 's/^battery_font_color.*/battery_font_color = #C0C6CC 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Buuf)
      sed -i 's/^battery_font_color.*/battery_font_color = #C0C6CC 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   White)
      sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Grey)
      sed -i 's/^battery_font_color.*/battery_font_color = #A2AAB3 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Black)
      sed -i 's/^battery_font_color.*/battery_font_color = #000000 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Adobe)
      sed -i 's/^battery_font_color.*/battery_font_color = #C2BEB2 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Navy)
      sed -i 's/^battery_font_color.*/battery_font_color = #A0BED9 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2 
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Obsidian)
      sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
   Papirus)
      sed -i 's/^battery_font_color.*/battery_font_color = #ffffff 100/g' "$HOME/.config/tint2/tint2rc"
-     killall -SIGUSR1 tint2
+  killall -SIGUSR1 tint2
+  killall pnmixer 2>/dev/null
+  pnmixer >/dev/null 2>&1 &
 ;;
         *) exit 1 ;;
     esac
