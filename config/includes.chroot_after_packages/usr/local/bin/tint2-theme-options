@@ -106,7 +106,8 @@ export -f rightside
 yad --title "Tint2 Theme Options" --escape-ok --borders=14 \
 --form --geometry=240x220-268-84 \
 --text="Bar size resets to default on position change\n" --text-align=center --buttons-layout=edge \
---button=" Tint2 Size!applications-other:tint2-iconsize" --button=" Icon Theme!org.xfce.settings.color:tint2-iconcolor" \
+--button=" Tint2 Size!applications-other:tint2-iconsize" \
+--button=" Icon Theme!org.xfce.settings.color:tint2-iconcolor" \
 --button="gtk-ok:0" \
 --window-icon=dialog-information \
     --form --columns=2 \

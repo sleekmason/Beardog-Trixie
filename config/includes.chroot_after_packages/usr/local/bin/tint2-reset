@@ -1,0 +1,60 @@
+#!/bin/bash
+# Reset tint2 to default settings
+# Made by sleekmason
+
+FILE="$HOME/.config/tint2/tint2rc"
+
+## Panel Items - position, autoshrink, autohide, and transparency
+sed -i \
+-e "s/^panel_position =.*/panel_position = top center horizontal/" \
+-e "s/^panel_shrink =.*/panel_shrink = 0/" \
+-e "s/^autohide =.*/autohide = 0/" \
+-e 's/^task_align =.*/task_align = left/g' \
+-e 's/task_text =.*/task_text = 1/' \
+-e 's/^task_maximum_size =.*/task_maximum_size = 150 20/g' "$FILE"
+sed -i "0,/background_color =/{s/background_color =.*/background_color = #0d0f0f 60/}" "$FILE"
+
+## Icon colors
+sed -i \
+-e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' \
+-e 's/coltint2.*\//coltint2light\//g' \
+-e 's/\(coltint2light.*\)....*$/\1svg/g' "$FILE"
+
+## Font colors
+sed -i \
+-e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E3E3E3 100/' \
+-e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E3E3E3 100/' \
+-e 's/task_font_color =.*/task_font_color = \#E3E3E3 100/' \
+-e 's/clock_font_color =.*/clock_font_color = \#E3E3E3 100/' \
+-e 's/tooltip_font_color =.*/tooltip_font_color = \#E3E3E3 100/' \
+-e 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$FILE"
+
+## Icon and Font Size
+sed -i \
+-e 's/^button_max_icon_size =.*/button_max_icon_size = 15 100/g' \
+-e 's/^systray_icon_size =.*/systray_icon_size = 15 100/g' \
+-e 's/^launcher_icon_size =.*/launcher_icon_size = 16 100/g' \
+-e 's/^execp_icon_w =.*/execp_icon_w = 17/g' \
+-e 's/^execp_icon_h =.*/execp_icon_h = 17/g' \
+-e 's/^panel_size =.*/panel_size = 100% 22/g' \
+-e 's/^button_font = .*/button_font = Noto Sans 11/g' \
+-e 's/^execp_font = .*/execp_font = Noto Sans 11/g' \
+-e 's/^bat1_font = .*/bat1_font = Noto Sans 11/g' \
+-e 's/^time1_font = .*/time1_font = Noto Sans 11/g' \
+-e 's/^task_font = .*/task_font = Noto Sans Display 10.5/g' \
+-e 's/^taskbar_name_font = .*/taskbar_name_font = Noto Sans 10/g' "$FILE"
+
+## Battery defaults
+sed -i \
+-e '/panel_items/s/B//' \
+-e 's/^battery_hide.*/battery_hide = 0/g' \
+-e 's/^battery_tooltip.*/battery_tooltip = 0/g' \
+-e 's/^battery_low_status.*/battery_low_status = 0/g' \
+-e 's/^battery_low_cmd.*/battery_low_cmd =/g' \
+-e 's/^battery_full_cmd.*/battery_full_cmd =/g' \
+-e 's/^ac_connected_cmd.*/ac_connected_cmd =/g' \
+-e 's/^ac_disconnected_cmd.*/ac_disconnected_cmd =/g' "$FILE"
+
+killall -SIGUSR1 tint2
+killall pnmixer 2>/dev/null
+pnmixer >/dev/null 2>&1 &
