@@ -1,11 +1,11 @@
 ﻿-------
 ### About Lilidog:
 
-Lilidog is a lightweight Linux distro based on Debian.  Lilidog uses the
+Lilidog is a lightweight Linux distro based on Debian. Lilidog uses the
 Openbox window manager with tint2, Thunar, and xfce4-terminal.
 
-Other window managers are also made available through the Lilidog
-installers. These are Awesome, dwm, i3, jwm, and sowm.
+Other window managers are also available through the Lilidog installers.
+These are Awesome, dwm, i3, jwm, and sowm.
 
 ### Available Versions:
 
@@ -16,7 +16,7 @@ includes Firefox, LibreOffice, Geany, Thunar, xfce4-terminal, Pragha,
 Gpicview, Fastfetch, Jgmenu, and inxi among others.
 
 - Beardog - The 'bare' version of Lilidog. Beardog starts without a 
-display manager on login, though two different Lightdm versions can
+display manager on login, though two different LightDM versions can
 be installed from the initial welcome script.
 
 - Waydog - A version based on Wayland instead of X11. This version has
@@ -33,7 +33,7 @@ WMs are available from the Waydog installers.
 
 The version number is the date of the release beginning with the year,
 followed by the month, and then the day.  So as an example, release
-23.12.21 stands for the 21st of Dec, 2023.  One way to see this after
+26.03.14 stands for the 14th of Mar, 2026. One way to see this after
 a Lilidog installation is to look at the Install Date Conky for the
 installation and build date.  Another way is to open a terminal and:
 
@@ -65,7 +65,7 @@ or installing if you like what you see.
 ### Navigating Lilidog:
 
 After boot you have the option to install, or try out Lilidog live.
-The Live username is 'user' and the Live password is 'live'
+The Live username is 'user' and the Live password is 'live'.
 Once in a session, there are a few items that can shape your experience.
 Look in the "paw" icon in the tint2 panel for theming options.
 
@@ -73,46 +73,51 @@ Look in the "Toggles" section of the menu for some other useful options,
 and look in the "Install Extras" portion of the menu for extra programs
 you may want.  Look around.  There's more to see as well.
 
-### Some Of The Basic Features:
+### Some of the Basic Features:
 
 - Based on Debian with contrib and non-free sources enabled by default.
 
-- The welcome script in installation allows for the addition of
-backports and other useful options. 
+- The welcome script after installation also allows for the addition of
+backports and other useful options.
 
 - These are 'no --recommends' builds. This means only the required
-dependencies are included during package install. This leaves out any
-recommended or suggested packages, allowing for complete control over
-package installation. No unwanted packages will be installed by default.
+dependencies are included during package installation. This allows for 
+better control over package installation.
+
+- LightDM is the display login manager, with an option to install the
+LightDM Slick Greeter from either the Lilidog 'System' installers, or
+through the initial welcome screen on first login. The settings for both
+can be found in the Configuration menu.
 
 - Tint2 is the panel by default.  See the wrench and screwdriver icon in
 the tint2 panel for some other nifty tint2 options, including toggles
 for the position (top or bottom), autohide, Tint2 time format (12/24H),
-and on/off, and theming options. 
+and on/off, and different theming options. 
 
-- Jgmenu is the menu for Lilidog and Beardog. Many customizations are
-available. Go to menu -> configuration -> jgmenu.conf for how to change
-and add items.
+- Jgmenu is the main menu for Lilidog and Beardog. Many customizations
+are available. Go to Menu → Configuration → jgmenu.conf to change or
+add items.
 
 - Wallpapers are handled by Feh. Place any image you would like to use
-as a wallpaper in ~/Pictures/wallpapers. Go to Menu -> Configuration ->
+as a wallpaper in ~/Pictures/wallpapers. Go to Menu → Configuration →
 Wallpaper Chooser to change wallpapers. You can also right-click on any
-image you choose from the file manager to set as background wallpaper.
-Other right-click options for images include rotation and copying to
-~/Pictures/wallpapers. A random wallpaper toggle is included.
+image from the file manager to set as the background wallpaper. Other
+right-click options for images include rotation and copying to
+~/Pictures/wallpapers. A random wallpaper toggle is included. Use
+'Super + v' to toggle through the existing images.
 
-- Icons - Currently, the Obsidian icon theme is default. Papirus, Gnome,
+- Icons - Currently, the Obsidian icon theme is default. Papirus, GNOME,
 and other icon sets are readily available.  
 
 - Grub background changer opens a window to choose your own images.
 Lilidog ships with six to give you an initial choice before finding
 your own to add to the collection.
 
-- There are shortcuts for xfce4-power-manager in the battery icon. Hover
-over the icons to see what they are.  
+- There are shortcuts for the MATE Power Manager in the battery icon.
+Hover over the icons to see what they are.  
 
 - Rofi and Dmenu for alternate menu sources. - ALT + F5 pulls the full
-Dmenu up, while ALT + F3 pulls up a customized Rofi 'drun' menu.
+Dmenu up, while ALT + F3 pulls up a customized dmenu.
 
 - Thunar is the default file manager.  Custom right-click options are
 already added as well. These include everything from "Open as Root", to
@@ -133,11 +138,12 @@ contain relevant info. These include a Clock, Full Info, Fortunes,
 Shortcuts, Worldclock, and Tao quotes. Everything Conky is located in
 ~/.config/conky, including the Conky Chooser script.
 
-- Custom colors can be chosen for three of the GTK themes, tint2, and
-Conky. This allows the user to design their desktop that much easier.
+- Custom colors can be chosen for nine of the different GTK themes. This
+allows the user to design their desktop much easier.  Open Auto Themes
+to access the custom highlight theme changers.
 
-- Picom Composite Manager with transparency enabled.  Look in
-~/.config/picom.conf to change transparency, shadows, and more.
+- Picom Composite Manager for transparency. Look in ~/.config/picom.conf
+to change transparency, shadows, and more.
 
 - Gammy screen color and lightness control located in Toggles, and from
 the keybind "Super + g". This will allow you to change and set the gamma
@@ -149,7 +155,7 @@ ready for new RSS feeds.
 
 - System notifications through Dunst with options for sound effects.
 
-- Menu Extras - Install menu with options for Liquorix kernel, Qemu,
+- Install Extras - Install menu with options for Liquorix kernel, Qemu,
 VirtualBox, Steam, Etcher, and more.
 
 - ld-hotcorners - Each corner of the screen responds to a command.
