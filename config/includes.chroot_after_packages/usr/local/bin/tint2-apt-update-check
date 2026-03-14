@@ -52,7 +52,7 @@ check_pid() {
     [[ "$path" = "$script" ]] || { echo "${0}: PID ${pid} seems to belong to a different process: ${path}" >&2 ; exit 1;}
 }
  
-upgradecolor=$(< "$HOME/.config/tint2/executors/color.txt")
+upgradecolor=$(< "$HOME/.config/tint2/apt-updater/color.txt")
 
 show-upgrades(){
     trap on_exit EXIT
@@ -77,11 +77,9 @@ show-upgrades(){
 }
 
 icon-color-change(){
-    trap on_exit EXIT
-    [[ -p "$PIPE" ]] || { echo "${0}: there is no fifo $PIPE" >&2 ; exit 1;}
-    exec 3<> "$PIPE"
-    "tint2-apt-update-check-color"
-    "tint2-apt-update-check"
+    echo "quit" >&3
+    tint2-apt-update-check-color
+    tint2-apt-update-check
     exit
 }
 
@@ -95,13 +93,13 @@ export -f on_exit
 export -f show-upgrades
 export -f icon-color-change
 
-num_upgrades=$(( $( apt list --upgradable 2>/dev/null | wc -l ) - $( apt-mark showhold | wc -l ) -1 ))
+num_upgrades=$(( $( apt list --upgradeable 2>/dev/null | wc -l ) - $( apt-mark showhold | wc -l ) -1 ))
 if (( num_upgrades == 0 )); then
 notify-send  -t 10000 --urgency low "$num_upgrades Upgrade(s) Currently Available"
 fi
 if (( num_upgrades > 0 )); then
     notify-send  -t 10000 --urgency low "$num_upgrades Upgrade(s) Currently Available"
-    yad --notification --listen --image="$HOME/.config/tint2/executors/icons/update/$upgradecolor" \
+    yad --notification --listen --image="$HOME/.config/tint2/apt-updater/$upgradecolor" \
     --text="Package Upgrades - Right-Click For Options" \
     --menu="Show Available Upgrades!bash -c show-upgrades!software-update-available|Change Icon Color!bash -c icon-color-change!applications-graphics|Quit!quit!application-exit" \
     --command="notify-send  -t 10000 --urgency low '$num_upgrades Upgrade(s) Currently Available'" <&3

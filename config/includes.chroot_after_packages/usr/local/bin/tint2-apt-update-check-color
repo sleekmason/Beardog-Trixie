@@ -2,7 +2,7 @@
 # tint2 apt notifier color options.
 # Made be sleekmason for Lilidog 17 Mar 2023
 
-FILE="$HOME/.config/tint2/executors/color.txt"
+FILE="$HOME/.config/tint2/apt-updater/color.txt"
 noti=$(yad --width 330 --borders=8 --entry --title "Notifier Icon Color" --center --window-icon=applications-graphics \
     --image="/usr/share/icons/hicolor/24x24/apps/org.xfce.settings.color.png" \
     --button="gtk-ok:0" \
