@@ -30,7 +30,7 @@ printer-driver-postscript-hp printer-driver-ptouch printer-driver-pxljr \
 printer-driver-sag-gdi printer-driver-splix; then
 
 if [ -f "$HOME/.config/jgmenu/prepend.csv" ]; then
-    sed -i 's|.*Printer Setup.*|Printer Setup,      gksudo system-config-printer,     printer|g' "$HOME/.config/jgmenu/prepend.csv"
+    sed -i 's|.*Printer Setup.*|Printer Setup,      system-config-printer,            printer|g' "$HOME/.config/jgmenu/prepend.csv"
 fi
 killall jgmenu 2>/dev/null || true
 
