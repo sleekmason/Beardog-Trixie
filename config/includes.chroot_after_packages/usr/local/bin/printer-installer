@@ -31,9 +31,10 @@ printer-driver-postscript-hp printer-driver-ptouch printer-driver-pxljr \
 printer-driver-sag-gdi printer-driver-splix; then
 
 if [ -f "$HOME/.config/jgmenu/prepend.csv" ]; then
-    sed -i 's|.*Printer Setup.*|Print Settings,      system-config-printer,            printer|g' "$HOME/.config/jgmenu/prepend.csv"
-fi
+sed -i '/Print Settings,     system-config-printer,            printer/d' ~/.config/jgmenu/prepend.csv && \
+sed -i '/Color Chooser.*/i Print Settings,     system-config-printer,            printer' ~/.config/jgmenu/prepend.csv && \
 killall jgmenu 2>/dev/null || true
+fi
 
 echo ""
 echo "  [0;33m------------------------------------------------------------[0m"

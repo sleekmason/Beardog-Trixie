@@ -8,6 +8,7 @@ KDEconnect,       x-terminal-emulator -T 'KDEconnect Installer' -e bash -c "kdec
 LD Update Checker, x-terminal-emulator -T 'LD apt update checker installer' -e bash -c "ld-apt-update-installer",             applications-utilities
 Pcmanfm,          x-terminal-emulator -T 'Pcmanfm Installer' -e bash -c "pcmanfm-installer",                                  applications-utilities
 Penguins Eggs,    x-terminal-emulator -T 'Penguins Eggs Installer' -e bash -c "penguins-eggs-installer",                      applications-utilities
+Printer Setup,    x-terminal-emulator -T 'Printer Installer' -e bash -c "printer-installer",                                  applications-utilities
 Qemu VM,          x-terminal-emulator -T 'Qemu Installer' -e bash -c "qemu-installer",                                        applications-utilities
 Synaptic,         x-terminal-emulator -T 'Synaptic Installer' -e bash -c "synaptic-installer",                                applications-utilities
 Virtualbox,       x-terminal-emulator -T 'Virtualbox Installer' -e bash -c "virtualbox-installer-oracle",                     applications-utilities

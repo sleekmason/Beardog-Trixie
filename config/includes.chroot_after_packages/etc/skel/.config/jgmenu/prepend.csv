@@ -35,7 +35,6 @@ Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-acces
 Check Firmware,     x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
 Update Options,     update-options,                   system-software-update
 Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
-Printer Setup,      x-terminal-emulator -T "Printer Setup" -e bash -c "printer-installer; read -srn1", printer
 All Keybinds,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 USBImager,          /usr/local/bin/usbimager,         usbimager
 Synaptic,           gksudo synaptic,                  synaptic
