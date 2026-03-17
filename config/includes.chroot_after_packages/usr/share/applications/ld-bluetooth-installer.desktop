@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=bluetooth-installer
+Name=Bluetooth Installer
+Icon=bluetooth
+Terminal=true
+GenericName=Bluetooth installer
+Categories=ld-misc-tools;
+Keywords=system;
+Comment=Bluetooth installer

@@ -4,6 +4,7 @@ Brightness Tray Icon,  x-terminal-emulator -T 'Brightness And Gamma Tray Icon In
 Element,          x-terminal-emulator -T 'Element Installer' -e bash -c "element-installer",                                  applications-utilities
 Gnome Boxes,      x-terminal-emulator -T 'Gnome Boxes Installer' -e bash -c "gnome-boxes-installer",                          applications-utilities
 Hblock,           x-terminal-emulator -T 'Hblock Installer' -e bash -c "hblock-installer",                                    applications-utilities
+HW-Probe,         x-terminal-emulator -T 'HW-Probe Installer' -e bash -c "hw-probe-installer",                                applications-utilities
 KDEconnect,       x-terminal-emulator -T 'KDEconnect Installer' -e bash -c "kdeconnect-installer",                            applications-utilities
 LD Update Checker, x-terminal-emulator -T 'LD apt update checker installer' -e bash -c "ld-apt-update-installer",             applications-utilities
 Pcmanfm,          x-terminal-emulator -T 'Pcmanfm Installer' -e bash -c "pcmanfm-installer",                                  applications-utilities
