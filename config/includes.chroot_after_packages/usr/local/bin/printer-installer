@@ -3,8 +3,7 @@ read -p "   [0;33mPrinter Setup Installer.[0m
    
    This will install the packages necessary for printing and
    scanning on your computer. After installation, return to 
-   the Utilities Menu entry: 'Printer Setup' to continue
-   setup your printer after installation. 
+   the Utilities Menu and choose Printer Setup to continue. 
    
    [0;32m---------------------------------------------------------
    
@@ -36,14 +35,14 @@ fi
 killall jgmenu 2>/dev/null || true
 
 echo ""
-echo "[0;32m------------------------------------------------------------[0m"
+echo "[0;32m----------------------------------------------------------------[0m"
 echo ""
 echo "[0;32mAll Finished![0m"
 echo ""
 echo "[0;33mUse Printer Setup in the Utilities Menu to connect your printer.[0m"
 echo ""
 echo ""
-echo "[0;32m------------------------------------------------------------[0m"
+echo "[0;32m----------------------------------------------------------------[0m"
 echo ""
 echo $'\n\nPress any key to quit ...'; read -srn1
 else
