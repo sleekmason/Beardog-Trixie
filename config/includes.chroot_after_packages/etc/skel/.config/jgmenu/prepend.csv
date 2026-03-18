@@ -54,7 +54,7 @@ GXKB,                toggle.gxkb,                                   org.xfce.set
 Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
 Jgmenu Icons,        jg-icon-changer,                               org.xfce.settings.manager
 Jgmenu Match,        jg-menu-theme,                                 org.xfce.settings.manager
-OSprober,            osprober-toggle,                               org.xfce.settings.manager
+OSprober On/Off,     osprober-toggle,                               org.xfce.settings.manager
 Picom On/Off,        toggle.picom,                                  org.xfce.settings.manager
 Sexy Bash,           toggle.sexy,                                   org.xfce.settings.manager
 Sounds,              notification-sounds,                           org.xfce.settings.manager
@@ -71,9 +71,9 @@ Xkill,               xkill,                                         edit-delete
 /usr/share,               gksudo thunar /usr/share,               folder-documents
 
 ^tag(configuration)
-Grub Background,     x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
-Jgmenu,              geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
-Openbox,             obconf,                                                               obconf
+Grub Backgrounds,    x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
+Jgmenu Conf,         geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
+Openbox Settings,    obconf,                                                               obconf
 Power Manager,       mate-power-preferences,                                               mate-power-manager
 System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
 Tint2 Options,       tint2-options,                                                        tint2conf
