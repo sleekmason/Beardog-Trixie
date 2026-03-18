@@ -1,10 +1,10 @@
 Auto Themes,                ld-themes,                                org.xfce.settings.color
-Conky Options,              conky-toggle,                             preferences-desktop-display
+Conky Options,              conky-toggle,                             conky-logomark-violet
 Notification Sounds,        notification-sounds,                      audio-x-generic
 Openbox Settings,           obconf,                                   obconf
 System Settings,            xfce4-settings-manager,                   org.xfce.settings.manager
 Tint2 Options,              tint2-options,                            tint2conf
-Transparency,               transparency-system,                      preferences-desktop-personal
+Transparency,               transparency-system,                      pda
 Upgrade Options,            update-options,                           system-software-update
 Wallpapers,                 feh-set-wallpaper,                        preferences-desktop-wallpaper
 ^sep()

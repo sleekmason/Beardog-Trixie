@@ -1,20 +1,19 @@
 #!/bin/bash
 
 yad --title "Tint2 Options" --escape-ok \
---center --width=250 --height=492 --borders=12 \
+--center --width=248 --height=445 --borders=12 \
 --button=" Reset All!document-revert:tint2-reset" \
 --button=" Exit!application-exit:0" \
 --window-icon=applications-utilities \
     --form \
     --field="":LBL "" \
-    --field="                 12H/24H!appointment-new":FBTN "tint2-12to24" \
-    --field="                 Autohide!preferences-desktop-display":FBTN "tint2-autohide" \
-    --field="              Autoshrink!object-flip-horizontal":FBTN "tint2-shrink" \
-    --field="                  Bar Size!object-flip-vertical":FBTN "tint2-iconsize" \
-    --field="                   Battery!battery":FBTN "tint2-battery-notify" \
-    --field="              Placement!system-run":FBTN "tint2-theme-options" \
-    --field="                  Themes!org.xfce.settings.color":FBTN "tint2-iconcolor" \
-    --field="         Transparency!applications-other":FBTN "tint2-transparency" \
-    --field="           Settings GUI!tint2conf":FBTN "tint2conf" \
+    --field="                      12H/24H!appointment-new":FBTN "tint2-12to24" \
+    --field="                      Autohide!pda":FBTN "tint2-autohide" \
+    --field="                   Autoshrink!object-flip-horizontal":FBTN "tint2-shrink" \
+    --field="                       Bar Size!object-flip-vertical":FBTN "tint2-iconsize" \
+    --field="                        Battery!battery":FBTN "tint2-battery-notify" \
+    --field="                   Placement!preferences-desktop-display":FBTN "tint2-theme-options" \
+    --field="                       Themes!org.xfce.settings.color":FBTN "tint2-iconcolor" \
+    --field="              Transparency!applications-other":FBTN "tint2-transparency" \
     --field="":LBL "" \
-    --field="                 Reset All!document-revert":FBTN "tint2-reset"
+    --field="               Settings GUI!tint2conf":FBTN "tint2conf"
