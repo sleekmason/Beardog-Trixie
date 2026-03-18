@@ -7,9 +7,9 @@ Thunar,             thunar,            system-file-manager
 ^sep()
 Quick Grab,^checkout(quickgrab), org.xfce.settings.default-applications
 ^sep()
+Configuration,^checkout(configuration), preferences-other
 Toggles,^checkout(toggles), org.xfce.settings.manager
 Utilities,^checkout(utilities), applications-utilities
-Configuration,^checkout(configuration), preferences-other
 ^sep()
 All Programs,^checkout(apps),preferences-system-search
 ^sep()
@@ -74,7 +74,7 @@ Xkill,               xkill,                                         edit-delete
 Grub Backgrounds,    x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
 Hotcorners Conf,     geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        applications-engineering
 Jgmenu Conf,         geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
-Lightdm Control,     lightdm-options,                                                      lightdm-gtk-greeter-settings
+Lightdm Options,     lightdm-options,                                                      lightdm-gtk-greeter-settings
 Openbox Settings,    obconf,                                                               obconf
 Power Manager,       mate-power-preferences,                                               mate-power-manager
 System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
