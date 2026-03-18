@@ -1,11 +1,11 @@
 Auto Themes,                ld-themes,                                org.xfce.settings.color
 Conky Options,              conky-toggle,                             preferences-desktop-display
-GTK Settings,               xfce4-settings-manager,                   org.xfce.settings.manager
-Openbox Settings,           obconf,                                   obconf
 Notification Sounds,        notification-sounds,                      audio-x-generic
+Openbox Settings,           obconf,                                   obconf
+System Settings,            xfce4-settings-manager,                   org.xfce.settings.manager
 Tint2 Options,              tint2-options,                            tint2conf
 Transparency,               transparency-system,                      preferences-desktop-personal
+Upgrade Options,            update-options,                           system-software-update
 Wallpapers,                 feh-set-wallpaper,                        preferences-desktop-wallpaper
-Update Options,             update-options,                           system-software-update
 ^sep()
 Reset Theming,              xfce4-terminal --geometry=68x20+100-80 -T 'Reset Theming' -e 'set-default-theme',  applications-other

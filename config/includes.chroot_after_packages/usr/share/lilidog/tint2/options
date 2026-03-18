@@ -1,9 +1,10 @@
-Tint2 Bar Size,             tint2-iconsize,          object-flip-vertical
-Tint2 Themes,               tint2-theme-options,     applications-graphics
 Tint2 12H/24H,              tint2-12to24,            time-admin
 Tint2 Autohide,             tint2-autohide,          preferences-desktop
-Tint2 Autoshrink,           tint2-shrink,            applications-accessories
+Tint2 Autoshrink,           tint2-shrink,            object-flip-horizontal
+Tint2 Bar Size,             tint2-iconsize,          object-flip-vertical
 Tint2 Battery,              tint2-battery-notify,    preferences-system
+Tint2 Placement,            tint2-theme-options,     system-run
+Tint2 Themes,               tint2-iconcolor,         applications-graphics
 Tint2 Transparency,         tint2-transparency,      preferences-other
 Tint2 Settings (Full),      tint2conf,               tint2conf
 ^sep()
