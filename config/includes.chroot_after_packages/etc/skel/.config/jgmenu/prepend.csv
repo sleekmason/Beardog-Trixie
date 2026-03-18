@@ -43,7 +43,7 @@ Gparted,            gksudo gparted,                   gparted
 Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
-Update Options,     update-options,                   system-software-update
+Upgrade Options,    update-options,                   system-software-update
 USBImager,          /usr/local/bin/usbimager,         usbimager
 Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
 
@@ -74,6 +74,7 @@ Xkill,               xkill,                                         edit-delete
 Grub Backgrounds,    x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
 Hotcorners Conf,     geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        applications-engineering
 Jgmenu Conf,         geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
+Lightdm Control,     lightdm-options,                                                      lightdm-gtk-greeter-settings
 Openbox Settings,    obconf,                                                               obconf
 Power Manager,       mate-power-preferences,                                               mate-power-manager
 System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
