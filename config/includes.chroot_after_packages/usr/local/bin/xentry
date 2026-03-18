@@ -216,8 +216,8 @@ _add_themes() {
           rm -fr "/tmp/themechooser"
           rm -fr "/tmp/themechooser-trixie.zip"
           chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/lilidog-themes
-          sed -i '/Themes,              ld-themes.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-          sed -i '/^Tint2 On\/Off/a Themes,              ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
+          sed -i '/Theme Chooser,              ld-themes.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+          sed -i '/^Tint2 On\/Off/i Theme Chooser,              ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
         see_it
         no_see
         run_it

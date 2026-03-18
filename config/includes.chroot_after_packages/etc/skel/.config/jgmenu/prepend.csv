@@ -54,10 +54,10 @@ GXKB,                toggle.gxkb,                                   org.xfce.set
 Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
 Jgmenu Icons,        jg-icon-changer,                               org.xfce.settings.manager
 Jgmenu Match,        jg-menu-theme,                                 org.xfce.settings.manager
+Notification Sounds, notification-sounds,                           org.xfce.settings.manager
 OSprober On/Off,     osprober-toggle,                               org.xfce.settings.manager
 Picom On/Off,        toggle.picom,                                  org.xfce.settings.manager
 Sexy Bash Prompt,    toggle.sexy,                                   org.xfce.settings.manager
-Notification Sounds, notification-sounds,                           org.xfce.settings.manager
 Tint2 On/Off,        toggle.tint2,                                  org.xfce.settings.manager
 Tint2 Options,       tint2-options,                                 org.xfce.settings.manager
 Transparency,        transparency-system,                           org.xfce.settings.manager

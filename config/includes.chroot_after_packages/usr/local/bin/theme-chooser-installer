@@ -73,13 +73,13 @@ fi
 
 # St menu item in toggles
 if test -e "/usr/local/bin/ld-entry"; then
-sed -i '/Themes,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
-sed -i '/^Tint2 On\/Off/i Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/Theme Chooser,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/^Tint2 On\/Off/i Theme Chooser,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
 fi
 
 if test -e "/usr/share/lilidog/beardog"; then
-sed -i '/Themes,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
-sed -i '/^Tint2 On\/Off/i Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/Theme Chooser,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/^Tint2 On\/Off/i Theme Chooser,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
 fi
 
 echo ""
