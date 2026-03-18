@@ -27,7 +27,7 @@ Icon Browser,       yad-icon-browser,                  applications-science
 
 ^tag(sysinfo)
 Fastfetch,          x-terminal-emulator -T 'Fastfetch' -e bash -c "fastfetch; bash",  utilities-system-monitor
-Firmware,           x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
+Firmware Check,     x-terminal-emulator -T 'Firmware Check' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
 Htop,               x-terminal-emulator -T 'Htop' -e htop,                    htop
 HW-Probe,           x-terminal-emulator -T 'Hw-Probe' -e bash -c "hw-probe-installer; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
 Inxi Info,          x-terminal-emulator -T 'Inxi Info' -e bash -c "inxi -Fxrzm; echo $'\n\nPress any key to close'; read -srn1",   document-properties
@@ -50,7 +50,7 @@ Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr
 ^tag(toggles)
 BG Daemon,           toggle-wallpaper-random,                       org.xfce.settings.manager
 Font Size,           fontsize-changer,                              org.xfce.settings.manager
-GXKB,                toggle.gxkb,                                   org.xfce.settings.manager
+GXKB On/Off,         toggle.gxkb,                                   org.xfce.settings.manager
 Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
 Jgmenu Icons,        jg-icon-changer,                               org.xfce.settings.manager
 Jgmenu Match,        jg-menu-theme,                                 org.xfce.settings.manager
