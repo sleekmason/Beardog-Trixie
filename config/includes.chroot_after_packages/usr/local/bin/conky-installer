@@ -6,11 +6,11 @@ read -r -p "   [0;33mConky Installer[0m
    install a customized conky chooser and conkys that can be accessed 
    through either the toggles menu, or the keybind super + c.
    
-   [0;33m----------------------------------------------------------
+   [0;33m------------------------------------------------------------------
    
-   Please press enter to install Conky.
+   Please press enter to install Conky with custom configurations.
    
-   ----------------------------------------------------------[0m
+   ------------------------------------------------------------------[0m
       
    Or close this terminal window to quit the install." ;
    if : >/dev/tcp/8.8.8.8/53; then
@@ -39,7 +39,7 @@ sudo cp -f "$HOME/.config/conky/scripts/conkyrestart" "/usr/local/bin"
 echo ""
 # Copy menu entries
 	sed -i '/Conky,               conky-toggle,                                  org.xfce.settings.manager/d' ~/.config/jgmenu/prepend.csv
-	sed -i '/Xkill/i Conky,               conky-toggle,                                  org.xfce.settings.manager' ~/.config/jgmenu/prepend.csv
+	sed -i '/Font Size/i Conky,               conky-toggle,                                  org.xfce.settings.manager' ~/.config/jgmenu/prepend.csv
 
 # Place autostart entry
 if test -e "$HOME/.config/conky"; then

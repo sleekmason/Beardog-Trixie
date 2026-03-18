@@ -32,7 +32,7 @@ printer-driver-sag-gdi printer-driver-splix; then
 
 if [ -f "$HOME/.config/jgmenu/prepend.csv" ]; then
 sed -i '/Print Settings,     system-config-printer,            printer/d' ~/.config/jgmenu/prepend.csv && \
-sed -i '/Color Chooser.*/i Print Settings,     system-config-printer,            printer' ~/.config/jgmenu/prepend.csv && \
+sed -i '/Screenshot.*/i Print Settings,     system-config-printer,            printer' ~/.config/jgmenu/prepend.csv && \
 killall jgmenu 2>/dev/null || true
 fi
 

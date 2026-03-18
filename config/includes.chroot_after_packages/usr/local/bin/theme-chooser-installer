@@ -13,11 +13,11 @@ read -p "   [0;33mAuto Themes Installer.[0m
    All Programs --> Other.
    
       
-   [0;33m--------------------------------------------------------------
+   [0;33m------------------------------------------------------------
    
-   Please press enter to install the Lilidog Auto Themes chooser.
+   Please press enter to install the Lilidog Auto Themes.
    
-   --------------------------------------------------------------[0m
+   ------------------------------------------------------------[0m
       
    Or close this terminal window to quit the install." ;
    if : >/dev/tcp/8.8.8.8/53; then
@@ -74,21 +74,22 @@ fi
 # St menu item in toggles
 if test -e "/usr/local/bin/ld-entry"; then
 sed -i '/Themes,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
-sed -i '/Sounds/i Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/^Tint2 On\/Off/i Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
 fi
 
 if test -e "/usr/share/lilidog/beardog"; then
 sed -i '/Themes,              ld-themes.*/d' "$HOME/.config/jgmenu/prepend.csv"
-sed -i '/^Sounds/a Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
+sed -i '/^Tint2 On\/Off/i Themes,              ld-themes,                                     org.xfce.settings.manager' "$HOME/.config/jgmenu/prepend.csv"
 fi
 
 echo ""
-echo "   [0;33m----------------------------------------------------------------------"
+echo "   [0;33m------------------------------------------------------------"
 echo ""
 echo "   All Finished!
-   Look for 'Themes' in the Toggles menu, or under 'Other' in the debian menu."
+
+   Look for Themes in the 'Toggles' or 'Other' menu categories."
 echo "" 
-echo "   ----------------------------------------------------------------------[0m"
+echo "   ------------------------------------------------------------[0m"
 else
 echo ""
  echo "   [0;31m-----------------------------------------------------[0m"

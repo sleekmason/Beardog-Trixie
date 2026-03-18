@@ -25,50 +25,57 @@ Development,^checkout(development),applications-development
 ^tag(development)
 Icon Browser,       yad-icon-browser,                  applications-science
 
-^tag(utilities)
-Screenshot,         xfce4-screenshooter,              preferences-desktop-display
-Gparted,            gksudo gparted,                   gparted
+^tag(sysinfo)
+Fastfetch,          x-terminal-emulator -T 'Fastfetch' -e bash -c "fastfetch; bash",  utilities-system-monitor
+Firmware,           x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
+Htop,               x-terminal-emulator -T 'Htop' -e htop,                    htop
 HW-Probe,           x-terminal-emulator -T 'Hw-Probe' -e bash -c "hw-probe-installer; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
-Font Viewer,        yad --font,                       preferences-desktop-font
-Color Chooser,      yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
-Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
-Check Firmware,     x-terminal-emulator -T 'Firmware Checker' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
-Update Options,     update-options,                   system-software-update
-Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
+Inxi Info,          x-terminal-emulator -T 'Inxi Info' -e bash -c "inxi -Fxrzm; echo $'\n\nPress any key to close'; read -srn1",   document-properties
+
+^tag(utilities)
+System Info,^checkout(sysinfo),folder
 All Keybinds,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
-USBImager,          /usr/local/bin/usbimager,         usbimager
+Beardog Installers, ld-installers,                    preferences-system-search
+Color Chooser,      yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
+Font Viewer,        yad --font,                       preferences-desktop-font
+Galculator,         galculator,                       galculator
+Gparted,            gksudo gparted,                   gparted
+Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
+Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
-Install Extras,     ld-installers,                    preferences-system-search
+Update Options,     update-options,                   system-software-update
+USBImager,          /usr/local/bin/usbimager,         usbimager
+Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
 
 ^tag(toggles)
-GXKB,                toggle.gxkb,                                   org.xfce.settings.manager
-Sounds,              notification-sounds,                           org.xfce.settings.manager
-OSprober,            osprober-toggle,                               org.xfce.settings.manager
-Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
 BG Daemon,           toggle-wallpaper-random,                       org.xfce.settings.manager
+Font Size,           fontsize-changer,                              org.xfce.settings.manager
+GXKB,                toggle.gxkb,                                   org.xfce.settings.manager
+Hotcorners,          toggle.ld,                                     org.xfce.settings.manager
 Jgmenu Icons,        jg-icon-changer,                               org.xfce.settings.manager
 Jgmenu Match,        jg-menu-theme,                                 org.xfce.settings.manager
+OSprober,            osprober-toggle,                               org.xfce.settings.manager
 Picom On/Off,        toggle.picom,                                  org.xfce.settings.manager
-Transparency,        transparency-system,                           org.xfce.settings.manager
-Tint2 Options,       tint2-options,                                 org.xfce.settings.manager
-Tint2 On/Off,        toggle.tint2,                                  org.xfce.settings.manager
 Sexy Bash,           toggle.sexy,                                   org.xfce.settings.manager
-Font Size,           fontsize-changer,                              org.xfce.settings.manager
+Sounds,              notification-sounds,                           org.xfce.settings.manager
+Tint2 On/Off,        toggle.tint2,                                  org.xfce.settings.manager
+Tint2 Options,       tint2-options,                                 org.xfce.settings.manager
+Transparency,        transparency-system,                           org.xfce.settings.manager
 Xkill,               xkill,                                         edit-delete
 
 ^tag(rootfiles)
 /etc,                     gksudo thunar /etc,                     folder-documents
 /etc/apt/sources.list,    gksudo geany /etc/apt/sources.list,     folder-documents
-/usr/share,               gksudo thunar /usr/share,               folder-documents
 /usr/bin,                 gksudo thunar /usr/bin,                 folder-documents
 /usr/local/bin,           gksudo thunar /usr/local/bin,           folder-documents
+/usr/share,               gksudo thunar /usr/share,               folder-documents
 
 ^tag(configuration)
-Openbox,             obconf,                                                               obconf
-System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
-Power Manager,       mate-power-preferences,                                               mate-power-manager
-Tint2 Options,       tint2-options,                                                        tint2conf
-Jgmenu,              geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
-Wallpapers,          feh-set-wallpaper,                                                    preferences-desktop-display
 Grub Background,     x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
+Jgmenu,              geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
+Openbox,             obconf,                                                               obconf
+Power Manager,       mate-power-preferences,                                               mate-power-manager
+System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
+Tint2 Options,       tint2-options,                                                        tint2conf
+Wallpapers,          feh-set-wallpaper,                                                    preferences-desktop-display
 ^tag(apps)

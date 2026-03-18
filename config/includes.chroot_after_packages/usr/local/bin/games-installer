@@ -22,9 +22,9 @@ read -p "   [0;33mGames Installer[0m
 echo "" 
 sudo apt update && sudo apt install blockout2 xmahjongg briquolo gltron pinball &&
 sed -i '/Games,^checkout(games),applications-games/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Development,^checkout(development),applications-development/i Games,^checkout(games),applications-games' ~/.config/jgmenu/prepend.csv &&
+sed -i '/Development,^checkout(development),applications-development/a Games,^checkout(games),applications-games' ~/.config/jgmenu/prepend.csv &&
 sed -i '/tag(games)/d' ~/.config/jgmenu/prepend.csv &&
-sed -i '/Development/a ^tag(games)' ~/.config/jgmenu/prepend.csv &&
+sed -i '/Games/a ^tag(games)' ~/.config/jgmenu/prepend.csv &&
 sed -i '/Tron, gltron, gltron/d' ~/.config/jgmenu/prepend.csv &&
 sed -i '/tag(games)/a Tron, gltron, gltron' ~/.config/jgmenu/prepend.csv &&
 sed -i '/Pinball, pinball, pinball/d' ~/.config/jgmenu/prepend.csv &&

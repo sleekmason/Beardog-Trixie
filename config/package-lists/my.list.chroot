@@ -40,6 +40,7 @@ eject
 exfat-fuse
 exfatprogs
 extlinux
+fastfetch
 feh
 file
 fonts-font-awesome
@@ -48,6 +49,7 @@ fonts-dancingscript
 fonts-jetbrains-mono
 fonts-ubuntu
 fuse3
+galculator
 geany
 gettext-base
 gnome-icon-theme
@@ -60,8 +62,10 @@ gvfs
 gvfs-backends
 gvfs-fuse
 gxkb
+htop
 imagemagick
 intel-microcode
+inxi
 iproute2
 isc-dhcp-client
 iso-codes
@@ -128,9 +132,6 @@ python3-pycurl
 python3-six
 python3-xdg
 python3-xlib
-#qt5ct
-#qt5-gtk-platformtheme
-#qt6-gtk-platformtheme
 rename
 rsync
 scrot
