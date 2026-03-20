@@ -81,6 +81,7 @@ Openbox Settings,      obconf,                                                  
 Power Manager,         mate-power-preferences,                                               mate-power-manager
 Random BG Conf,        geany ~/.config/random-bg.conf,                                       document-properties
 System Settings,       xfce4-settings-manager,                                               org.xfce.settings.manager
+Theme Options,         ld-theme-changer,                                                     preferences-desktop-theme
 Tint2 Options,         tint2-options,                                                        tint2conf
 Wallpapers,            feh-set-wallpaper,                                                    preferences-desktop-display
 Wallpapers Conf,       geany ~/.config/wallpapers.conf,                                      document-properties

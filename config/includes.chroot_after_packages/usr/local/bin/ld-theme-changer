@@ -1,0 +1,21 @@
+#!/bin/bash
+
+yad --title "Theming Options" --form --center --borders=14 \
+--window-icon=applications-utilities --geometry=440x400+280+280 \
+--text="Theming Options\n" --text-align=center \
+--button="Close!gtk-ok:0" \
+    --form --columns=2 \
+    --field="                   Conky!conky-logomark-violet":FBTN "conky-toggle" \
+    --field="              Font Size!font-x-generic":FBTN "fontsize-changer" \
+    --field="                Grub BG!org.xfce.settings.editor":FBTN "x-terminal-emulator -T 'Grub Background Changer' -e bash -c 'grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1'" \
+    --field="                    Icons!preferences-other":FBTN "bash -c 'xfce4-appearance-settings & sleep 0.5; xdotool key Alt+i &'" \
+    --field="                 Jgmenu!jgmenu":FBTN "jg-icon-changer" \
+    --field="                LightDM!lightdm-gtk-greeter-settings":FBTN "lightdm-options" \
+    --field="     Logout Themes!org.xfce.settings.default-applications":FBTN "logout-theme-chooser" \
+    --field="                 Openbox!obconf":FBTN "obconf" \
+    --field="                   Sounds!audio-speakers":FBTN "notification-sounds" \
+    --field="      System Settings!preferences-system":FBTN "xfce4-settings-manager" \
+    --field="          Tint2 Options!tint2conf":FBTN "tint2-options" \
+    --field="          Transparency!preferences-desktop":FBTN "transparency-system" \
+    --field="             Wallpapers!org.xfce.settings.display":FBTN "feh-set-wallpaper" \
+    --field="                Reset All!$HOME/.config/lilidog-themes/icons/paw-theme-18.png":FBTN "x-terminal-emulator -T 'Full Theme Reset' -e bash -c 'set-default-theme; echo $'\n\nPress any key to close.'; read -srn1'"
