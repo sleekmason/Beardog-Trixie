@@ -1,0 +1,20 @@
+#!/bin/bash
+# Wrapper to call ps_mem and output colors based on usage using grc.
+sudo ps_mem | awk '
+function to_mib(val, unit) {
+    if (unit == "GiB") return val * 1024
+    if (unit == "MiB") return val
+    if (unit == "KiB") return val / 1024
+    return 0
+}
+{
+    eq_pos = 0
+    for (i = 1; i <= NF; i++) if ($i == "=") { eq_pos = i; break }
+    if (eq_pos > 0 && eq_pos + 2 <= NF)
+        printf "%015.3f\t%s\n", to_mib($(eq_pos+1)+0, $(eq_pos+2)), $0
+    else
+        printf "%015.3f\t%s\n", -1, $0
+}
+' | sort -t$'\t' -k1 -rn | cut -f2- | grcat ~/.config/grc/ps_mem
+echo
+read -n1 -s -r -p "Press any key to close..."

@@ -1,0 +1,47 @@
+# >= 1 GiB
+regexp==[ ]+[0-9]+\.[0-9]+ GiB
+colors=bold magenta
+-
+# >= 500 MiB
+regexp==[ ]+[5-9][0-9][0-9]\.[0-9]+ MiB
+colors=bold red
+-
+# >= 200 MiB
+regexp==[ ]+[2-4][0-9][0-9]\.[0-9]+ MiB
+colors=bold red
+-
+# >= 100 MiB
+regexp==[ ]+1[0-9][0-9]\.[0-9]+ MiB
+colors=bold blue
+-
+# >= 50 MiB
+regexp==[ ]+[5-9][0-9]\.[0-9]+ MiB
+colors=bold blue
+-
+# >= 10 MiB
+regexp==[ ]+[1-4][0-9]\.[0-9]+ MiB
+colors=bold yellow
+-
+# >= 1 MiB
+regexp==[ ]+[0-9]\.[0-9]+ MiB
+colors=bold green
+-
+# KiB lines
+regexp==[ ]+[0-9]+\.[0-9]+ KiB
+colors=green
+-
+# grand total line
+regexp=^[ ]+[0-9]+\.[0-9]+ GiB$
+colors=bold cyan
+-
+# separator =
+regexp=^=+$
+colors=cyan
+-
+# separator -
+regexp=^-+$
+colors=cyan
+-
+# header
+regexp=Private.*Shared.*RAM used
+colors=bold cyan
