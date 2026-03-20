@@ -24,6 +24,7 @@ declare -A FRIENDLY_NAMES=(
   ["xdmenu"]="Dmenu"
   ["jgmenu_run"]="jgmenu"
 
+  ["conky-toggle"]="Conky Chooser (if installed)"
   ["toggle.ld"]="Hotcorners Toggle"
   ["toggle.tint2"]="Tint2 Toggle"
   ["tint2-options"]="Tint2 Options"

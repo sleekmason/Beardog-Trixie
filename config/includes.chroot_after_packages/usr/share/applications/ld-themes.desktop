@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Theming Options
+Exec=ld-theme-changer
+StartupNotify=false
+Terminal=false
+Icon=/usr/share/icons/gnome/24x24/categories/applications-graphics.png
+Categories=ld-misc-tools;

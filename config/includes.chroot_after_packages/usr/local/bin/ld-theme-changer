@@ -5,7 +5,7 @@ yad --title "Theming Options" --form --center --borders=14 \
 --text="Theming Options\n" --text-align=center \
 --button="Close!gtk-ok:0" \
     --form --columns=2 \
-    --field="                   Conky!conky-logomark-violet":FBTN "conky-toggle" \
+    --field="                   Conky!conky-logomark-violet":FBTN "theme-options-conky" \
     --field="              Font Size!font-x-generic":FBTN "fontsize-changer" \
     --field="                Grub BG!org.xfce.settings.editor":FBTN "x-terminal-emulator -T 'Grub Background Changer' -e bash -c 'grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1'" \
     --field="                    Icons!preferences-other":FBTN "bash -c 'xfce4-appearance-settings & sleep 0.5; xdotool key Alt+i &'" \

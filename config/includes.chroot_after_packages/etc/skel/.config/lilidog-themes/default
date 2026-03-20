@@ -1,0 +1,201 @@
+#!/bin/bash
+#### A theme changer to set the theme to your own custom configuration.
+### Simply change the "Lilidog" entries below with your own selections.
+## Change any of the themes however you like to create custom entries.
+# You can also add anything that can be refreshed, wallpaper, conky, etc . . .
+
+## Lightdm Greeter settings for theme, wallpaper, position, icons, and font. (Requires Sudo)
+if command -v lightdm >/dev/null; then
+GREETER=$(grep -E '^[[:space:]]*greeter-session=' /etc/lightdm/lightdm.conf | cut -d= -f2)
+
+[[ -z "$GREETER" ]] && GREETER="lightdm-gtk-greeter"
+
+if [[ "$GREETER" == "lightdm-gtk-greeter" ]]; then
+if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
+        sudo sed -i "s/theme-name.*/theme-name = Foggypines/g" /etc/lightdm/lightdm-gtk-greeter.conf
+        sudo sed -i "s|^background.*|background = /usr/share/backgrounds/wallpapers/Foggypines.jpg|g" /etc/lightdm/lightdm-gtk-greeter.conf
+    else
+        sudo sed -i "s/theme-name.*/theme-name = Fane/g" /etc/lightdm/lightdm-gtk-greeter.conf
+        sudo sed -i "s|^background.*|background = /usr/share/backgrounds/wallpapers/Fane.jpg|g" /etc/lightdm/lightdm-gtk-greeter.conf
+    fi
+sudo sed -i "s/position.*/position = -4%,end 10%,start/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/font-name.*/font-name = Noto Sans 11/g" /etc/lightdm/lightdm-gtk-greeter.conf
+fi
+
+if [[ "$GREETER" == "slick-greeter" ]]; then
+sudo sed -i "s/icon-theme-name.*/icon-theme-name=Obsidian/g" /etc/lightdm/slick-greeter.conf
+
+if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
+        sudo sed -i "s/theme-name.*/theme-name=Foggypines/g" /etc/lightdm/slick-greeter.conf
+        sudo sed -i "s|^background.*|background=/usr/share/backgrounds/wallpapers/Foggypines.jpg|g" /etc/lightdm/slick-greeter.conf
+    else
+        sudo sed -i "s/theme-name.*/theme-name=Fane/g" /etc/lightdm/slick-greeter.conf
+        sudo sed -i "s|^background.*|background=/usr/share/backgrounds/wallpapers/Fane.jpg|g" /etc/lightdm/slick-greeter.conf
+fi
+
+sudo sed -i "s/font-name.*/font-name=Noto Sans 10/g" /etc/lightdm/slick-greeter.conf
+sudo sed -i "s/clock-format.*/clock-format=%H:%M   %a, %b %d %Y/g" /etc/lightdm/slick-greeter.conf
+fi
+fi
+
+## System gtktheme, icon theme
+xfconf-query -c xsettings -p /Net/ThemeName -s "Fane"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Teal"
+
+## Picom transparency
+if [[ $(command -v picom) ]]; then
+if pgrep -x picom > /dev/null 2>&1; then
+pkill -x picom
+fi
+sed -i \
+-e 's/^active-opacity =.*/active-opacity = 1.0;/g' \
+-e 's/^frame-opacity =.*/frame-opacity = 1.0;/g' \
+-e 's/^inactive-opacity =.*/inactive-opacity = 0.94;/g' "$HOME/.config/picom.conf"
+fi
+
+## System Fonts
+xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 11"
+xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 10"
+
+## Openbox theme
+xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:name' -v "Fanebox" ~/.config/openbox/rc.xml
+xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "12" ~/.config/openbox/rc.xml
+openbox --reconfigure
+
+## Rofi theme
+if [[ $(command -v rofi) ]]; then
+sed -i \
+-e 's/^@theme "rounded.*/@theme "rounded-fane.rasi"/g' \
+-e 's/^font: "Noto Sans.*/font: "Noto Sans 11";/g' \
+-e 's/^icon-theme:.*/icon-theme: "Obsidian";/g' \
+-e 's/^show-icons:.*/show-icons: true;/g' "$HOME/.config/rofi/config.rasi"
+sed -i \
+-e 's/^@theme "familiar.*/@theme "familiar-fane.rasi"/g' \
+-e 's/^font: "Noto Sans.*/font: "Noto Sans 10";/g' \
+-e 's/^icon-theme:.*/icon-theme: "Obsidian";/g' \
+-e 's/^show-icons:.*/show-icons: true;/g' "$HOME/.config/rofi/themes/familiar/config.rasi"
+rm -f ~/.cache/rofi3.druncache
+fi
+
+## Geany theme
+if [[ $(command -v geany) ]]; then
+sed -i \
+-e "s/color_scheme=.*/color_scheme=Fane.conf/g" \
+-e "s/editor_font=.*/editor_font=JetBrains Mono Light 10/g" ~/.config/geany/geany.conf
+fi
+
+## jgmenu theme
+if [[ $(command -v jgmenu) ]]; then
+if test -e ~/.config/jgmenu/backup; then
+rm -fr ~/.config/jgmenu/backup
+fi
+jgmenu_run init --apply-obtheme > /dev/null 2>&1
+sed -i \
+-e "s/font =.*/font = Noto Sans 11/g" \
+-e 's/^icon_size.*/icon_size = 16/g' \
+-e 's/^icon_theme =.*/icon_theme = Obsidian/g' ~/.config/jgmenu/jgmenurc
+if test -e ~/.config/jgmenu/prepend.csv; then
+sed -i '/@icon.*/d' ~/.config/jgmenu/prepend.csv
+sed -i '/#@icon.*/d' ~/.config/jgmenu/prepend.csv && sed -i '1a@icon,, 	11,11,16,16,2,,,,,/usr/share/icons/gnome/16x16/actions/system-search.png' ~/.config/jgmenu/prepend.csv
+sed -i '/@search.*/d' ~/.config/jgmenu/prepend.csv && sed -i '2a@search,,	35,6,125,26,2,left,top,auto,	#eeeeee 80,Type To Search' ~/.config/jgmenu/prepend.csv
+fi
+fi
+
+## xfce4-terminal theme
+xfconf-query -c xfce4-terminal -p /font-name -s "JetBrains Mono 10"
+xfconf-query -c xfce4-terminal -p /color-background -s "#1d1d2b2b3333"
+xfconf-query -c xfce4-terminal -p /color-foreground -s "#c5c5d4d4dbdb"
+xfconf-query -c xfce4-terminal -p /color-palette -s "rgb(0,0,0);rgb(209,82,77);rgb(0,150,95);rgb(190,149,45);rgb(100,187,209);rgb(179,93,159);rgb(54,155,158);rgb(158,170,176);rgb(149,166,173);rgb(255,95,95);rgb(71,207,133);rgb(226,215,115);rgb(120,213,235);rgb(239,115,219);rgb(84,209,209);rgb(224,231,233)"
+
+## Tint2 Panel Items - position, autoshrink, autohide, and transparency
+sed -i \
+-e "s/^panel_position =.*/panel_position = top center horizontal/" \
+-e "s/^panel_shrink =.*/panel_shrink = 0/" \
+-e "s/^autohide =.*/autohide = 0/" \
+-e 's/^task_align =.*/task_align = left/g' \
+-e 's/task_text =.*/task_text = 1/' \
+-e 's/^task_maximum_size =.*/task_maximum_size = 150 20/g' "$HOME"/.config/tint2/tint2rc
+sed -i "0,/background_color =/{s/background_color =.*/background_color = #0d0f0f 60/}" "$HOME"/.config/tint2/tint2rc
+
+## Tint2 Icon colors
+sed -i \
+-e 's/\~\/.config\/tint2\/tint2-custom\//\/usr\/share\/icons\/ld-icons\/coltint2light\//g' \
+-e 's/coltint2.*\//coltint2light\//g' \
+-e 's/\(coltint2light.*\)....*$/\1svg/g' "$HOME"/.config/tint2/tint2rc
+
+## Tint2 Font colors
+sed -i \
+-e 's/taskbar_name_font_color =.*/taskbar_name_font_color = \#E3E3E3 100/' \
+-e 's/taskbar_name_active_font_color =.*/taskbar_name_active_font_color = \#E3E3E3 100/' \
+-e 's/task_font_color =.*/task_font_color = \#E3E3E3 100/' \
+-e 's/clock_font_color =.*/clock_font_color = \#E3E3E3 100/' \
+-e 's/tooltip_font_color =.*/tooltip_font_color = \#E3E3E3 100/' \
+-e 's/^battery_font_color.*/battery_font_color = #E3E3E3 100/g' "$HOME"/.config/tint2/tint2rc
+
+## Tint2 Icon and Font Size
+sed -i \
+-e 's/^button_max_icon_size =.*/button_max_icon_size = 15 100/g' \
+-e 's/^systray_icon_size =.*/systray_icon_size = 15 100/g' \
+-e 's/^launcher_icon_size =.*/launcher_icon_size = 16 100/g' \
+-e 's/^execp_icon_w =.*/execp_icon_w = 17/g' \
+-e 's/^execp_icon_h =.*/execp_icon_h = 17/g' \
+-e 's/^panel_size =.*/panel_size = 100% 22/g' \
+-e 's/^button_font = .*/button_font = Noto Sans 11/g' \
+-e 's/^execp_font = .*/execp_font = Noto Sans 11/g' \
+-e 's/^bat1_font = .*/bat1_font = Noto Sans 11/g' \
+-e 's/^time1_font = .*/time1_font = Noto Sans 11/g' \
+-e 's/^task_font = .*/task_font = Noto Sans Display 10.5/g' \
+-e 's/^taskbar_name_font = .*/taskbar_name_font = Noto Sans 10/g' "$HOME"/.config/tint2/tint2rc
+
+## Battery defaults
+sed -i \
+-e '/panel_items/s/B//' \
+-e 's/^battery_hide.*/battery_hide = 0/g' \
+-e 's/^battery_tooltip.*/battery_tooltip = 0/g' \
+-e 's/^battery_low_status.*/battery_low_status = 0/g' \
+-e 's/^battery_low_cmd.*/battery_low_cmd =/g' \
+-e 's/^battery_full_cmd.*/battery_full_cmd =/g' \
+-e 's/^ac_connected_cmd.*/ac_connected_cmd =/g' \
+-e 's/^ac_disconnected_cmd.*/ac_disconnected_cmd =/g' "$HOME"/.config/tint2/tint2rc
+killall -SIGUSR1 tint2
+killall pnmixer 2>/dev/null
+pnmixer >/dev/null 2>&1 &
+
+## Feh background
+if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
+    feh --bg-scale "/usr/share/backgrounds/wallpapers/Foggypines.jpg"
+else
+    feh --bg-scale "/usr/share/backgrounds/wallpapers/Fane.jpg"
+fi
+
+## Sounds - Dunst
+if [[ $(command -v dunst) ]]; then
+sed -i '/summary/d' ~/.config/dunst/dunstrc
+sed -i '/sounds/d' ~/.config/dunst/dunstrc
+killall -q dunst
+fi
+
+## Conky
+if [[ $(command -v conky) ]]; then
+killall -q conky
+sed -i \
+-e '/own_window_transparent/c\own_window_transparent = true,' \
+-e '/own_window_argb_visual/c\-- own_window_argb_visual = true,' \
+-e '/own_window_argb_value/c\-- own_window_argb_value = 0,' "$HOME"/.config/conky/*.conf
+OLD_COLOR=$(sed '/default_color/!d' "$HOME/.config/conky/scripts/defaults.txt" | cut -d'#' -f2 | sed 's/..$//')
+sed -i "s/${OLD_COLOR}/c4c4c4/g" "$HOME"/.config/conky/*.conf 2>/dev/null
+sed -i "s/${OLD_COLOR}/c4c4c4/g" "$HOME/.config/conky/scripts/defaults.txt" 2>/dev/null
+if test -f "$HOME"/.config/conky/conky-shortcuts.conf; then
+set -m; conky -q -c "$HOME/.config/conky/conky-shortcuts.conf" &> /dev/null
+fi
+fi
+
+# Move ~/.local/bin/ld-logout to .bak
+if test -e "$HOME/.local/bin/ld-logout"; then
+mv -f "$HOME/.local/bin/ld-logout" "$HOME/.local/bin/ld-logout.bak"
+fi
+
+# These lines are for the light/dark toggle and the custom toggle. Do not remove.
+# Comment these lines in Custom-Theme or Light-Dark-Theme if copying a named theme.
+rm -f ~/.cache/temp_theme
+rm -f ~/.cache/custom_theme

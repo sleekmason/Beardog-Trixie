@@ -22,6 +22,10 @@ mod4 + g
 mod4 + j
 	jgmenu_run
 
+# Conky.
+mod4 + c
+	conky-toggle
+
 # Toggle tint2 panel on/off.
 mod4 + w
 	toggle.tint2
