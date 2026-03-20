@@ -187,7 +187,7 @@ sed -i '/Root Folders,^checkout(rootfiles),folder/a Mousepad,           mousepad
 sed -i '/Bash\/zsh.*/d' "$FILE"
 sed -i '/BG Daemon.*/i Bash\/zsh,            zsh-toggle,                                    org.xfce.settings.manager' "$FILE"
 sed -i '/Filezilla,    filezilla,                  filezilla/d' "$FILE"
-sed -i '/Galculator/i Filezilla,    filezilla,                  filezilla' "$FILE"
+sed -i '/Gparted/i Filezilla,    filezilla,                  filezilla' "$FILE"
 sed -i '/Inkscape,               inkscape,                              org.xfce.settings.color/d' "$FILE"
 sed -i '/Root Folders,^checkout(rootfiles),folder/a Inkscape,               inkscape,                              org.xfce.settings.color' "$FILE"
 sed -i '/Gimp,               gimp,                              gimp/d' "$FILE"
