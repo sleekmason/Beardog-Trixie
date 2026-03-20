@@ -34,12 +34,12 @@ Inxi Info,          x-terminal-emulator -T 'Inxi Info' -e bash -c "inxi -Fxrzm; 
 
 ^tag(utilities)
 System Info,^checkout(sysinfo),folder
-All Keybinds,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Beardog Installers, ld-installers,                    preferences-system-search
 Color Chooser,      yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
 Font Viewer,        yad --font,                       preferences-desktop-font
 Galculator,         galculator,                       galculator
 Gparted,            gksudo gparted,                   gparted
+Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
@@ -71,13 +71,16 @@ Xkill,               xkill,                                         edit-delete
 /usr/share,               gksudo thunar /usr/share,               folder-documents
 
 ^tag(configuration)
-Grub Background,     x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
-Hotcorners Conf,     geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        applications-engineering
-Jgmenu Conf,         geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
-Lightdm Options,     lightdm-options,                                                      lightdm-gtk-greeter-settings
-Openbox Settings,    obconf,                                                               obconf
-Power Manager,       mate-power-preferences,                                               mate-power-manager
-System Settings,     xfce4-settings-manager,                                               org.xfce.settings.manager
-Tint2 Options,       tint2-options,                                                        tint2conf
-Wallpapers,          feh-set-wallpaper,                                                    preferences-desktop-display
+Grub Background,       x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
+Hotcorners Conf,       geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        document-properties
+Jgmenu Conf,           geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
+Keybinds Conf (sxhkd), geany ~/.config/openbox/sxhkdrc-open,                                 document-properties
+Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings
+Openbox Settings,      obconf,                                                               obconf
+Power Manager,         mate-power-preferences,                                               mate-power-manager
+Random BG Conf,        geany ~/.config/random-bg.conf,                                       document-properties
+System Settings,       xfce4-settings-manager,                                               org.xfce.settings.manager
+Tint2 Options,         tint2-options,                                                        tint2conf
+Wallpapers,            feh-set-wallpaper,                                                    preferences-desktop-display
+Wallpapers Conf,       geany ~/.config/wallpapers.conf,                                      document-properties
 ^tag(apps)
