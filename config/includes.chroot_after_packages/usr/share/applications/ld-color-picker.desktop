@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Color Chooser
+Name=Color Picker
 Exec=yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt
 StartupNotify=false
 Terminal=false
