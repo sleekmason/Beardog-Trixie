@@ -36,7 +36,7 @@ Ps_mem,             x-terminal-emulator -T "Ps_mem - Memory Profiling Tool" -e b
 ^tag(utilities)
 System Info,^checkout(sysinfo),folder
 Beardog Installers, ld-installers,                    preferences-system-search
-Color Chooser,      yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
+Color Picker,       yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
 Font Viewer,        yad --font,                       preferences-desktop-font
 Gparted,            gksudo gparted,                   gparted
 Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
