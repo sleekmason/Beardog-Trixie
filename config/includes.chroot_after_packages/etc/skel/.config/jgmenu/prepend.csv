@@ -71,6 +71,7 @@ Xkill,               xkill,                                         edit-delete
 /usr/share,               gksudo thunar /usr/share,               folder-documents
 
 ^tag(configuration)
+Display Settings,      xfce4-display-settings,                                               org.xfce.settings.display
 Grub Background,       x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
 Hotcorners Conf,       geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        document-properties
 Jgmenu Conf,           geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
