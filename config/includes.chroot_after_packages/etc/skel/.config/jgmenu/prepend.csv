@@ -39,8 +39,8 @@ Beardog Installers, ld-installers,                    preferences-system-search
 Color Picker,       yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt,                     org.xfce.settings.color
 Font Viewer,        yad --font,                       preferences-desktop-font
 Gparted,            gksudo gparted,                   gparted
-Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
+Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
 Upgrade Options,    update-options,                   system-software-update

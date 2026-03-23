@@ -30,8 +30,8 @@ sudo sed -i '108a greeter-session=slick-greeter' "/etc/lightdm/lightdm.conf"
 # sudo sed -i '/Font Sizes/a greeter-session=slick-greeter' "/etc/lightdm/lightdm.conf"
 
 # Add lightdm options to configuration menu
-sed -i '/Lightdm,             lightdm-options,.*/d' ~/.config/jgmenu/prepend.csv
-sed -i '/^Keybinds/a Lightdm,             lightdm-options,                                                      lightdm-gtk-greeter-settings' ~/.config/jgmenu/prepend.csv
+sed -i '/Lightdm Options.*/d' ~/.config/jgmenu/prepend.csv
+sed -i '/^Keybinds Conf/a Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings' ~/.config/jgmenu/prepend.csv
 
 ## Comment startx
 sed -i 's/^exec startx/#exec startx/g' "$HOME/.profile"

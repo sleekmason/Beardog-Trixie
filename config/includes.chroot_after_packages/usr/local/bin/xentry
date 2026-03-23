@@ -106,8 +106,8 @@ _add_lightdm() {
                 sed -i '/greeter-session=.*/d' "/etc/lightdm/lightdm.conf"
                 sed -i '108a greeter-session=lightdm-gtk-greeter' "/etc/lightdm/lightdm.conf"
                 ## Menu additions
-                sed -i '/Lightdm,             lightdm-options,.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-                sed -i '/^Keybinds/a Lightdm,             lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+                sed -i '/Lightdm Options.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+                sed -i '/^Keybinds Conf/a Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
                  if [[ $(command -v lightdm) ]]; then
                    if grep -Fxq 'exec "$session"' /home/"${SUDO_USER}"/.xsessionrc; then
                    sed -i 's/^exec "$session"/#exec "$session"/' /home/"${SUDO_USER}"/.xsessionrc
@@ -129,8 +129,8 @@ _add_slick() {
                 sed -i '/greeter-session=.*/d' "/etc/lightdm/lightdm.conf"
                 sed -i '108a greeter-session=slick-greeter' "/etc/lightdm/lightdm.conf"
                 ## Menu additions
-                sed -i '/Lightdm,             lightdm-options,.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-                sed -i '/^Keybinds/a Lightdm,             lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+                sed -i '/Lightdm Options.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+                sed -i '/^Keybinds Conf/a Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
                  if [[ $(command -v lightdm) ]]; then
                    if grep -Fxq 'exec "$session"' /home/"${SUDO_USER}"/.xsessionrc; then
                    sed -i 's/^exec "$session"/#exec "$session"/' /home/"${SUDO_USER}"/.xsessionrc
@@ -216,8 +216,8 @@ _add_themes() {
           rm -fr "/tmp/themechooser"
           rm -fr "/tmp/themechooser-trixie.zip"
           chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/lilidog-themes
-          sed -i '/Theme Chooser,              ld-themes.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-          sed -i '/^Tint2 On\/Off/i Theme Chooser,              ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
+          sed -i '/Theme Chooser.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
+          sed -i '/^Tint2 On\/Off/i Theme Chooser,       ld-themes,                                     org.xfce.settings.manager' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv ;}
         see_it
         no_see
         run_it
