@@ -7,7 +7,7 @@ yad --title "Tint2 Options" --escape-ok \
 --window-icon=applications-utilities \
     --form \
     --field="":LBL "" \
-    --field="                      12H/24H!appointment-new":FBTN "tint2-12to24" \
+    --field="                      12H/24H!preferences-desktop":FBTN "tint2-12to24" \
     --field="                      Autohide!pda":FBTN "tint2-autohide" \
     --field="                   Autoshrink!object-flip-horizontal":FBTN "tint2-shrink" \
     --field="                       Bar Size!object-flip-vertical":FBTN "tint2-iconsize" \
