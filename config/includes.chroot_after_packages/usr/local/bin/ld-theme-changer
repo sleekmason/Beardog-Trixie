@@ -7,7 +7,7 @@ yad --title "Theming Options" --form --center --borders=14 \
     --form --columns=2 \
     --field="                   Conky!conky-logomark-violet":FBTN "theme-options-conky" \
     --field="              Font Size!font-x-generic":FBTN "fontsize-changer" \
-    --field="                Grub BG!org.xfce.settings.editor":FBTN "x-terminal-emulator -T 'Grub Background Changer' -e bash -c 'grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1'" \
+    --field="                Grub BG!org.xfce.settings.editor":FBTN "x-terminal-emulator --title='Grub Background Changer' -e bash -c 'grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1'" \
     --field="                    Icons!preferences-other":FBTN "bash -c 'xfce4-appearance-settings & sleep 0.5; xdotool key Alt+i &'" \
     --field="                 Jgmenu!jgmenu":FBTN "jg-icon-changer" \
     --field="                LightDM!lightdm-gtk-greeter-settings":FBTN "lightdm-options" \
@@ -18,4 +18,4 @@ yad --title "Theming Options" --form --center --borders=14 \
     --field="          Tint2 Options!tint2conf":FBTN "tint2-options" \
     --field="          Transparency!preferences-desktop":FBTN "transparency-system" \
     --field="             Wallpapers!org.xfce.settings.display":FBTN "feh-set-wallpaper" \
-    --field="                Reset All!$HOME/.config/lilidog-themes/icons/paw-theme-18.png":FBTN "x-terminal-emulator -T 'Full Theme Reset' -e bash -c 'set-default-theme; echo $'\n\nPress any key to close.'; read -srn1'"
+    --field="                Reset All!$HOME/.config/lilidog-themes/icons/paw-theme-18.png":FBTN "x-terminal-emulator --title='Full Theme Reset' -e bash -c 'set-default-theme; echo $'\n\nPress any key to close.'; read -srn1'"

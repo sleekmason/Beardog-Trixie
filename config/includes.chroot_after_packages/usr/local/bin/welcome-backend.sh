@@ -7,7 +7,7 @@ if grep -q "$fs" /proc/partitions; then
 /usr/local/bin/installed-session &&
   yad --title "Welcome!" --window-icon=/usr/share/icons/ld-icons/paw-color.png \
 --width=428 --height=412 --center --escape-ok --undecorated --skip-taskbar \
---button=" Begin"!/usr/share/icons/gnome/22x22/places/debian-swirl.png!:"x-terminal-emulator -T 'Customization' -e 'sudo xentry -i'" \
+--button=" Begin"!/usr/share/icons/gnome/22x22/places/debian-swirl.png!:"x-terminal-emulator --title='Customization' -e 'sudo xentry -i'" \
 --button=" Exit!application-exit:0" \
 --text-info --justify=left --wrap < /usr/share/lilidog/welcome.txt --fontname="JetBrains Mono Light 10" \
 --fore="#DAE4E8"; sed -i '/welcome-backend.sh &/d' ~/.config/openbox/autostart; if ! grep hypervisor /proc/cpuinfo ; then sed -i '/vmrestore.*/d' ~/.config/openbox/autostart; fi; exit

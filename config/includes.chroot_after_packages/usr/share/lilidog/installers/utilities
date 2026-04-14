@@ -1,17 +1,17 @@
-Batsignal,        x-terminal-emulator -T 'Batsignal Installer' -e bash -c "batsignal-installer",                              applications-utilities
-Bluetooth,        x-terminal-emulator -T 'Bluetooth Installer' -e bash -c "bluetooth-installer",                              applications-utilities
-Brightness Tray Icon,  x-terminal-emulator -T 'Brightness And Gamma Tray Icon Installer' -e bash -c "bright-gamma-installer", applications-utilities
-Element,          x-terminal-emulator -T 'Element Installer' -e bash -c "element-installer",                                  applications-utilities
-Gnome Boxes,      x-terminal-emulator -T 'Gnome Boxes Installer' -e bash -c "gnome-boxes-installer",                          applications-utilities
-Hblock,           x-terminal-emulator -T 'Hblock Installer' -e bash -c "hblock-installer",                                    applications-utilities
-HW-Probe,         x-terminal-emulator -T 'HW-Probe Installer' -e bash -c "hw-probe-installer",                                applications-utilities
-KDEconnect,       x-terminal-emulator -T 'KDEconnect Installer' -e bash -c "kdeconnect-installer",                            applications-utilities
-LD Update Checker, x-terminal-emulator -T 'LD apt update checker installer' -e bash -c "ld-apt-update-installer",             applications-utilities
-Pcmanfm,          x-terminal-emulator -T 'Pcmanfm Installer' -e bash -c "pcmanfm-installer",                                  applications-utilities
-Penguins Eggs,    x-terminal-emulator -T 'Penguins Eggs Installer' -e bash -c "penguins-eggs-installer",                      applications-utilities
-Printer Setup,    x-terminal-emulator -T 'Printer Installer' -e bash -c "printer-installer",                                  applications-utilities
-Qemu VM,          x-terminal-emulator -T 'Qemu Installer' -e bash -c "qemu-installer",                                        applications-utilities
-Synaptic,         x-terminal-emulator -T 'Synaptic Installer' -e bash -c "synaptic-installer",                                applications-utilities
-Virtualbox,       x-terminal-emulator -T 'Virtualbox Installer' -e bash -c "virtualbox-installer-oracle",                     applications-utilities
-Xscreensaver,     x-terminal-emulator -T 'Xscreensaver Installer' -e bash -c "xscreensaver-installer",                        applications-utilities
-ZSH Shell,        x-terminal-emulator -T 'zsh Installer' -e bash -c "zsh-installer",                                          applications-utilities
+Batsignal,        x-terminal-emulator --title='Batsignal Installer' -e bash -c "batsignal-installer",                              applications-utilities
+Bluetooth,        x-terminal-emulator --title='Bluetooth Installer' -e bash -c "bluetooth-installer",                              applications-utilities
+Brightness Tray Icon,  x-terminal-emulator --title='Brightness And Gamma Tray Icon Installer' -e bash -c "bright-gamma-installer", applications-utilities
+Element,          x-terminal-emulator --title='Element Installer' -e bash -c "element-installer",                                  applications-utilities
+Gnome Boxes,      x-terminal-emulator --title='Gnome Boxes Installer' -e bash -c "gnome-boxes-installer",                          applications-utilities
+Hblock,           x-terminal-emulator --title='Hblock Installer' -e bash -c "hblock-installer",                                    applications-utilities
+HW-Probe,         x-terminal-emulator --title='HW-Probe Installer' -e bash -c "hw-probe-installer",                                applications-utilities
+KDEconnect,       x-terminal-emulator --title='KDEconnect Installer' -e bash -c "kdeconnect-installer",                            applications-utilities
+LD Update Checker, x-terminal-emulator --title='LD apt update checker installer' -e bash -c "ld-apt-update-installer",             applications-utilities
+Pcmanfm,          x-terminal-emulator --title='Pcmanfm Installer' -e bash -c "pcmanfm-installer",                                  applications-utilities
+Penguins Eggs,    x-terminal-emulator --title='Penguins Eggs Installer' -e bash -c "penguins-eggs-installer",                      applications-utilities
+Printer Setup,    x-terminal-emulator --title='Printer Installer' -e bash -c "printer-installer",                                  applications-utilities
+Qemu VM,          x-terminal-emulator --title='Qemu Installer' -e bash -c "qemu-installer",                                        applications-utilities
+Synaptic,         x-terminal-emulator --title='Synaptic Installer' -e bash -c "synaptic-installer",                                applications-utilities
+Virtualbox,       x-terminal-emulator --title='Virtualbox Installer' -e bash -c "virtualbox-installer-oracle",                     applications-utilities
+Xscreensaver,     x-terminal-emulator --title='Xscreensaver Installer' -e bash -c "xscreensaver-installer",                        applications-utilities
+ZSH Shell,        x-terminal-emulator --title='zsh Installer' -e bash -c "zsh-installer",                                          applications-utilities

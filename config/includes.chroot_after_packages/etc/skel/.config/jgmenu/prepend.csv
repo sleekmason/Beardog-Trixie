@@ -26,12 +26,12 @@ Development,^checkout(development),applications-development
 Icon Browser,       yad-icon-browser,                  applications-science
 
 ^tag(sysinfo)
-Fastfetch,          x-terminal-emulator -T 'Fastfetch' -e bash -c "fastfetch; bash",  utilities-system-monitor
-Firmware Check,     x-terminal-emulator -T 'Firmware Check' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
-Htop,               x-terminal-emulator -T 'Htop' -e htop,                    htop
-HW-Probe,           x-terminal-emulator -T 'Hw-Probe' -e bash -c "hw-probe-installer; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
-Inxi Info,          x-terminal-emulator -T 'Inxi Info' -e bash -c "inxi -Fxrzm; echo $'\n\nPress any key to close'; read -srn1",   document-properties
-Ps_mem,             x-terminal-emulator -T "Ps_mem - Memory Profiling Tool" -e bash -c "sudo ps_mem; echo $'\n\nPress any key to close'; read -srn1", disks
+Fastfetch,          x-terminal-emulator --title='Fastfetch' -e bash -c "fastfetch; bash",  utilities-system-monitor
+Firmware Check,     x-terminal-emulator --title='Firmware Check' -e bash -c "firmware-checker; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
+Htop,               x-terminal-emulator --title='Htop' -e htop,                    htop
+HW-Probe,           x-terminal-emulator --title='Hw-Probe' -e bash -c "hw-probe-installer; echo $'\n\nPress any key to close.'; read -srn1",  applications-system
+Inxi Info,          x-terminal-emulator --title='Inxi Info' -e bash -c "inxi -Fxrzm; echo $'\n\nPress any key to close'; read -srn1",   document-properties
+Ps_mem,             x-terminal-emulator --title="Ps_mem - Memory Profiling Tool" -e bash -c "sudo ps_mem; echo $'\n\nPress any key to close'; read -srn1", disks
 
 ^tag(utilities)
 System Info,^checkout(sysinfo),folder
@@ -40,12 +40,12 @@ Color Picker,       yad --color --gtk-palette --palette=/usr/share/X11/rgb.txt, 
 Font Viewer,        yad --font,                       preferences-desktop-font
 Gparted,            gksudo gparted,                   gparted
 Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-accessories
-Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
+Key Bindings,       x-terminal-emulator --title='Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
 Upgrade Options,    update-options,                   system-software-update
 USBImager,          /usr/local/bin/usbimager,         usbimager
-Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
+Welcome Setup,      x-terminal-emulator --title="Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
 
 ^tag(toggles)
 BG Daemon,           toggle-wallpaper-random,                       org.xfce.settings.manager
@@ -72,7 +72,7 @@ Xkill,               xkill,                                         edit-delete
 
 ^tag(configuration)
 Display Settings,      xfce4-display-settings,                                               org.xfce.settings.display
-Grub Background,       x-terminal-emulator -T 'Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
+Grub Background,       x-terminal-emulator --title='Grub Background Changer' -e bash -c "grub-bg-changer; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-wallpaper
 Hotcorners Conf,       geany ~/.config/ld-hotcorners/ld-hotcornersrc,                        document-properties
 Jgmenu Conf,           geany ~/.config/jgmenu/README & thunar ~/.config/jgmenu,              document-properties
 Keybinds Conf (sxhkd), geany ~/.config/openbox/sxhkdrc-open,                                 document-properties

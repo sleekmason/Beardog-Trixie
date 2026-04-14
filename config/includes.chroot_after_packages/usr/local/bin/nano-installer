@@ -38,7 +38,7 @@ echo "Encoding=UTF-8"
 echo "Version=1.0"
 echo "Type=Application"
 echo "NoDisplay=false"
-echo "Exec=x-terminal-emulator -T 'Nano' -e nano %f"
+echo "Exec=x-terminal-emulator --title='Nano' -e nano %f"
 echo "Name=Nano"
 echo "Comment=Nano terminal text editor"
 echo "Icon=utilities-terminal"
@@ -113,7 +113,7 @@ echo "# nano editor."
 echo "shift + mod4 + n"
 notify-send --urgency low "Use 'shift + super + n' to start nano in Openbox"
    fi
-echo "	x-terminal-emulator -T 'Nano' -e nano";} | tee -a "$HOME/.config/openbox/sxhkdrc-open" > /dev/null
+echo "	x-terminal-emulator --title='Nano' -e nano";} | tee -a "$HOME/.config/openbox/sxhkdrc-open" > /dev/null
 pkill -USR1 -x sxhkd
    fi
 fi
@@ -137,7 +137,7 @@ echo "# nano editor."
 echo "shift + mod4 + n"
 sleep 2; notify-send -t 8000 --urgency low "Use 'shift + super + n' to start nano in DKWM"
    fi
-echo "	x-terminal-emulator -T 'Nano' -e nano";} | tee -a "$HOME/.config/dk/sxhkdrc" > /dev/null
+echo "	x-terminal-emulator --title='Nano' -e nano";} | tee -a "$HOME/.config/dk/sxhkdrc" > /dev/null
 pkill -USR1 -x sxhkd
    fi
 fi
@@ -161,15 +161,15 @@ echo "# nano editor."
 echo "shift + mod4 + n"
 notify-send -t 8000 --urgency low "Use 'shift + super + n' to start nano"
    fi
-echo "	x-terminal-emulator -T 'Nano' -e nano";} | tee -a "$HOME/.config/sxhkd/sxhkdrc" > /dev/null
+echo "	x-terminal-emulator --title='Nano' -e nano";} | tee -a "$HOME/.config/sxhkd/sxhkdrc" > /dev/null
 pkill -USR1 -x sxhkd
    fi
 fi
 
 ## Add nano to jgmenu if in Lilidog
 if [ -e "/usr/share/lilidog" ]; then
-sed -i "/Nano,          x-terminal-emulator -T 'Nano' -e bash -c nano, utilities-terminal/d" ~/.config/jgmenu/prepend.csv &&
-sed -i "/Root Folders,^checkout(rootfiles),folder/a Nano,          x-terminal-emulator -T 'Nano' -e bash -c nano, utilities-terminal" ~/.config/jgmenu/prepend.csv
+sed -i "/Nano,          x-terminal-emulator --title='Nano' -e bash -c nano, utilities-terminal/d" ~/.config/jgmenu/prepend.csv &&
+sed -i "/Root Folders,^checkout(rootfiles),folder/a Nano,          x-terminal-emulator --title='Nano' -e bash -c nano, utilities-terminal" ~/.config/jgmenu/prepend.csv
 fi
 echo "   [0;32m-----------------------------------------------------------[0m"
 echo ""

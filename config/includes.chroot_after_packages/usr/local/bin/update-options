@@ -8,4 +8,4 @@ yad --title "Options" --escape-ok \
     --field="    Check For Upgrades!system-software-update":FBTN "tint2-apt-update-check" \
     --field="       Beardog Installers!applications-other":FBTN "ld-installers" \
     --field="                     Synaptic!synaptic":FBTN "gksudo synaptic" \
-    --field="          System Updater!applications-system":FBTN "x-terminal-emulator -T 'Apt Update' -e 'sudo xupdate -i'"
+    --field="          System Updater!applications-system":FBTN "x-terminal-emulator --title='Apt Update' -e 'sudo xupdate -i'"

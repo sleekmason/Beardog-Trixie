@@ -8,4 +8,4 @@ Transparency,               transparency-system,                      pda
 Upgrade Options,            update-options,                           system-software-update
 Wallpapers,                 feh-set-wallpaper,                        preferences-desktop-wallpaper
 ^sep()
-Reset Theming,              xfce4-terminal --geometry=68x20+100-80 -T 'Reset Theming' -e 'set-default-theme',  applications-other
+Reset Theming,              xfce4-terminal --geometry=68x20+100-80 --title='Reset Theming' -e 'set-default-theme',  applications-other
