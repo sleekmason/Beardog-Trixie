@@ -1,0 +1,14 @@
+#!/bin/bash
+# Apply GTK4 handling after xfce4-appearance-settings closes
+/usr/bin/xfce4-appearance-settings
+THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
+GTK4_SRC="/usr/share/themes/${THEME}/gtk-4.0"
+GTK4_DEST="$HOME/.config/gtk-4.0"
+mkdir -p "$GTK4_DEST"
+if [[ "$THEME" == "Adwaita" || "$THEME" == "Adwaita-dark" ]]; then
+    rm -rf "$GTK4_DEST"/*
+elif [[ -d "$GTK4_SRC" ]]; then
+    rm -rf "$GTK4_DEST"/*
+    [[ -f "$GTK4_SRC/gtk.css" ]] && ln -sf "$GTK4_SRC/gtk.css" "$GTK4_DEST/gtk.css"
+    [[ -d "$GTK4_SRC/assets" ]]  && ln -sf "$GTK4_SRC/assets"  "$GTK4_DEST/assets"
+fi
