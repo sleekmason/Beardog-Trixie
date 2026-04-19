@@ -1,2 +1,2 @@
-Games Pack,       x-terminal-emulator --title='Games Installer' -e bash -c "games-installer",                     applications-games
-Nexuiz,           x-terminal-emulator --title='Nexuiz Installer' -e bash -c "nexuiz-installer",                   applications-games
+Games Pack,       x-terminal-emulator -T 'Games Installer' -e bash -c "games-installer",                     applications-games
+Nexuiz,           x-terminal-emulator -T 'Nexuiz Installer' -e bash -c "nexuiz-installer",                   applications-games

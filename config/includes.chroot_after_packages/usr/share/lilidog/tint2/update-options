@@ -1,4 +1,4 @@
 Beardog Installers, ld-installers,                                             applications-other
 Check For Upgrades, tint2-apt-update-check,                                    system-software-update
 Synaptic,           gksudo synaptic,                                           synaptic
-System Update, x-terminal-emulator --title='Apt Update' -e 'sudo xupdate -i',       applications-system
+System Update, x-terminal-emulator -T 'Apt Update' -e 'sudo xupdate -i',       applications-system

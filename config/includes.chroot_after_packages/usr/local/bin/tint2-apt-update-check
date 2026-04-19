@@ -59,14 +59,14 @@ show-upgrades(){
     [[ -p "$PIPE" ]] || { echo "${0}: there is no fifo $PIPE" >&2 ; exit 1;}
     exec 3<> "$PIPE"
     if [ -x /usr/bin/nala ]; then
-    x-terminal-emulator --title='Available Package Upgrades' -e sh -c 'printf "%s\n" "Available upgrades:"; \
+    x-terminal-emulator -T 'Available Package Upgrades' -e sh -c 'printf "%s\n" "Available upgrades:"; \
     apt list --upgradeable; printf "\n%s\n"  "Held packages:"; \
     apt-mark showhold;  echo "... Done"; echo ""; echo \
     "Please enter your password to continue to upgrade your system."; echo \
     "Or close this window to quit now.  < ctrl +c >"; echo ""; \
     sudo nala upgrade; bash;'
     else
-    x-terminal-emulator --title='Available Package Upgrades' -e sh -c 'printf "%s\n" "Available upgrades:"; \
+    x-terminal-emulator -T 'Available Package Upgrades' -e sh -c 'printf "%s\n" "Available upgrades:"; \
     apt list --upgradeable; printf "\n%s\n"  "Held packages:"; \
     apt-mark showhold;  echo "... Done"; echo ""; echo \
     "Please enter your password to continue to upgrade your system."; echo \
