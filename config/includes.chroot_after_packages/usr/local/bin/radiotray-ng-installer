@@ -3,20 +3,20 @@ echo ""
 read -p "   [0;33mRadiotray-NG Installer[0m
 
    Radiotray-NG: An Internet radio player for Linux.
-   
+
    [0;34mhttps://github.com/ebruck/radiotray-ng[0m
-   
+
    [0;32m----------------------------------------------------------
-   
+
    Please press enter to install Radiotray-NG.
-   
+
    ----------------------------------------------------------[0m
-      
+
    Or close this terminal window to quit the install." ;
    if : >/dev/tcp/8.8.8.8/53; then
 echo ""
 cd /tmp || exit &&
-rm /tmp/radiotray*
+rm -f /tmp/radiotray*
 wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/radiotray-ng_0.2.10.1~ld_amd64.deb --show-progress &&
 sudo apt update && sudo apt install -y /tmp/radiotray-ng_0.2.10.1~ld_amd64.deb
 sed -i '/Radiotray-NG,       radiotray-ng,                      audio-headphones/d' ~/.config/jgmenu/prepend.csv &&
