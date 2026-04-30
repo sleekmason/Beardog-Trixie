@@ -67,6 +67,10 @@ menu=(
 	" Gnome Boxes|apt-get install --install-recommends gnome-boxes dnsmasq -y"
 	" Qemu VM|apt-get install --install-recommends qemu-system-x86 virt-manager -y"
 	" Xscreensaver|apt-get install --install-recommends xscreensaver xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra -y"
+    " Alacritty Terminal|apt-get install alacritty -y"
+    " Guake Terminal|apt-get install guake -y"
+    " Kitty Terminal|apt-get install kitty kitty-doc -y"
+    " Lxterminal|apt-get install lxterminal -y"
 	 )
 
 yad_opts=( --form
