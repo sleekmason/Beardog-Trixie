@@ -1,0 +1,192 @@
+#!/bin/bash
+# Login options
+# Made by sleekmason 12 Aug 2024
+set -e
+
+use_slickgreeter(){
+set -e
+if ! [[ $(command -v slick-greeter) ]]; then
+notify-send -i "user-info" --urgency low "Please install Slick Greeter to continue"
+x-terminal-emulator -T 'Lightdm Slick Greeter Installer' -e bash -c "slick-greeter-installer"
+exit
+else
+CMD="systemctl disable ly@tty1.service || true; sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf; sed -i '108agreeter-session=slick-greeter' /etc/lightdm/lightdm.conf"
+if [ "$(readlink /etc/systemd/system/display-manager.service)" != "/usr/lib/systemd/system/lightdm.service" ] && \
+   [ "$(readlink /etc/systemd/system/display-manager.service)" != "/lib/systemd/system/lightdm.service" ]; then
+    CMD="systemctl enable --force lightdm.service; $CMD"
+fi
+if grep -E "greeter-session=slick-greeter" /etc/lightdm/lightdm.conf; then
+notify-send -i "user-info" --urgency low "Lightdm set to Slick Greeter"
+exit
+else
+notify-send -i "user-info" --urgency low "Enter password to change to Slick Greeter"
+pkexec sh -c "$CMD"
+notify-send -i "user-info" --urgency low "Lightdm greeter changed to Slick Greeter"
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+fi
+fi
+}
+
+use_defaultgreeter(){
+set -e
+if ! [[ $(command -v lightdm-gtk-greeter-settings) ]]; then
+notify-send -i "user-info" --urgency low "Please install the GTK greeter to continue"
+x-terminal-emulator -T 'Lightdm Installer' -e bash -c "lightdm-installer"
+exit
+else
+CMD="systemctl disable ly@tty1.service || true; sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf; sed -i '108agreeter-session=lightdm-gtk-greeter' /etc/lightdm/lightdm.conf"
+if [ "$(readlink /etc/systemd/system/display-manager.service)" != "/usr/lib/systemd/system/lightdm.service" ] && \
+   [ "$(readlink /etc/systemd/system/display-manager.service)" != "/lib/systemd/system/lightdm.service" ]; then
+    CMD="systemctl enable --force lightdm.service; $CMD"
+fi
+if grep -E 'greeter-session=lightdm-gtk-greeter|greeter-session=lightdm-greeter' "/etc/lightdm/lightdm.conf"; then
+notify-send -i "user-info" --urgency low "Lightdm set to GTK default greeter"
+exit
+else
+notify-send -i "user-info" --urgency low "Enter password to change to default greeter"
+pkexec sh -c "$CMD"
+notify-send -i "user-info" --urgency low "Lightdm greeter changed to GTK default"
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+fi
+fi
+}
+
+use_ly(){
+set -e
+if ! [[ $(command -v ly) ]]; then
+notify-send -i "user-info" --urgency low "Please install Ly to continue"
+x-terminal-emulator -T 'Ly Display Manager Installer' -e bash -c "ly-installer"
+exit
+else
+CMD="systemctl enable --force ly@tty1.service; ln -sf /usr/lib/systemd/system/ly@.service /etc/systemd/system/display-manager.service; systemctl disable getty@tty1.service || true; sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf"
+if [ "$(readlink /etc/systemd/system/display-manager.service)" = "/usr/lib/systemd/system/ly@.service" ] && \
+   systemctl is-enabled ly@tty1.service &>/dev/null; then
+notify-send -i "user-info" --urgency low "Display manager set to Ly"
+exit
+fi
+notify-send -i "user-info" --urgency low "Enter password to switch to Ly"
+pkexec sh -c "$CMD"
+notify-send -i "user-info" --urgency low "Display manager changed to Ly"
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+fi
+}
+
+show_users(){
+set -e
+if ! grep -Fxq "greeter-hide-users=true" "/etc/lightdm/lightdm.conf"; then
+notify-send -i "user-info" --urgency low "Enter password to HIDE usernames at login"
+pkexec sed -i '111agreeter-hide-users=true' "/etc/lightdm/lightdm.conf"
+notify-send -i "user-info" --urgency low "Usernames will NOT be shown at login"
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+else
+notify-send -i "user-info" --urgency low "Enter password to SHOW usernames at login"	
+pkexec sed -i '/greeter-hide-users=true/d' "/etc/lightdm/lightdm.conf"
+notify-send -i "user-info" --urgency low "All usernames will be shown at login"
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+fi
+}
+
+ly_autologin(){
+if [ ! -f "/etc/ly/config.ini" ]; then
+    notify-send -i "user-info" --urgency low "Ly is not installed"
+    exit
+fi
+CURRENT_USER=$(grep "^auto_login_user =" /etc/ly/config.ini | cut -d'=' -f2 | tr -d ' ')
+CURRENT_SESSION=$(grep "^auto_login_session =" /etc/ly/config.ini | cut -d'=' -f2 | tr -d ' ')
+if [ -n "$CURRENT_USER" ] && [ "$CURRENT_USER" != "null" ]; then
+    notify-send -i "user-info" --urgency low "Current Ly Auto Login: $CURRENT_USER / $CURRENT_SESSION"
+else
+    notify-send -i "info" --urgency low "No current Ly Auto Login user"
+fi
+USERS=$(cut -d: -f1,3 /etc/passwd | grep -E ':[0-9]{4}$' | cut -d: -f1 | paste -s -d!)
+SESSIONS=$(ls /usr/share/wayland-sessions/ /usr/share/xsessions/ 2>/dev/null | grep '\.desktop$' | sed 's/\.desktop$//' | grep -v 'lightdm-xsession' | sort -u | paste -s -d!)
+TMPFILE=$(mktemp)
+yad --title="Ly Auto Login" \
+    --window-icon="user-info" \
+    --center \
+    --borders=8 \
+    --form \
+    --geometry=360x240-840+400 \
+    --text="Select user and session for Auto Login\n" \
+    --field="Auto Login user: :CB" $USERS \
+    --field="Auto Login session: :CB" $SESSIONS \
+    --field="Clear autologin:CHK" false \
+    --button="Cancel!gtk-delete:252" \
+    --button="Set!gtk-ok:2" \
+    > "$TMPFILE" 2>/dev/null
+RET=$?
+RESULT=$(cat "$TMPFILE")
+rm -f "$TMPFILE"
+if [[ $RET == 252 ]]; then
+    exit 0
+fi
+CLEAR=$(echo "$RESULT" | cut -d'|' -f3)
+if [[ "$CLEAR" == "TRUE" ]]; then
+    LOGIN="null"
+    SESSION="null"
+    pkexec sh -c "sed -i 's/^auto_login_user =.*/auto_login_user = $LOGIN/' /etc/ly/config.ini; sed -i 's/^auto_login_session =.*/auto_login_session = $SESSION/' /etc/ly/config.ini"
+    notify-send -i "user-info" --urgency low "Ly Auto Login has been removed"
+else
+    LOGIN=$(echo "$RESULT" | cut -d'|' -f1 | tr -d '|\n\r ')
+    SESSION=$(echo "$RESULT" | cut -d'|' -f2 | tr -d '|\n\r ')
+    pkexec sh -c "sed -i 's/^auto_login_user =.*/auto_login_user = $LOGIN/' /etc/ly/config.ini; sed -i 's/^auto_login_session =.*/auto_login_session = $SESSION/' /etc/ly/config.ini"
+    notify-send -i "user-info" --urgency low "Ly Auto Login enabled for $LOGIN / $SESSION"
+fi
+notify-send -i "info" --urgency low "REBOOT for changes to take effect"
+}
+
+default_lightdm_settings(){
+if ! [[ $(command -v lightdm-gtk-greeter-settings) ]]; then
+notify-send -i "user-info" --urgency low "Please install the GTK greeter to continue"
+x-terminal-emulator -T 'Lightdm Installer' -e bash -c "lightdm-installer"
+else
+pkexec lightdm-gtk-greeter-settings
+fi
+}
+
+slick_lightdm_settings(){
+set -e
+if ! [[ $(command -v slick-greeter) ]]; then
+notify-send -i "user-info" --urgency low "Please install Slick Greeter to continue"
+x-terminal-emulator -T 'Lightdm Slick Greeter Installer' -e bash -c "slick-greeter-installer"
+else
+pkexec lightdm-settings
+fi
+}
+ 
+ly_config(){
+EDITOR=$(command -v mousepad || command -v geany || command -v pluma || command -v gedit)
+if [ -n "$EDITOR" ]; then
+    gksudo "$EDITOR" /etc/ly/config.ini 2>/dev/null
+fi
+}
+
+export -f "use_slickgreeter"
+export -f "use_defaultgreeter"
+export -f "use_ly"
+export -f "ly_config"
+export -f "show_users"
+export -f "ly_autologin"
+export -f "default_lightdm_settings"
+export -f "slick_lightdm_settings"
+
+yad --title "Login Options" \
+--form --center --width=280 --height=510 --borders=12 \
+--text="Login Options\n" \
+--text-align=center \
+--buttons-layout=end \
+--window-icon=user-info \
+    --form \
+    --field="      LightDM GTK Default!org.xfce.settings.manager":FBTN "bash -c use_defaultgreeter" \
+    --field="     LightDM Slick Greeter!org.xfce.settings.manager":FBTN "bash -c use_slickgreeter" \
+    --field="         Ly Display Manager!org.xfce.settings.manager":FBTN "bash -c use_ly" \
+    --field="":LBL "" \
+    --field="":LBL "" \
+    --field="        LightDM Hide Users!config-users":FBTN "bash -c show_users" \
+    --field="        LightDM Auto Login!user-info":FBTN "bash -c lightdm-autologin" \
+    --field="                   Ly Auto Login!user-info":FBTN "bash -c ly_autologin" \
+    --field="":LBL "" \
+    --field="":LBL "" \
+    --field="       GTK Default Settings!lightdm-settings":FBTN "bash -c default_lightdm_settings" \
+    --field="      Slick Greeter Settings!lightdm-settings":FBTN "bash -c slick_lightdm_settings" \
+    --field="          Ly Display Settings!preferences-desktop":FBTN "bash -c ly_config"

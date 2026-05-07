@@ -12,6 +12,7 @@ Lemonbar Panel,   x-terminal-emulator -T 'Lemonbar Installer' -e bash -c "lemonb
 Lightdm Default,  x-terminal-emulator -T 'Lightdm Installer' -e bash -c "lightdm-installer",                      applications-utilities
 Lightdm Slick,    x-terminal-emulator -T 'Lightdm Slick Greeter Installer' -e bash -c "slick-greeter-installer",  applications-utilities
 Live-build Apps,  x-terminal-emulator -T 'Live-build Apps Installer' -e bash -c "live-build-apps-installer",      applications-utilities
+Ly Login,         x-terminal-emulator -T 'Ly Display Manager Installer' -e bash -c "ly-installer",                applications-utilities
 Polybar Panel,    x-terminal-emulator -T 'Polybar Installer' -e bash -c "polybar-installer",                      applications-utilities
 Printer Setup,    x-terminal-emulator -T 'Printer Installer' -e bash -c "printer-installer",                      applications-utilities
 Snap Store,       x-terminal-emulator -T 'Snap Installer' -e bash -c "snap-installer",                            applications-utilities

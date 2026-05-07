@@ -99,15 +99,14 @@ _update() {
 }
 
 _add_lightdm() {
-      _msg="Add lightdm? (choose 'n' if wanting slick-greeter instead.)"
+      _msg="Add lightdm? (change through Login Options in the menu)"
       do_it() { apt-get update && apt-get install -y lightdm lightdm-gtk-greeter-settings &&
+		        sudo systemctl disable ly@tty1.service 2>/dev/null || true
+                sudo systemctl enable --force lightdm.service
 		        cp -rf /usr/share/lilidog/extras/lightdm/ /usr/share
 		        ## Toggle to lightdm-greeter
                 sed -i '/greeter-session=.*/d' "/etc/lightdm/lightdm.conf"
                 sed -i '108a greeter-session=lightdm-gtk-greeter' "/etc/lightdm/lightdm.conf"
-                ## Menu additions
-                sed -i '/Lightdm Options.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-                sed -i '/^Keybinds Conf/a Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
                  if [[ $(command -v lightdm) ]]; then
                    if grep -Fxq 'exec "$session"' /home/"${SUDO_USER}"/.xsessionrc; then
                    sed -i 's/^exec "$session"/#exec "$session"/' /home/"${SUDO_USER}"/.xsessionrc
@@ -121,16 +120,15 @@ _add_lightdm() {
 }
 
 _add_slick() {
-      _msg="Add and use lightdm slick-greeter?" 
-      do_it() { apt-get update && apt-get install -y lightdm lightdm-settings slick-greeter &&
+      _msg="Add lightdm slick-greeter? (change through Login Options in the menu)"
+      do_it() { apt-get update && apt-get install -y lightdm lightdm-settings slick-greeter
+		        sudo systemctl disable ly@tty1.service 2>/dev/null || true
+                sudo systemctl enable --force lightdm.service
 		        cp -f /usr/share/lilidog/extras/slick-lightdm/slick-greeter.conf /etc/lightdm
                 cp -f /usr/share/lilidog/extras/slick-lightdm/50-slick-greeter.conf /usr/share/lightdm/lightdm.conf.d
 		        ## Toggle to lightdm-greeter
                 sed -i '/greeter-session=.*/d' "/etc/lightdm/lightdm.conf"
                 sed -i '108a greeter-session=slick-greeter' "/etc/lightdm/lightdm.conf"
-                ## Menu additions
-                sed -i '/Lightdm Options.*/d' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
-                sed -i '/^Keybinds Conf/a Lightdm Options,       lightdm-options,                                                      lightdm-gtk-greeter-settings' /home/"${SUDO_USER}"/.config/jgmenu/prepend.csv
                  if [[ $(command -v lightdm) ]]; then
                    if grep -Fxq 'exec "$session"' /home/"${SUDO_USER}"/.xsessionrc; then
                    sed -i 's/^exec "$session"/#exec "$session"/' /home/"${SUDO_USER}"/.xsessionrc
@@ -138,6 +136,27 @@ _add_slick() {
                  fi
 		        sed -i 's/^exec startx/#exec startx/g' /home/"${SUDO_USER}"/.profile ;}
       
+        see_it
+        no_see
+        run_it
+}
+
+_add_ly() {
+      _msg="Add Ly Display Manager? (change through Login Options in the menu)"
+      do_it() {
+                wget --prefer-family=IPv4 -q --show-progress \
+                    https://raw.githubusercontent.com/sleekmason/packages/master/ly_1.3.2-bd_amd64.deb \
+                    -O /tmp/ly_1.3.2-bd_amd64.deb
+                apt-get update && apt-get install -y /tmp/ly_1.3.2-bd_amd64.deb
+                systemctl enable --force ly@tty1.service
+                ln -sf /usr/lib/systemd/system/ly@.service /etc/systemd/system/display-manager.service
+               if [[ $(command -v ly) ]]; then
+                   if grep -Fxq 'exec "$session"' /home/"${SUDO_USER}"/.xsessionrc; then
+                   sed -i 's/^exec "$session"/#exec "$session"/' /home/"${SUDO_USER}"/.xsessionrc
+                   fi
+                   sed -i 's/^exec startx/#exec startx/g' /home/"${SUDO_USER}"/.profile
+                fi ;}
+
         see_it
         no_see
         run_it
@@ -269,7 +288,7 @@ _firmware() {
 }
 
 _reboot() {
-      _msg="Reboot? - (After Lightdm installation)"
+      _msg="Reboot? - After display manager installation (LightDM, Ly)"
       do_it() { sed -i '/welcome-backend.sh.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
 		  if ! grep hypervisor /proc/cpuinfo ; then
           sed -i '/vmrestore.*/d' /home/"${SUDO_USER}"/.config/openbox/autostart
@@ -287,6 +306,7 @@ _remove_packages
 _add_backports
 _add_lightdm
 _add_slick
+_add_ly
 _add_themes
 _add_conky
 _osprober
@@ -303,6 +323,7 @@ _remove_packages
 _add_backports
 _add_lightdm
 _add_slick
+_add_ly
 _add_themes
 _add_conky
 _firmware
