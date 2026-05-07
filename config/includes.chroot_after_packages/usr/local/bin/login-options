@@ -1,6 +1,6 @@
 #!/bin/bash
 # Login options
-# Made by sleekmason 12 Aug 2024
+# Made by sleekmason 06 May 2026
 set -e
 
 use_slickgreeter(){
@@ -155,7 +155,7 @@ fi
 }
  
 ly_config(){
-EDITOR=$(command -v mousepad || command -v geany || command -v pluma || command -v gedit)
+EDITOR=$(command -v geany || command -v mousepad || command -v pluma || command -v gedit)
 if [ -n "$EDITOR" ]; then
     gksudo "$EDITOR" /etc/ly/config.ini 2>/dev/null
 fi
