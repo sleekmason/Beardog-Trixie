@@ -7,7 +7,7 @@ use_slickgreeter(){
 set -e
 if ! [[ $(command -v slick-greeter) ]]; then
 notify-send -i "user-info" --urgency low "Please install Slick Greeter to continue"
-x-terminal-emulator -T 'Lightdm Slick Greeter Installer' -e bash -c "slick-greeter-installer"
+x-terminal-emulator -T 'LightDM Slick Greeter Installer' -e bash -c "slick-greeter-installer"
 exit
 else
 CMD="systemctl disable ly@tty1.service || true; sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf; sed -i '108agreeter-session=slick-greeter' /etc/lightdm/lightdm.conf"
@@ -16,12 +16,12 @@ if [ "$(readlink /etc/systemd/system/display-manager.service)" != "/usr/lib/syst
     CMD="systemctl enable --force lightdm.service; $CMD"
 fi
 if grep -E "greeter-session=slick-greeter" /etc/lightdm/lightdm.conf; then
-notify-send -i "user-info" --urgency low "Lightdm set to Slick Greeter"
+notify-send -i "user-info" --urgency low "Display manager currently set to Slick Greeter"
 exit
 else
-notify-send -i "user-info" --urgency low "Enter password to change to Slick Greeter"
+notify-send -i "user-info" --urgency low "Enter password to switch to Slick Greeter"
 pkexec sh -c "$CMD"
-notify-send -i "user-info" --urgency low "Lightdm greeter changed to Slick Greeter"
+notify-send -i "user-info" --urgency low "Display manager changed to Slick Greeter"
 notify-send -i "info" --urgency low "REBOOT for changes to take effect"
 fi
 fi
@@ -30,7 +30,7 @@ fi
 use_defaultgreeter(){
 set -e
 if ! [[ $(command -v lightdm-gtk-greeter-settings) ]]; then
-notify-send -i "user-info" --urgency low "Please install the GTK greeter to continue"
+notify-send -i "user-info" --urgency low "Please install the GTK default greeter to continue"
 x-terminal-emulator -T 'Lightdm Installer' -e bash -c "lightdm-installer"
 exit
 else
@@ -40,12 +40,12 @@ if [ "$(readlink /etc/systemd/system/display-manager.service)" != "/usr/lib/syst
     CMD="systemctl enable --force lightdm.service; $CMD"
 fi
 if grep -E 'greeter-session=lightdm-gtk-greeter|greeter-session=lightdm-greeter' "/etc/lightdm/lightdm.conf"; then
-notify-send -i "user-info" --urgency low "Lightdm set to GTK default greeter"
+notify-send -i "user-info" --urgency low "Display manager currently set to GTK default"
 exit
 else
-notify-send -i "user-info" --urgency low "Enter password to change to default greeter"
+notify-send -i "user-info" --urgency low "Enter password to switch to the GTK default greeter"
 pkexec sh -c "$CMD"
-notify-send -i "user-info" --urgency low "Lightdm greeter changed to GTK default"
+notify-send -i "user-info" --urgency low "Display manager changed to GTK default"
 notify-send -i "info" --urgency low "REBOOT for changes to take effect"
 fi
 fi
@@ -61,7 +61,7 @@ else
 CMD="systemctl enable --force ly@tty1.service; ln -sf /usr/lib/systemd/system/ly@.service /etc/systemd/system/display-manager.service; systemctl disable getty@tty1.service || true; sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf"
 if [ "$(readlink /etc/systemd/system/display-manager.service)" = "/usr/lib/systemd/system/ly@.service" ] && \
    systemctl is-enabled ly@tty1.service &>/dev/null; then
-notify-send -i "user-info" --urgency low "Display manager set to Ly"
+notify-send -i "user-info" --urgency low "Display manager currently set to Ly"
 exit
 fi
 notify-send -i "user-info" --urgency low "Enter password to switch to Ly"
