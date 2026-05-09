@@ -30,6 +30,7 @@ sudo apt-get update
 sudo apt-get install -y "$DEB" || exit 1
 sudo systemctl enable --force ly@tty1.service
 sudo ln -sf /usr/lib/systemd/system/ly@.service /etc/systemd/system/display-manager.service || true
+sudo sed -i '/greeter-session=.*/d' /etc/lightdm/lightdm.conf || true
 echo ""
 echo " [0;32m-----------------------------------------[0m"
 echo ""
