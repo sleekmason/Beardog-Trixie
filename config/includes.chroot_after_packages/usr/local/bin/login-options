@@ -171,22 +171,22 @@ export -f "default_lightdm_settings"
 export -f "slick_lightdm_settings"
 
 yad --title "Login Options" \
---form --center --width=280 --height=510 --borders=12 \
+--center --width=260 --height=510 --borders=12 \
 --text="Login Options\n" \
 --text-align=center \
---buttons-layout=end \
---window-icon=user-info \
+--button=" Close!gtk-close:0" \
+--window-icon=preferences-desktop-accessibility \
     --form \
-    --field="      LightDM GTK Default!org.xfce.settings.manager":FBTN "bash -c use_defaultgreeter" \
-    --field="     LightDM Slick Greeter!org.xfce.settings.manager":FBTN "bash -c use_slickgreeter" \
-    --field="         Ly Display Manager!org.xfce.settings.manager":FBTN "bash -c use_ly" \
+    --field="      LightDM GTK Default!video-display":FBTN "bash -c use_defaultgreeter" \
+    --field="     LightDM Slick Greeter!video-display":FBTN "bash -c use_slickgreeter" \
+    --field="         Ly Display Manager!video-display":FBTN "bash -c use_ly" \
     --field="":LBL "" \
     --field="":LBL "" \
     --field="        LightDM Hide Users!config-users":FBTN "bash -c show_users" \
-    --field="        LightDM Auto Login!user-info":FBTN "bash -c lightdm-autologin" \
-    --field="                   Ly Auto Login!user-info":FBTN "bash -c ly_autologin" \
+    --field="        LightDM Auto Login!preferences-desktop-accessibility":FBTN "bash -c lightdm-autologin" \
+    --field="                   Ly Auto Login!preferences-desktop-accessibility":FBTN "bash -c ly_autologin" \
     --field="":LBL "" \
     --field="":LBL "" \
-    --field="       GTK Default Settings!lightdm-settings":FBTN "bash -c default_lightdm_settings" \
-    --field="      Slick Greeter Settings!lightdm-settings":FBTN "bash -c slick_lightdm_settings" \
+    --field="       GTK Default Settings!preferences-desktop":FBTN "bash -c default_lightdm_settings" \
+    --field="      Slick Greeter Settings!preferences-desktop":FBTN "bash -c slick_lightdm_settings" \
     --field="          Ly Display Settings!preferences-desktop":FBTN "bash -c ly_config"
