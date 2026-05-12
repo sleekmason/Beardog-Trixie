@@ -39,7 +39,10 @@ if [ "$(readlink /etc/systemd/system/display-manager.service)" != "/usr/lib/syst
    [ "$(readlink /etc/systemd/system/display-manager.service)" != "/lib/systemd/system/lightdm.service" ]; then
     CMD="systemctl enable --force lightdm.service; $CMD"
 fi
-if grep -E 'greeter-session=lightdm-gtk-greeter|greeter-session=lightdm-greeter' "/etc/lightdm/lightdm.conf"; then
+if grep -E 'greeter-session=lightdm-gtk-greeter|greeter-session=lightdm-greeter' "/etc/lightdm/lightdm.conf" || \
+   { ! grep -qE '^greeter-session=' "/etc/lightdm/lightdm.conf" && \
+   { [ "$(readlink /etc/systemd/system/display-manager.service)" = "/usr/lib/systemd/system/lightdm.service" ] || \
+     [ "$(readlink /etc/systemd/system/display-manager.service)" = "/lib/systemd/system/lightdm.service" ]; }; }; then
 notify-send -i "user-info" --urgency low "Display manager currently set to GTK default"
 exit
 else
