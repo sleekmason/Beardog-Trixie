@@ -182,14 +182,14 @@ yad --title "Login Options" \
     --form \
     --field="      LightDM GTK Default!video-display":FBTN "bash -c use_defaultgreeter" \
     --field="     LightDM Slick Greeter!video-display":FBTN "bash -c use_slickgreeter" \
-    --field="         Ly Display Manager!video-display":FBTN "bash -c use_ly" \
+    --field="        Ly Display Manager!video-display":FBTN "bash -c use_ly" \
     --field="":LBL "" \
     --field="":LBL "" \
-    --field="        LightDM Hide Users!config-users":FBTN "bash -c show_users" \
-    --field="        LightDM Auto Login!preferences-desktop-accessibility":FBTN "bash -c lightdm-autologin" \
-    --field="                   Ly Auto Login!preferences-desktop-accessibility":FBTN "bash -c ly_autologin" \
+    --field="       LightDM Hide Users!config-users":FBTN "bash -c show_users" \
+    --field="       LightDM Auto Login!preferences-desktop-accessibility":FBTN "bash -c lightdm-autologin" \
+    --field="                Ly Auto Login!preferences-desktop-accessibility":FBTN "bash -c ly_autologin" \
     --field="":LBL "" \
     --field="":LBL "" \
-    --field="       GTK Default Settings!preferences-desktop":FBTN "bash -c default_lightdm_settings" \
-    --field="      Slick Greeter Settings!preferences-desktop":FBTN "bash -c slick_lightdm_settings" \
-    --field="          Ly Display Settings!preferences-desktop":FBTN "bash -c ly_config"
+    --field="     GTK Default Settings!preferences-desktop":FBTN "bash -c default_lightdm_settings" \
+    --field="    Slick Greeter Settings!preferences-desktop":FBTN "bash -c slick_lightdm_settings" \
+    --field="        Ly Display Settings!preferences-desktop":FBTN "bash -c ly_config"
