@@ -15,6 +15,8 @@ read -p "   [0;33mLy Display Manager Installer[0m
    Then log in with your username and password and type [0;34mstartx[0m to
    login. Switch back to LightDM from Login Options in the menu.
    
+   [0;33mBe sure to switch to Openbox, or your current WM after reboot.[0m
+   
    [0;32m--------------------------------------------------------------
    
    Please press enter to install the Ly display manager.
