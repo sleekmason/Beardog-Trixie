@@ -6,16 +6,16 @@ read -p "   [0;33mLy Display Manager Installer[0m
    TUI (ncurses-like) display manager for Linux and BSD.
    [0;34mhttps://codeberg.org/fairyglade/ly[0m
    
+   [0;31mAt Ly login, be sure to switch to Openbox or your current WM.[0m
+   
    [0;33mNote* Ly should work without issue, but knowing how to recover
    in case of errors is always a good idea.[0m
    
    If needing to recover from any login issues, switch out of the
-   tty occupied by Ly with: [0;34mCtrl + Alt + F2[0m or other if required.
+   tty occupied by Ly after boot with: [0;34mCtrl + Alt + F2[0m
    
    Then log in with your username and password and type [0;34mstartx[0m to
    login. Switch back to LightDM from Login Options in the menu.
-   
-   [0;33mBe sure to switch to Openbox, or your current WM after reboot.[0m
    
    [0;32m--------------------------------------------------------------
    
@@ -26,10 +26,10 @@ read -p "   [0;33mLy Display Manager Installer[0m
    Or, close this terminal window to quit the install." ;
    if : >/dev/tcp/8.8.8.8/53; then
 
-DEB="/tmp/ly_1.3.2-ld_amd64.deb"
+DEB="/tmp/ly_1.3.2-bd_amd64.deb"
 
 wget --prefer-family=IPv4 -q --show-progress \
-    https://raw.githubusercontent.com/sleekmason/packages/master/ly_1.3.2-ld_amd64.deb \
+    https://raw.githubusercontent.com/sleekmason/packages/master/ly_1.3.2-bd_amd64.deb \
     -O "$DEB"
 
 sudo apt-get update
