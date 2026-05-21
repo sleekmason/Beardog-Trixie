@@ -5,10 +5,10 @@ if pgrep -x picom > /dev/null; then
     pkill -x picom
     conkyrestart >/dev/null 2>&1 &
     sed -i 's/Hidden=.*/Hidden=true/' "$FILE"
-    notify-send "Picom deactivated - autostart disabled"
+    notify-send "Transparency OFF"
 else
     picom --daemon
     conkyrestart >/dev/null 2>&1 &
     sed -i 's/Hidden=.*/Hidden=false/' "$FILE"
-    notify-send "Picom activated - autostart enabled"
+    notify-send "Transparency ON"
 fi

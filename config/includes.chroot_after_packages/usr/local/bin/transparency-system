@@ -55,12 +55,16 @@ inactive(){
 ON(){
 if ! pgrep -x picom > /dev/null; then
      picom --daemon
+     sed -i 's/Hidden=.*/Hidden=false/' "$HOME/.config/autostart/picom.desktop"
+     notify-send "Transparency ON"
      conkyrestart >/dev/null 2>&1 &
 fi
 }
 OFF(){
 if pgrep -x picom > /dev/null; then
      pkill -x picom
+     sed -i 's/Hidden=.*/Hidden=true/' "$HOME/.config/autostart/picom.desktop"
+     notify-send "Transparency OFF"
      conkyrestart >/dev/null 2>&1 &
 fi
 }
@@ -75,19 +79,19 @@ export -f highest
 export -f inactive
 export -f OFF
 
-yad --title "Transparency" --escape-ok --borders=14 \
---form --center --width=240 --height=340 --geometry=240x340+340-240 \
---text="System Transparency\n" --text-align=center \
+yad --title "Transparency" --escape-ok --borders=12 \
+--form --center --width=240 --height=330 \
+--text="Picom Opacity\n" --text-align=center \
 --button="gtk-ok:0" \
---window-icon=dialog-information \
+--window-icon=display \
     --form --columns=2 \
     --field=" On":FBTN "bash -c ON" \
     --field=" Default":FBTN "bash -c default" \
     --field=" Low":FBTN "bash -c low" \
     --field=" Medium ":FBTN "bash -c medium" \
     --field=" High":FBTN "bash -c high" \
+    --field=" Off":FBTN "bash -c OFF" \
     --field=" Higher":FBTN "bash -c higher" \
     --field=" Very High":FBTN "bash -c veryhigh" \
     --field=" Highest":FBTN "bash -c highest" \
-    --field=" Inactive":FBTN "bash -c inactive" \
-    --field=" Off":FBTN "bash -c OFF"
+    --field=" Inactive":FBTN "bash -c inactive"
