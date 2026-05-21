@@ -29,6 +29,7 @@ fi
 
 ## Remove /tmp files
 cd /tmp || exit
+rm -f "/tmp/jwm.desktop"
 rm -f "/tmp/jwmrc.zip"
 rm -f "/tmp/.jwmrc"
 ## Grab jwmrc.zip and unzip in /tmp
@@ -41,7 +42,7 @@ sudo apt update && sudo apt install -y jwm
 ## Copy .jwmrc from /tmp
 rm -f "$HOME/.jwmrc"
 cp -f "/tmp/.jwmrc" "$HOME/.jwmrc"
-
+sudo cp -f "/tmp/jwm.desktop" "/usr/share/xsessions/jwm.desktop"
 ## Copy .xsessionrc info to ~/.xsessionrc
 if ! grep -Fxq 'export WM="$session"' "$HOME/.xsessionrc"; then
 {
@@ -64,19 +65,16 @@ echo 'case $session in'
 echo     'openbox)    openbox-session ;;'
 echo     'awesome)    awesome ;;'
 echo     'sowm)       ~/.config/sowm/sowmstart.sh ;;'
-echo     'dwm)        ~/.config/dwm/dwmstart.sh ;;'
 echo     'jwm)        jwm ;;'
 echo     'i3)         i3 ;;'
-echo     'dk)         dk ;;'
 echo     '*)'
 echo '## UNCOMMENT BELOW IF NOT USING A LOGIN MANAGER (LIGHTDM).'
 echo '#exec "$session"' 
 echo 'esac';} | tee -a "$HOME/.xsessionrc" > /dev/null
 fi
 
-## If lightdm is not installed, then:
-if ! [[ $(command -v lightdm) ]]; then
-## Make it usable regardless of wm used
+# If LightDM or Ly is not installed, then:
+if ! [[ $(command -v lightdm) ]] && ! [[ $(command -v ly) ]]; then
 sed -i 's/#exec "$session"/exec "$session"/' "$HOME/.xsessionrc"
 fi
 

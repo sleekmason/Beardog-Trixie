@@ -74,32 +74,19 @@ echo 'case $session in'
 echo     'openbox)    openbox-session ;;'
 echo     'awesome)    awesome ;;'
 echo     'sowm)       ~/.config/sowm/sowmstart.sh ;;'
-echo     'dwm)        ~/.config/dwm/dwmstart.sh ;;'
 echo     'jwm)        jwm ;;'
 echo     'i3)         i3 ;;'
-echo     'dk)         dk ;;'
 echo     '*)'
 echo '## UNCOMMENT BELOW IF NOT USING A LOGIN MANAGER (LIGHTDM).'
 echo '#exec "$session"' 
 echo 'esac';} | tee -a "$HOME/.xsessionrc" > /dev/null
 fi
-## CORRECTIONS FOR DKWM AND LIGHTDM STATUS
-## Correct dk sxhkdrc for proper wm exit if existing
-if [ -e "$HOME/.config/dk/sxhkdrc" ]; then
-sed -i 's/	dkcmd exit/	pkill -KILL -u "$USER"/' "$HOME/.config/dk/sxhkdrc"
-fi
 
-## If lightdm is not installed, then:
-if ! [[ $(command -v lightdm) ]]; then
-## Change dk to use the correct method if uncommented, and comment 'exec dk'.
-   if grep -Fxq "exec dk" "$HOME/.xsessionrc"; then
-   sed -i 's/WMSelection=openbox/WMSelection=dk/' "$HOME/.xsessionrc"
-   sed -i 's/exec dk/#exec dk/' "$HOME/.xsessionrc"
-   fi
-## Make it usable regardless of wm used
+# If LightDM or Ly is not installed, then:
+if ! [[ $(command -v lightdm) ]] && ! [[ $(command -v ly) ]]; then
 sed -i 's/#exec "$session"/exec "$session"/' "$HOME/.xsessionrc"
 fi
-## Explain items.
+
 echo "   [0;32m--------------------------------------------------------[0m"
 echo ""
 echo "   [0;33mAll Finished![0m"
