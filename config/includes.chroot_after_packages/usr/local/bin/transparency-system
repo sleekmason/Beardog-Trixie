@@ -81,7 +81,7 @@ export -f OFF
 
 yad --title "Transparency" --escape-ok --borders=12 \
 --form --center --width=240 --height=330 \
---text="Picom Opacity\n" --text-align=center \
+--text="Picom Transparency\n" --text-align=center \
 --button="gtk-ok:0" \
 --window-icon=display \
     --form --columns=2 \
