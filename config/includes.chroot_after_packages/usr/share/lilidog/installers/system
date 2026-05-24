@@ -1,12 +1,12 @@
-awesomewm,        x-terminal-emulator -T 'Awesome WM Installer' -e bash -c "awesome-installer",                   applications-utilities
-awesome Conky,    x-terminal-emulator -T 'Conky For Awesome Installer' -e bash -c "awesome-conky-installer",      applications-utilities
+AwesomeWM,        x-terminal-emulator -T 'Awesome WM Installer' -e bash -c "awesome-installer",                   applications-utilities
+Awesome Conky,    x-terminal-emulator -T 'Conky For Awesome Installer' -e bash -c "awesome-conky-installer",      applications-utilities
 Backports,        x-terminal-emulator -T 'Backports Installer' -e bash -c "backports-installer",                  applications-utilities
 Conky,            x-terminal-emulator -T 'Conky Installer' -e bash -c "conky-installer",                          applications-utilities
 Deb Optimizer,    x-terminal-emulator -T 'Debian sources.list Optimizer' -e bash -c "deb-source-location",        applications-utilities
 Ghostty Terminal, x-terminal-emulator -T 'Ghostty Installer' -e bash -c "ghostty-installer",                      applications-utilities
-i3wm,             x-terminal-emulator -T 'i3 WM Installer' -e bash -c "i3wm-installer",                           applications-utilities
+i3WM,             x-terminal-emulator -T 'i3 WM Installer' -e bash -c "i3wm-installer",                           applications-utilities
 Jgmenu Default,   x-terminal-emulator -T 'Jgmenu Default Config Installer' -e bash -c "jgmenu-default-installer", applications-utilities
-jwm,              x-terminal-emulator -T 'JWM Installer' -e bash -c "jwm-installer",                              applications-utilities
+JWM,              x-terminal-emulator -T 'JWM Installer' -e bash -c "jwm-installer",                              applications-utilities
 Kitchen Sink,     x-terminal-emulator -T 'Kitchen Sink Installer' -e bash -c "kitchensink-installer",             applications-utilities
 Lemonbar Panel,   x-terminal-emulator -T 'Lemonbar Installer' -e bash -c "lemonbar-installer",                    applications-utilities
 Lightdm Default,  x-terminal-emulator -T 'Lightdm Installer' -e bash -c "lightdm-installer",                      applications-utilities

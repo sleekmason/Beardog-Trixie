@@ -2,7 +2,7 @@
                   WELCOME TO BEARDOG!
                         
     This minimal version is designed for users to
-    choose the programs they want installed.
+    have more choice over the programs installed.
     
     Try Super + F1 for the Beardog keybinds list.
     https://sourceforge.net/p/lilidog/discussion/
