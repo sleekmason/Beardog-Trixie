@@ -45,6 +45,7 @@ Screenshot,         xfce4-screenshooter,              preferences-desktop-displa
 Synaptic,           gksudo synaptic,                  synaptic
 Upgrade Options,    update-options,                   system-software-update
 USBImager,          /usr/local/bin/usbimager,         usbimager
+Wallpaper Maker,    wallpaper-maker,                  applications-graphics
 Welcome Setup,      x-terminal-emulator -T "Welcome Setup" -e bash -c "sudo /usr/local/bin/xentry -i; read -srn1", applications-other
 
 ^tag(toggles)
