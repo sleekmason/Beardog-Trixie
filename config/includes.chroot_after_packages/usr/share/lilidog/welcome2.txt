@@ -4,11 +4,11 @@
     This minimal version is designed for users to
     have more choice over the programs installed.
     
-    Try Super + F1 for the Beardog keybinds list.
     https://sourceforge.net/p/lilidog/discussion/
 
-    For the live environment:
-    username = 'user', and root password = 'live'
+    Use 'Super + F1' to see the current keybinds.
+    Live environment passwords: Username = 'user'
+    Root password = 'live'
     
     To install Beardog, reboot the iso and choose 
     'Start installer'.
