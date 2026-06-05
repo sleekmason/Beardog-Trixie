@@ -10,7 +10,7 @@
     Live environment passwords: Username = 'user'
     Root password = 'live'
     
-    To install Beardog, reboot the iso and choose 
+    To install Beardog, reboot the ISO and choose 
     'Start installer'.
 
     After installation, use the welcome script to
