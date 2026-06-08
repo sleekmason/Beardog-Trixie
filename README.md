@@ -24,12 +24,17 @@ Labwc and Sway compositors installed, with Waybar for the panel and
 Waypaper to provide wallpapers.  Fully customized Niri and Wayfire
 WMs are available from the Waydog installers.
 
-### NOTE - The DOWNLOAD button defaults to the full Openbox version.
-## Click on FILES, and then RELEASES to access the other builds.
+### Resources:
+- [DistroWatch](https://distrowatch.com/table.php?distribution=lilidog)
+- [Beardog Github](https://github.com/sleekmason/Beardog-Trixie)
+- [SourceForge Main Page](https://sourceforge.net/projects/lilidog/)
+- [Downloads Page](https://sourceforge.net/projects/lilidog/files/Releases/)
+
+#### The button below defaults to Lilidog. Use the link above to see other versions.
 
 <a href="https://sourceforge.net/projects/lilidog/files/latest/download"><img alt="Download Lilidog" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
 
-### Current Releases:
+### Current Release Format:
 
 The version number is the date of the release beginning with the year,
 followed by the month, and then the day.  So as an example, release
@@ -201,8 +206,6 @@ Of course there are other files that can also be changed in the build,
 but maybe keep it simple for a run or two. 
 
 Note * Change 'waydog-trixie' to whichever build you selected.
-
-Github: https://github.com/sleekmason/Lilidog
 
 #### Lilidog
 [![Lili.png](https://i.postimg.cc/hjy8qYS8/Lili.png)](https://postimg.cc/5YzQBnQj)
