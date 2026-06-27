@@ -5,11 +5,9 @@ FILE="$HOME/.config/autostart/gxkb-tray-icon.desktop"
 if pgrep -xf gxkb > /dev/null; then
     pkill gxkb &
     sed -i 's/Hidden=.*/Hidden=true/' "$FILE"
-    notify-send --urgency low 'GXKB Keyboard Switcher has been de-activated'
-    notify-send --urgency low 'GXKB autostart has been disabled'
+    notify-send --urgency low 'GXKB disabled'
 else
     gxkb &
     sed -i 's/Hidden=.*/Hidden=false/' "$FILE"
-    notify-send --urgency low 'GXKB Keyboard Switcher is now active'
-    notify-send --urgency low 'GXKB autostart has been enabled'
+    notify-send --urgency low 'GXKB enabled'
 fi
