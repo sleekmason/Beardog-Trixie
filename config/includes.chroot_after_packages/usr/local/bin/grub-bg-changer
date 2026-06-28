@@ -1,7 +1,10 @@
 #!/bin/bash
 read -p "
-   [0;32mGrub Background Image Changer[0m
+   [0;32mGRUB Background Changer[0m
                       
+   Replace your boot background GRUB image. You must be in the system
+   controlling GRUB. This is usually the last distribution installed.
+   
    The image folder used can be changed in ~/.config/wallpapers.conf.
    Make your own folder if desired and change the location there.
     
@@ -12,7 +15,7 @@ read -p "
    
    [0;32m-------------------------------------------------------------------
    
-   Please press enter to choose your new grub background from a window 
+   Please press enter to choose your new GRUB background from a window 
    of available images. After selection, enter your sudo password in
    the terminal prompt to continue.
    
@@ -30,13 +33,13 @@ echo "[0;32m-----------------------------------------------------------"
 echo ""
 echo "All Finished!"
 echo ""
-echo "Enjoy your new Grub background." 
+echo "Enjoy your new GRUB background." 
 echo "" 
 echo "-----------------------------------------------------------[0m"
 else
  echo "   [0;32m-------------------------------------------------------"
  echo ""
- echo "   Grub background cannot be changed in a live environment."
+ echo "   GRUB background cannot be changed in a live environment."
  echo "   Install and try again!"
  echo ""
  echo "   -------------------------------------------------------[0m"
