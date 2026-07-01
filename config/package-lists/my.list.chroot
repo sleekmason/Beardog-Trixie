@@ -11,6 +11,7 @@ bash-completion
 bind9-dnsutils
 brightnessctl 
 brightness-udev
+btop
 btrfs-progs
 bzip2
 7zip
@@ -62,7 +63,6 @@ gvfs
 gvfs-backends
 gvfs-fuse
 gxkb
-htop
 imagemagick
 intel-microcode
 inxi
