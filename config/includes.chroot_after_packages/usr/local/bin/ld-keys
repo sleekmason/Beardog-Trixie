@@ -20,12 +20,20 @@ declare -A FRIENDLY_NAMES=(
 
   ["pkill -USR1 -x sxhkd"]="Reload sxhkd"
   ["ld-keys"]="Show Keybinds"
+  ["openbox-reconfigure-toggle"]="Openbox --reconfigure"
 
+  ["rofi-familiar"]="Rofi Full"
+  ["rofi -show drun"]="Rofi Apps"
   ["xdmenu"]="Dmenu"
   ["jgmenu_run"]="jgmenu"
 
-  ["conky-toggle"]="Conky Chooser (if installed)"
+  ["ld-themes"]="Auto Themes"
+  ["light-dark-toggle"]="Light/Dark Theme Toggle"
+  ["custom-theme-toggle"]="Alt Theme Toggle"
   ["toggle.ld"]="Hotcorners Toggle"
+
+  ["conky-toggle"]="Conky Toggle"
+  ["toggle.polybar"]="Polybar Toggle (if installed)"
   ["toggle.tint2"]="Tint2 Toggle"
   ["tint2-options"]="Tint2 Options"
 
@@ -33,6 +41,8 @@ declare -A FRIENDLY_NAMES=(
   ["thunar"]="Thunar File Manager"
   ["splitview"]="Split View"
   ["geany"]="Geany Editor"
+  ["pragha"]="Pragha Music Player"
+  ["x-www-browser"]="Web Browser"
 
   ["toggle.picom"]="Picom Toggle (transparency)"
   ["toggle.gammy"]="Gammy Toggle"
@@ -136,39 +146,75 @@ echo
 echo -e " ${YELLOW}OPENBOX KEYBINDS - W=Super  S=Shift  C=Ctrl (~/.config/openbox/rc.xml)${RESET}"
 echo -e " ${YELLOW}----------------------------------------------------------------------${RESET}"
 
-awk -v YELLOW="$YELLOW" -v GREEN="$GREEN" -v BLUE="$BLUE" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" '
+{
+for key in "${!FRIENDLY_NAMES[@]}"; do
+    echo "$key:::${FRIENDLY_NAMES[$key]}"
+done
+echo "__DATA__"
+cat "$OB_CONFIG"
+} | awk -v YELLOW="$YELLOW" -v GREEN="$GREEN" -v BLUE="$BLUE" -v RESET="$RESET" -v KEY_WIDTH="$KEY_WIDTH" -v MAX_LINE="$MAX_LINE" '
 BEGIN {
     CKEY=YELLOW
     CACT=BLUE
     CRESET=RESET
+    mode="friendly"
 }
 
-/<keybind key=/ {
+mode=="friendly" && $0=="__DATA__" { mode="ob"; next }
+
+mode=="friendly" {
+    split($0,p,":::")
+    friendly[p[1]]=p[2]
+    next
+}
+
+mode=="ob" && /<keybind key=/ {
     key=$0
     gsub(/.*key="/,"",key)
     gsub(/".*/,"",key)
     action=""
+    action_set=0
+    command=""
 }
 
-/<action name=/ {
+mode=="ob" && /<action name=/ && action_set==0 {
     action=$0
     gsub(/.*name="/,"",action)
     gsub(/".*/,"",action)
+    action_set=1
 }
 
-/<\/keybind>/ {
+mode=="ob" && /<command>/ {
+    command=$0
+    gsub(/.*<command>/,"",command)
+    gsub(/<\/command>.*/,"",command)
+}
+
+mode=="ob" && /<\/keybind>/ {
     desktop_num=""
     if (key ~ /-[0-9]+$/)
         desktop_num=substr(key,match(key,/[0-9]+$/))
 
-    if ((action=="GoToDesktop" || action=="SendToDesktop") && desktop_num!="")
-        action=action" "desktop_num
+    label=action
+
+    if (action=="Execute" && command!="") {
+        label=command
+        bestlen=0
+        for (f in friendly) {
+            if (index(label, f) && length(f) > bestlen) {
+                label = friendly[f]
+                bestlen = length(f)
+            }
+        }
+    } else if ((action=="GoToDesktop" || action=="SendToDesktop") && desktop_num!="") {
+        label=action" "desktop_num
+    }
 
     printf " %s%-*s%s  %s%-15s%s\n",
         CKEY,KEY_WIDTH,key,CRESET,
-        CACT,action,CRESET
+        CACT,label,CRESET
 }
-' "$OB_CONFIG" | sort
+' | sort
 
 echo
 read -n1 -s -r -p "Press any key to close..."
