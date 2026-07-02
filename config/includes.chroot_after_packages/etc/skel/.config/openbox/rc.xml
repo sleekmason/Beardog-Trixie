@@ -377,8 +377,14 @@
       <action name="Maximize"/>
     </keybind>
     <!-- Interactive resize -->
-    <keybind key="W-r">
+    <keybind key="A-r">
       <action name="Resize"/>
+    </keybind>
+    <!-- Reload Openbox config -->
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>openbox-reconfigure-toggle</command>
+      </action>
     </keybind>
     <!-- OpenBox 100% Window Resize -->
     <keybind key="A-F12">
