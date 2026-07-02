@@ -22,18 +22,11 @@ declare -A FRIENDLY_NAMES=(
   ["ld-keys"]="Show Keybinds"
   ["openbox-reconfigure-toggle"]="Openbox --reconfigure"
 
-  ["rofi-familiar"]="Rofi Full"
-  ["rofi -show drun"]="Rofi Apps"
   ["xdmenu"]="Dmenu"
   ["jgmenu_run"]="jgmenu"
 
-  ["ld-themes"]="Auto Themes"
-  ["light-dark-toggle"]="Light/Dark Theme Toggle"
-  ["custom-theme-toggle"]="Alt Theme Toggle"
+  ["conky-toggle"]="Conky Chooser (if installed)"
   ["toggle.ld"]="Hotcorners Toggle"
-
-  ["conky-toggle"]="Conky Toggle"
-  ["toggle.polybar"]="Polybar Toggle (if installed)"
   ["toggle.tint2"]="Tint2 Toggle"
   ["tint2-options"]="Tint2 Options"
 
@@ -41,8 +34,6 @@ declare -A FRIENDLY_NAMES=(
   ["thunar"]="Thunar File Manager"
   ["splitview"]="Split View"
   ["geany"]="Geany Editor"
-  ["pragha"]="Pragha Music Player"
-  ["x-www-browser"]="Web Browser"
 
   ["toggle.picom"]="Picom Toggle (transparency)"
   ["toggle.gammy"]="Gammy Toggle"
