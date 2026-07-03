@@ -108,7 +108,7 @@ export -f _verticons-only
 
 _dialog-style(){
 yad --title "Logout Style" --escape-ok --borders=12 \
---form --geometry=252x400-88-92 --buttons-layout=edge \
+--form --geometry=252x400-68-100 --buttons-layout=edge \
 --text="Choose Layout Style\n" --text-align=center \
 --window-icon="/usr/share/icons/ld-icons/pixmaps/exit4.png" \
     --form --columns=1 \
@@ -272,6 +272,15 @@ fi
 "$HOME/.local/bin/ld-logout" &
 }
 
+_reset(){
+if test -f ~/.local/bin/ld-logout; then	
+  rm -f "$HOME/.local/bin/ld-logout"	
+  pkill -P $(pgrep ld-logout) 
+  ld-logout &
+  notify-send "Reset to default"
+fi
+}
+
 export -f _buuf
 export -f _circle
 export -f _circle-ash
@@ -290,10 +299,11 @@ export -f _material
 export -f _material-dark
 export -f _dialog-style
 export -f _check-exist
+export -f _reset
 
 yad --title "Logout Options" --escape-ok --borders=12 \
---form --geometry=252x280-352-92 --buttons-layout=edge \
---text="Choose Logout Icons\n" --text-align=center \
+--form --geometry=252x280-332-100 --buttons-layout=edge \
+--text="Choose icons and style\n" --text-align=center \
 --button=" Style!applications-other:bash -c _dialog-style" \
 --button="OK!gtk-ok:0" \
 --window-icon="/usr/share/icons/ld-icons/pixmaps/exit4.png" \
@@ -314,5 +324,5 @@ yad --title "Logout Options" --escape-ok --borders=12 \
     --field=" Circle":FBTN "bash -c _circle" \
     --field=" Tela":FBTN "bash -c _tela" \
     --field=" Awe-Dark":FBTN "bash -c _awesome-dark" \
-    --field=" Mat-Dark":FBTN "bash -c _material-dark" \
+    --field=" Reset!view-refresh":FBTN "bash -c _reset" \
     --field="":LBL ""
