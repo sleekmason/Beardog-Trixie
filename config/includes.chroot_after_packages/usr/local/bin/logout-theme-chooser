@@ -107,8 +107,8 @@ export -f _horzicons-only
 export -f _verticons-only
 
 _dialog-style(){
-yad --title "Logout Style" --escape-ok --borders=14 \
---form --geometry=240x400-100-100 --buttons-layout=edge \
+yad --title "Logout Style" --escape-ok --borders=12 \
+--form --geometry=252x400-88-92 --buttons-layout=edge \
 --text="Choose Layout Style\n" --text-align=center \
 --window-icon="/usr/share/icons/ld-icons/pixmaps/exit4.png" \
     --form --columns=1 \
@@ -291,8 +291,8 @@ export -f _material-dark
 export -f _dialog-style
 export -f _check-exist
 
-yad --title "Logout Icons" --escape-ok --borders=14 \
---form --geometry=240x280-352-100 --buttons-layout=edge \
+yad --title "Logout Options" --escape-ok --borders=12 \
+--form --geometry=252x280-352-92 --buttons-layout=edge \
 --text="Choose Logout Icons\n" --text-align=center \
 --button=" Style!applications-other:bash -c _dialog-style" \
 --button="OK!gtk-ok:0" \
