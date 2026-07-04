@@ -13,8 +13,8 @@ var2=png
 if [ -f "$HOME/.local/bin/ld-logout" ]; then
     _v1=$(grep -m1 '^var1=' "$HOME/.local/bin/ld-logout" | cut -d= -f2)
     _v2=$(grep -m1 '^var2=' "$HOME/.local/bin/ld-logout" | cut -d= -f2)
-    [ -n "$_v1" ] && var1="$_v1"
-    [ -n "$_v2" ] && var2="$_v2"
+    var1="${_v1:-original}"
+    var2="${_v2:-png}"
 fi
 
 # Main styles
