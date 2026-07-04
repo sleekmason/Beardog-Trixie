@@ -16,82 +16,82 @@ fi
 # Logout style and icons on/off.
 _horzicons(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=horizontal-icons/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=horizontal-icons/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _horznoicons(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=horizontal-no-icons/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=horizontal-no-icons/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _verticons(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=vertical-icons/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=vertical-icons/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _vertnoicons(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=vertical-no-icons/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=vertical-no-icons/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _horzicons-plain(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=horizontal-icons-plain/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=horizontal-icons-plain/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _horznoicons-plain(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=horizontal-no-icons-plain/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=horizontal-no-icons-plain/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _verticons-plain(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=vertical-icons-plain/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=vertical-icons-plain/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _vertnoicons-plain(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=vertical-no-icons-plain/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=vertical-no-icons-plain/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _horzicons-only(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=horizontal-icons-only/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=horizontal-icons-only/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 _verticons-only(){
 bash -c "_check-exist"
-if pgrep "ld-logout" >/dev/null 2>&1; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
-sed -i 's/^varstyle.*/varstyle=vertical-icons-only/g' '.local/bin/ld-logout'
+sed -i 's/^varstyle.*/varstyle=vertical-icons-only/g' "$HOME/.local/bin/ld-logout"
 "$HOME/.local/bin/ld-logout" &
 }
 
@@ -108,7 +108,7 @@ export -f _verticons-only
 
 _dialog-style(){
 yad --title "Logout Style" --escape-ok --borders=12 \
---form --geometry=252x400-68-100 --buttons-layout=edge \
+--form --geometry=252x400-78-92 --buttons-layout=edge \
 --text="Choose Layout Style\n" --text-align=center \
 --window-icon="/usr/share/icons/ld-icons/pixmaps/exit4.png" \
     --form --columns=1 \
@@ -129,8 +129,8 @@ yad --title "Logout Style" --escape-ok --borders=12 \
 # Icon sets
 _original(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=original/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -138,8 +138,8 @@ fi
 }
 _gnome(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=gnome/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -147,8 +147,8 @@ fi
 }
 _papirus(){
 bash -c "_check-exist"	
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=papirus/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -156,8 +156,8 @@ fi
 }
 _buuf(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=buuf/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -165,8 +165,8 @@ fi
 }
 _paper(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=paper/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -174,8 +174,8 @@ fi
 }
 _circle-ash(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=circle-ash/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -183,8 +183,8 @@ fi
 }
 _circle(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=circle/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -192,8 +192,8 @@ fi
 }
 _obsidian(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=obsidian/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -201,8 +201,8 @@ fi
 }
 _obsidian-plain(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=obsidian-plain/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -210,8 +210,8 @@ fi
 }
 _faenza-small(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=faenza-small/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=png/g' "$HOME/.local/bin/ld-logout"
@@ -219,8 +219,8 @@ fi
 }
 _awesome(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=awesome/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -228,8 +228,8 @@ fi
 }
 _awesome-dark(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=awesome-dark/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -237,8 +237,8 @@ fi
 }
 _material(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=material/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -246,8 +246,8 @@ fi
 }
 _material-dark(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=material-dark/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -255,8 +255,8 @@ fi
 }
 _candy(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=candy/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -264,8 +264,8 @@ fi
 }
 _tela(){
 bash -c "_check-exist"
-if pgrep "ld-logout"; then
-pkill -P $(pgrep ld-logout)
+if pgrep -x "ld-logout" >/dev/null 2>&1; then
+pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
 fi
  sed -i 's/^var1.*/var1=tela/g' "$HOME/.local/bin/ld-logout"
  sed -i 's/^var2.*/var2=svg/g' "$HOME/.local/bin/ld-logout"
@@ -275,7 +275,7 @@ fi
 _reset(){
 if test -f ~/.local/bin/ld-logout; then	
   rm -f "$HOME/.local/bin/ld-logout"	
-  pkill -P $(pgrep ld-logout) 
+  pkill -P "$(pgrep -d, -x ld-logout)" 2>/dev/null
   ld-logout &
   notify-send "Reset to default"
 fi
@@ -302,7 +302,7 @@ export -f _check-exist
 export -f _reset
 
 yad --title "Logout Options" --escape-ok --borders=12 \
---form --geometry=252x280-332-100 --buttons-layout=edge \
+--form --geometry=252x280-342-92 --buttons-layout=edge \
 --text="Choose icons and style\n" --text-align=center \
 --button=" Style!applications-other:bash -c _dialog-style" \
 --button="OK!gtk-ok:0" \
