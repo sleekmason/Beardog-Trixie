@@ -109,7 +109,7 @@ export -f _verticons-only
 _dialog-style(){
 yad --title "Logout Style" --escape-ok --borders=12 \
 --form --geometry=252x400-68-100 --buttons-layout=edge \
---text="Choose Layout Style\n" --text-align=center \
+--text="Choose layout style\n" --text-align=center \
 --window-icon="/usr/share/icons/ld-icons/pixmaps/exit4.png" \
     --form --columns=1 \
     --field=" Horizontal With Icons":FBTN "bash -c _horzicons" \
