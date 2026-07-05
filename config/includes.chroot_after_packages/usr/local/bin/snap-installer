@@ -39,11 +39,12 @@ echo ""
 sudo systemctl enable --now snapd.socket
 sudo systemctl enable --now snapd.service
 sudo systemctl restart snapd
-echo -n "  [0;32mWaiting for snapd to become ready. Please wait...[0m"
+echo -n "  [0;32mWaiting for snapd to become ready...[0m"
 echo ""
 for i in {1..60}; do
     if snap version >/dev/null 2>&1; then
         echo "  [0;34mdone![0m"
+        echo ""
         break
     fi
     sleep 2
@@ -55,9 +56,9 @@ if ! snap version >/dev/null 2>&1; then
     exit 1
 fi
 
-sudo snap install snapd >/dev/null 2>&1
-sudo snap install core >/dev/null 2>&1
-sudo snap refresh core >/dev/null 2>&1
+sudo snap install snapd
+sudo snap install core
+sudo snap refresh core
 
 echo ""
 echo "  [0;32mInstalling the Snap Store... This can take a while.[0m"
