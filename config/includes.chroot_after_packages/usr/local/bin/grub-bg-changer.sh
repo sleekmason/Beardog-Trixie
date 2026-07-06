@@ -21,7 +21,7 @@ fi
 GRUB_DIR="/boot/grub"
 SELECTION=$(mktemp /tmp/grub-sel-XXXXXX)
 grubset(){
-    feh -g +30+30 -r -t -P -N --scale-down -W 804 -E 84 -y 134 -J 100 \
+    feh -g +43+30 -r -t -P -N --scale-down -W 804 -E 84 -y 134 -J 100 \
     --index-info "" \
     --action ";echo %F > $SELECTION; pkill -f feh-grub" \
     $GRUB_BGDIR1 $GRUB_BGDIR2 $GRUB_BGDIR3
