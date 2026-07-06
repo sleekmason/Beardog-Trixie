@@ -24,4 +24,4 @@ wpset(){ feh -g +50+46 -r -t -P -N --scale-down -W 804 -E 84 -y 134 -J 100 --tit
 
 export -f wpset
 # With an assist from @cees
-"wpset" & sleep 0.2 && wmctrl -r "feh [thumbnail mode]" -T "Select Your Background"
+"wpset" & sleep 0.2 && wmctrl -r "feh [thumbnail mode]" -T "Change wallpaper folders in ~/.config/wallpapers.conf"
