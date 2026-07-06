@@ -58,6 +58,7 @@ yad --progress --pulsate --no-buttons --skip-taskbar --center --borders=10 \
     --text=" After entering your password, please wait\n for this dialog to close before rebooting.\n (approx. 10-15 seconds)" \
     --no-focus &
 YAD_PID=$!
+sleep 0.1
 pkexec bash -c "
     rm -f '$GRUB_DIR'/*.png '$GRUB_DIR'/*.jpg '$GRUB_DIR'/*.jpeg &&
     cp -f '$TMP_PNG' '$GRUB_DIR/$PNG_NAME' &&
