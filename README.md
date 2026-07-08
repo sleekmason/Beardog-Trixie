@@ -114,9 +114,16 @@ right-click options for images include rotation and copying to
 - Icons - Currently, the Obsidian icon theme is default. Papirus, GNOME,
 and other icon sets are readily available.  
 
-- Grub background changer opens a window to choose your own images.
-Lilidog ships with six to give you an initial choice before finding
-your own to add to the collection.
+- GRUB background changer - opens a window to choose your own images.
+Change the directories used through ~/.config/wallpapers.conf. Any 
+.jpg or .png should suffice.
+
+- Logout Theme Changer - Look in the Utilities menu for Logout Options.
+A variety of icons and formatting can be chosen.
+
+- System Information - There are several programs to discover more
+information about your computer. Btop, inxi, fw-probe, ps-mem, lxtask,
+firmware check, and Hard Info. All found through the Utilities menu.
 
 - There are shortcuts for the MATE Power Manager in the battery icon.
 Hover over the icons to see what they are.  
