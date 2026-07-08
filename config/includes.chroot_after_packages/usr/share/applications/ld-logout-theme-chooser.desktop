@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Logout Themes
+Name=Logout Options
 Comment=Change logout theme
 Exec=logout-theme-chooser
 StartupNotify=false
