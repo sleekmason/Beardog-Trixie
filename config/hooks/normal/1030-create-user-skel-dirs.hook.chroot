@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+echo "I: Pre-creating user skeleton directories (bin, .local/bin, Pictures/wallpapers)"
+
+mkdir -p /etc/skel/bin
+mkdir -p /etc/skel/.local/bin
+mkdir -p /etc/skel/Pictures/wallpapers
