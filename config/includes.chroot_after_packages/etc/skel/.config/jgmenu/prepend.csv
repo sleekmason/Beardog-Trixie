@@ -43,6 +43,7 @@ Kernel Remover,     gksudo /usr/local/bin/kernel-remover,     applications-acces
 Key Bindings,       x-terminal-emulator -T 'Keybinds' -e bash -c "ld-keys; echo $'\n\nPress any key to close.'; read -srn1",  preferences-desktop-keyboard-shortcuts
 Screenshot,         xfce4-screenshooter,              preferences-desktop-display
 Synaptic,           gksudo synaptic,                  synaptic
+Transmisson,        transmission-gtk,                 transmission-gtk
 Upgrade Options,    update-options,                   system-software-update
 USBImager,          /usr/local/bin/usbimager,         usbimager
 Wallpaper Maker,    wallpaper-maker,                  applications-graphics
