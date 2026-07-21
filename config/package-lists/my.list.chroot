@@ -133,6 +133,7 @@ python3-pycurl
 python3-six
 python3-xdg
 python3-xlib
+qbittorrent
 rename
 rsync
 scrot
@@ -156,7 +157,6 @@ thunar-media-tags-plugin
 thunar-volman
 tumbler
 traceroute
-transmission-gtk
 udev
 udisks2
 unzip
