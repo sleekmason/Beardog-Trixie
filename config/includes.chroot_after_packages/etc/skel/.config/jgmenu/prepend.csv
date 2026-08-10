@@ -64,6 +64,7 @@ Terminal Choice,     x-terminal-emulator -T 'Terminal Choice' -e "sudo update-al
 Tint2 On/Off,        toggle.tint2,                                  org.xfce.settings.manager
 Tint2 Options,       tint2-options,                                 org.xfce.settings.manager
 Transparency,        transparency-system,                           org.xfce.settings.manager
+Zswap On/Off,        zswap-toggle,                                  org.xfce.settings.manager
 Xkill,               xkill,                                         edit-delete
 
 ^tag(rootfiles)
