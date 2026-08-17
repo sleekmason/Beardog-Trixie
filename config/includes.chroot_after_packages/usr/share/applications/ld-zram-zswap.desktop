@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Zswap On/Off
-Exec=zswap-toggle
+Name=Zram/Zswap
+Exec=zram-zswap-toggle
 StartupNotify=false
 Terminal=false
 Icon=drive-harddisk
