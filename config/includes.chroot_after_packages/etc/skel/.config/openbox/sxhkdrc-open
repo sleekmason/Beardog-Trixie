@@ -10,6 +10,10 @@ mod4 + Escape
 mod4 + F1
 	x-terminal-emulator -T "Keybinds" -e ld-keys
 
+# keybinds alt.
+ctrl + alt + k
+	x-terminal-emulator -T "Keybinds" -e ld-keys
+
 # Dmenu.
 mod4 + F3
 	xdmenu

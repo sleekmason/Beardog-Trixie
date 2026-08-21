@@ -2,6 +2,7 @@
 # Note - "super" and "mod4" both represent the windows key.
 
 Keybinds List =      super + F1
+Keybinds Alt =       ctrl + Alt + k
 Refresh sxhkd keys = super + Escape
 Wallpapers =         super + Shift + v
 Random BG=           super + v

@@ -6,7 +6,7 @@ read -p "   [0;33mAuto Themes Installer.[0m
    currently used in Lilidog. This includes matching themes for 
    Openbox, Geany, and xfce4-terminal. \
    
-   There are currently 28 themes total. Nine of the themes have
+   There are currently 30 themes total. Ten of the themes have
    additional option to change the highlight color as you like.
    
    A 'Reset Theme' option will also be available under Menu -->
