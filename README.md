@@ -128,16 +128,22 @@ firmware check, and Hard Info. All found through the Utilities menu.
 - There are shortcuts for the MATE Power Manager in the battery icon.
 Hover over the icons to see what they are.  
 
-- Rofi and Dmenu for alternate menu sources. - ALT + F5 pulls the full
-Dmenu up, while ALT + F3 pulls up a customized dmenu.
+- Rofi and Dmenu for alternate menu sources. - Super + F5 pulls the full
+Dmenu up, while Super + F3 pulls up a customized dmenu.
 
 - Thunar is the default file manager.  Custom right-click options are
 already added as well. These include everything from "Open as Root", to
 different rotations and sizing of pics, to comparisons of files using
 Meld. And more.
 
-- Custom Lilidog Openbox and GTK themes, and matching themes for Geany
-and Xfce4-terminal.
+- 30 Custom Lilidog Openbox and GTK themes, with matching themes for
+Geany and Xfce4-terminal.
+
+- Custom colors can be chosen for ten of the different GTK themes. This
+allows the user to design their desktop much easier.  Open Auto Themes
+to access the custom highlight theme changers.
+
+- Zram and Zswap choices can be changed on the fly, and survive reboot.
 
 - The fonts are Noto Sans for the windows and JetBrains Mono for the
 xfce4-terminal. The exceptions are urxvt and Conky where DejaVu is used.
@@ -149,10 +155,6 @@ for ten different Conkys and the time format shown. All of the Conkys
 contain relevant info. These include a Clock, Full Info, Fortunes,
 Shortcuts, Worldclock, and Tao quotes. Everything Conky is located in
 ~/.config/conky, including the Conky Chooser script.
-
-- Custom colors can be chosen for nine of the different GTK themes. This
-allows the user to design their desktop much easier.  Open Auto Themes
-to access the custom highlight theme changers.
 
 - Picom Composite Manager for transparency. Look in ~/.config/picom.conf
 to change transparency, shadows, and more.
