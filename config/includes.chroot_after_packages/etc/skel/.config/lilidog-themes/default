@@ -18,7 +18,7 @@ fi
 if [[ "$GREETER" == "lightdm-gtk-greeter" ]]; then
 sudo sed -i "s|^background.*|background = $WALL|g" /etc/lightdm/lightdm-gtk-greeter.conf
 sudo sed -i "s/icon-theme-name.*/icon-theme-name = Lilidog-lightdm/g" /etc/lightdm/lightdm-gtk-greeter.conf
-sudo sed -i "s/^theme-name.*/theme-name = Fane/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/^theme-name.*/theme-name = Dragon/g" /etc/lightdm/lightdm-gtk-greeter.conf
 sudo sed -i "s/position.*/position = 6%,start 51%,center/g" /etc/lightdm/lightdm-gtk-greeter.conf
 sudo sed -i "s/^font-name.*/font-name = Noto Sans 10/g" /etc/lightdm/lightdm-gtk-greeter.conf
 fi
@@ -26,7 +26,7 @@ fi
 if [[ "$GREETER" == "slick-greeter" ]]; then
 sudo sed -i "s|^background.*|background=$WALL|g" /etc/lightdm/slick-greeter.conf
 sudo sed -i "s/icon-theme-name.*/icon-theme-name=Obsidian/g" /etc/lightdm/slick-greeter.conf
-sudo sed -i "s/^theme-name.*/theme-name=Fane/g" /etc/lightdm/slick-greeter.conf
+sudo sed -i "s/^theme-name.*/theme-name=Dragon/g" /etc/lightdm/slick-greeter.conf
 sudo sed -i "s/^font-name.*/font-name=Noto Sans 10/g" /etc/lightdm/slick-greeter.conf
 sudo sed -i "s/clock-format.*/clock-format=%H:%M   %a, %b %d %Y/g" /etc/lightdm/slick-greeter.conf
 fi
