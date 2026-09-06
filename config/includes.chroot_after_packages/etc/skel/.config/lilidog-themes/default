@@ -6,44 +6,38 @@
 
 ## Lightdm Greeter settings for theme, wallpaper, position, icons, and font. (Requires Sudo)
 if command -v lightdm >/dev/null; then
-GREETER=$(grep -E '^[[:space:]]*greeter-session=' /etc/lightdm/lightdm.conf | cut -d= -f2)
+GREETER=$(grep -E '^[[:space:]]*greeter-session=' /etc/lightdm/lightdm.conf | cut -d= -f2 | tail -n1)
 
 [[ -z "$GREETER" ]] && GREETER="lightdm-gtk-greeter"
+if [[ -f "/usr/share/backgrounds/wallpapers/Brokenglass.jpg" ]]; then
+    WALL="/usr/share/backgrounds/wallpapers/Brokenglass.jpg"
+else
+    WALL="/usr/share/backgrounds/wallpapers/Default.jpg"
+fi
 
 if [[ "$GREETER" == "lightdm-gtk-greeter" ]]; then
-if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
-        sudo sed -i "s/theme-name.*/theme-name = Foggypines/g" /etc/lightdm/lightdm-gtk-greeter.conf
-        sudo sed -i "s|^background.*|background = /usr/share/backgrounds/wallpapers/Foggypines.jpg|g" /etc/lightdm/lightdm-gtk-greeter.conf
-    else
-        sudo sed -i "s/theme-name.*/theme-name = Fane/g" /etc/lightdm/lightdm-gtk-greeter.conf
-        sudo sed -i "s|^background.*|background = /usr/share/backgrounds/wallpapers/Fane.jpg|g" /etc/lightdm/lightdm-gtk-greeter.conf
-    fi
-sudo sed -i "s/position.*/position = -4%,end 10%,start/g" /etc/lightdm/lightdm-gtk-greeter.conf
-sudo sed -i "s/font-name.*/font-name = Noto Sans 11/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s|^background.*|background = $WALL|g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/icon-theme-name.*/icon-theme-name = Lilidog-lightdm/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/^theme-name.*/theme-name = Fane/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/position.*/position = 6%,start 51%,center/g" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i "s/^font-name.*/font-name = Noto Sans 10/g" /etc/lightdm/lightdm-gtk-greeter.conf
 fi
 
 if [[ "$GREETER" == "slick-greeter" ]]; then
+sudo sed -i "s|^background.*|background=$WALL|g" /etc/lightdm/slick-greeter.conf
 sudo sed -i "s/icon-theme-name.*/icon-theme-name=Obsidian/g" /etc/lightdm/slick-greeter.conf
-
-if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
-        sudo sed -i "s/theme-name.*/theme-name=Foggypines/g" /etc/lightdm/slick-greeter.conf
-        sudo sed -i "s|^background.*|background=/usr/share/backgrounds/wallpapers/Foggypines.jpg|g" /etc/lightdm/slick-greeter.conf
-    else
-        sudo sed -i "s/theme-name.*/theme-name=Fane/g" /etc/lightdm/slick-greeter.conf
-        sudo sed -i "s|^background.*|background=/usr/share/backgrounds/wallpapers/Fane.jpg|g" /etc/lightdm/slick-greeter.conf
-fi
-
-sudo sed -i "s/font-name.*/font-name=Noto Sans 10/g" /etc/lightdm/slick-greeter.conf
+sudo sed -i "s/^theme-name.*/theme-name=Fane/g" /etc/lightdm/slick-greeter.conf
+sudo sed -i "s/^font-name.*/font-name=Noto Sans 10/g" /etc/lightdm/slick-greeter.conf
 sudo sed -i "s/clock-format.*/clock-format=%H:%M   %a, %b %d %Y/g" /etc/lightdm/slick-greeter.conf
 fi
 fi
 
 ## System gtktheme, icon theme
-xfconf-query -c xsettings -p /Net/ThemeName -s "Fane"
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Teal"
+xfconf-query -c xsettings -p /Net/ThemeName -s "Dragon"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian"
 
 ## Picom transparency
-if [[ $(command -v picom) ]]; then
+if command -v picom >/dev/null; then
 if pgrep -x picom > /dev/null 2>&1; then
 pkill -x picom
 fi
@@ -58,19 +52,19 @@ xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 11"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 10"
 
 ## Openbox theme
-xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:name' -v "Fanebox" ~/.config/openbox/rc.xml
+xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:name' -v "Dragonbox" ~/.config/openbox/rc.xml
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "12" ~/.config/openbox/rc.xml
 openbox --reconfigure
 
 ## Rofi theme
-if [[ $(command -v rofi) ]]; then
+if command -v rofi >/dev/null; then
 sed -i \
--e 's/^@theme "rounded.*/@theme "rounded-fane.rasi"/g' \
+-e 's/^@theme "rounded.*/@theme "rounded-dragon.rasi"/g' \
 -e 's/^font: "Noto Sans.*/font: "Noto Sans 11";/g' \
 -e 's/^icon-theme:.*/icon-theme: "Obsidian";/g' \
 -e 's/^show-icons:.*/show-icons: true;/g' "$HOME/.config/rofi/config.rasi"
 sed -i \
--e 's/^@theme "familiar.*/@theme "familiar-fane.rasi"/g' \
+-e 's/^@theme "familiar.*/@theme "familiar-dragon.rasi"/g' \
 -e 's/^font: "Noto Sans.*/font: "Noto Sans 10";/g' \
 -e 's/^icon-theme:.*/icon-theme: "Obsidian";/g' \
 -e 's/^show-icons:.*/show-icons: true;/g' "$HOME/.config/rofi/themes/familiar/config.rasi"
@@ -78,14 +72,14 @@ rm -f ~/.cache/rofi3.druncache
 fi
 
 ## Geany theme
-if [[ $(command -v geany) ]]; then
+if command -v geany >/dev/null; then
 sed -i \
--e "s/color_scheme=.*/color_scheme=Fane.conf/g" \
+-e "s/color_scheme=.*/color_scheme=Dragon.conf/g" \
 -e "s/editor_font=.*/editor_font=JetBrains Mono Light 10/g" ~/.config/geany/geany.conf
 fi
 
 ## jgmenu theme
-if [[ $(command -v jgmenu) ]]; then
+if command -v jgmenu >/dev/null; then
 if test -e ~/.config/jgmenu/backup; then
 rm -fr ~/.config/jgmenu/backup
 fi
@@ -103,9 +97,9 @@ fi
 
 ## xfce4-terminal theme
 xfconf-query -c xfce4-terminal -p /font-name -s "JetBrains Mono 10"
-xfconf-query -c xfce4-terminal -p /color-background -s "#1d1d2b2b3333"
-xfconf-query -c xfce4-terminal -p /color-foreground -s "#c5c5d4d4dbdb"
-xfconf-query -c xfce4-terminal -p /color-palette -s "rgb(0,0,0);rgb(209,82,77);rgb(0,150,95);rgb(190,149,45);rgb(100,187,209);rgb(179,93,159);rgb(54,155,158);rgb(158,170,176);rgb(149,166,173);rgb(255,95,95);rgb(71,207,133);rgb(226,215,115);rgb(120,213,235);rgb(239,115,219);rgb(84,209,209);rgb(224,231,233)"
+xfconf-query -c xfce4-terminal -p /color-foreground -s "#d9d9d9d9d7d7"
+xfconf-query -c xfce4-terminal -p /color-background -s "#181819191a1a"
+xfconf-query -c xfce4-terminal -p /color-palette -s "rgb(0,0,0);rgb(196,62,47);rgb(0,136,87);rgb(190,149,45);rgb(56,152,183);rgb(150,52,128);rgb(0,142,142);rgb(158,170,176);rgb(153,163,172);rgb(255,95,95);rgb(71,207,133);rgb(226,215,115);rgb(110,195,215);rgb(239,115,219);rgb(99,208,200);rgb(224,231,233)"
 
 ## Tint2 Panel Items - position, autoshrink, autohide, and transparency
 sed -i \
@@ -162,29 +156,27 @@ killall pnmixer 2>/dev/null
 pnmixer >/dev/null 2>&1 &
 
 ## Feh background
-if [[ -f "/usr/share/backgrounds/wallpapers/Foggypines.jpg" ]]; then
-    feh --bg-scale "/usr/share/backgrounds/wallpapers/Foggypines.jpg"
-else
-    feh --bg-scale "/usr/share/backgrounds/wallpapers/Fane.jpg"
+if [[ -f "/usr/share/backgrounds/wallpapers/Default.jpg" ]]; then
+    feh --bg-scale "/usr/share/backgrounds/wallpapers/Default.jpg"
 fi
 
 ## Sounds - Dunst
-if [[ $(command -v dunst) ]]; then
+if command -v dunst >/dev/null; then
 sed -i '/summary/d' ~/.config/dunst/dunstrc
 sed -i '/sounds/d' ~/.config/dunst/dunstrc
 killall -q dunst
 fi
 
 ## Conky
-if [[ $(command -v conky) ]]; then
+if command -v conky >/dev/null; then
 killall -q conky
 sed -i \
 -e '/own_window_transparent/c\own_window_transparent = true,' \
 -e '/own_window_argb_visual/c\-- own_window_argb_visual = true,' \
 -e '/own_window_argb_value/c\-- own_window_argb_value = 0,' "$HOME"/.config/conky/*.conf
 OLD_COLOR=$(sed '/default_color/!d' "$HOME/.config/conky/scripts/defaults.txt" | cut -d'#' -f2 | sed 's/..$//')
-sed -i "s/${OLD_COLOR}/c4c4c4/g" "$HOME"/.config/conky/*.conf 2>/dev/null
-sed -i "s/${OLD_COLOR}/c4c4c4/g" "$HOME/.config/conky/scripts/defaults.txt" 2>/dev/null
+sed -i "s/${OLD_COLOR}/bebebe/g" "$HOME"/.config/conky/*.conf 2>/dev/null
+sed -i "s/${OLD_COLOR}/bebebe/g" "$HOME/.config/conky/scripts/defaults.txt" 2>/dev/null
 if test -f "$HOME"/.config/conky/conky-shortcuts.conf; then
 set -m; conky -q -c "$HOME/.config/conky/conky-shortcuts.conf" &> /dev/null
 fi
