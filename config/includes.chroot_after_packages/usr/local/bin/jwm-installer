@@ -30,19 +30,20 @@ fi
 ## Remove /tmp files
 cd /tmp || exit
 rm -f "/tmp/jwm.desktop"
-rm -f "/tmp/jwmrc.zip"
-rm -f "/tmp/.jwmrc"
-## Grab jwmrc.zip and unzip in /tmp
-wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/jwmrc.zip --show-progress -q
-unzip -q /tmp/jwmrc.zip
+rm -fr "/tmp/jwmrc-trixie.zip"
+rm -fr "/tmp/.jwmrc"
+rm -fr "/tmp/jwmrc"
+## Grab jwmrc-trixie.zip and unzip in /tmp
+wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/jwmrc-trixie.zip --show-progress -q || exit
+unzip -q /tmp/jwmrc-trixie.zip
 
 ## Install necessary programs
 sudo apt update && sudo apt install -y jwm
 
 ## Copy .jwmrc from /tmp
 rm -f "$HOME/.jwmrc"
-cp -f "/tmp/.jwmrc" "$HOME/.jwmrc"
-sudo cp -f "/tmp/jwm.desktop" "/usr/share/xsessions/jwm.desktop"
+cp -f "/tmp/jwmrc/.jwmrc" "$HOME/.jwmrc"
+sudo cp -f "/tmp/jwmrc/jwm.desktop" "/usr/share/xsessions/jwm.desktop"
 ## Copy .xsessionrc info to ~/.xsessionrc
 if ! grep -Fxq 'export WM="$session"' "$HOME/.xsessionrc"; then
 {
