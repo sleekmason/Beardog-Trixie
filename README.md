@@ -183,6 +183,9 @@ located in the menu under Configuration. This changes the GTK theme,
 Openbox theme, Geany theme, LightDM, wallpaper, menu, and terminal
 theme all on the fly.
 
+##### Lilidog Trixie - 12 Sep. 2026
+[![Lilidog-12Sep2026.png](https://i.postimg.cc/tgrYNnwL/Lilidog-12Sep2026.png)](https://postimg.cc/1gqm9X9H)
+
 ### Building Lilidog:
 No need to wait for a new release if wanting to keep up with the latest.
 In fact, this is a great way to make personal changes, and to help with
@@ -216,5 +219,4 @@ but maybe keep it simple for a run or two.
 
 Note * Change 'waydog-trixie' to whichever build you selected.
 
-#### Lilidog Trixie - 12 September 2026
-[![Lilidog-12Sep2026.png](https://i.postimg.cc/tgrYNnwL/Lilidog-12Sep2026.png)](https://postimg.cc/1gqm9X9H)
+Please post in the [Lilidog SourceForge Forum](https://sourceforge.net/projects/lilidog/) if you have any questions or issues.
