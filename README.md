@@ -216,5 +216,5 @@ but maybe keep it simple for a run or two.
 
 Note * Change 'waydog-trixie' to whichever build you selected.
 
-#### Lilidog
-[![Lili.png](https://i.postimg.cc/hjy8qYS8/Lili.png)](https://postimg.cc/5YzQBnQj)
+#### Lilidog Trixie - 12 September 2026
+[![Lilidog-12Sep2026.png](https://i.postimg.cc/tgrYNnwL/Lilidog-12Sep2026.png)](https://postimg.cc/1gqm9X9H)
