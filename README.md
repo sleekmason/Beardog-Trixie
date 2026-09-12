@@ -35,8 +35,7 @@ WMs are available from the Waydog installers.
 <a href="https://sourceforge.net/projects/lilidog/files/latest/download"><img alt="Download Lilidog" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
 
 ##### Lilidog Trixie - 12 Sep. 2026
-[![Lilidog-12-Sep-2026.png](https://i.postimg.cc/cJdnmSHd/Lilidog-12-Sep-2026.png)](https://postimg.cc/75QhHj0R)
-
+[![Lilidog-12Sep2026.png](https://i.postimg.cc/tgrYNnwL/Lilidog-12Sep2026.png)](https://postimg.cc/1gqm9X9H)
 
 ### Current Release Format:
 
