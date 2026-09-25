@@ -169,13 +169,13 @@ _add_conky() {
 		  rm -fr /tmp/conky*
 		  wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/conky-bear-trixie2.zip --show-progress -q &&
 		        unzip -q conky-bear-trixie2.zip
-		        if test -f /home/"${SUDO_USER}"/.config/conky; then
-		        mv /home/"${SUDO_USER}"/.config/conky /home/"${SUDO_USER}"/.config/conky.bak &&
-		        cp -r /tmp/conky /home/"${SUDO_USER}"/.config
-                else                
-                cp -r /tmp/conky /home/"${SUDO_USER}"/.config              
-		        fi
-		        chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/conky &&
+                conf="/home/${SUDO_USER}/.config"
+                if [ -d "$conf/conky" ]; then
+                rm -rf "$conf/conky.bak"
+                mv "$conf/conky" "$conf/conky.bak"
+                fi
+                cp -r /tmp/conky "$conf/"
+                chown -R "${SUDO_USER}:${SUDO_USER}" "$conf/conky" "$conf/conky.bak" 2>/dev/null &&
 		        apt-get update && apt-get install -y conky-all fortunes fortune-mod &&
 		        if test -e /home/"${SUDO_USER}"/.config/conky; then
     if ! grep -wq "conky-restart-list" /home/"${SUDO_USER}"/.config/openbox/autostart; then
