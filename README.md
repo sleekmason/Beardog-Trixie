@@ -20,9 +20,10 @@ display manager on login, though two different LightDM versions can
 be installed from the initial welcome script.
 
 - Waydog - A version based on Wayland instead of X11. This version has
-Labwc and Sway compositors installed, with Waybar for the panel and 
-Waypaper to provide wallpapers.  Fully customized Niri and Wayfire
-WMs are available from the Waydog installers.
+Labwc installed as default, with Waybar for the panel and  Waypaper to
+provide wallpapers. Fully customized Mango, Niri, Sway, and Wayfire
+WMs are available from the Waydog installers, and can be tried in a
+live environment.
 
 ### Resources:
 - [DistroWatch](https://distrowatch.com/table.php?distribution=lilidog)
