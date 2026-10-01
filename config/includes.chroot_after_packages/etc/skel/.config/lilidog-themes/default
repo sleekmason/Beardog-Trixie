@@ -36,6 +36,9 @@ fi
 xfconf-query -c xsettings -p /Net/ThemeName -s "Dragon"
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian"
 
+## Set preference light/dark
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
 ## Picom transparency
 if command -v picom >/dev/null; then
 if pgrep -x picom > /dev/null 2>&1; then

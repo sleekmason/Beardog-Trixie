@@ -3,6 +3,7 @@
 
 # Ensure gsettings for neofetch use.
 gsettings set org.gnome.desktop.interface gtk-theme "Dragon"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 gsettings set org.gnome.desktop.interface icon-theme "Obsidian"
 
 # Set thunar as default for inode/directory
