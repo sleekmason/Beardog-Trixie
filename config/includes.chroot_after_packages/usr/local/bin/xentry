@@ -253,7 +253,7 @@ _remove_packages() {
 }
 
 _add_backports() {
-      _msg="Add backports repositories and run Apt to update?"
+      _msg="Add backports sources and run Apt to update?"
       do_it() { cp -f "/usr/share/lilidog/extras/backports/trixie-backports.sources" "/etc/apt/sources.list.d" &&  
                  apt-get update ;}
         see_it
