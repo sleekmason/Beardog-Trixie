@@ -1,5 +1,6 @@
 AwesomeWM,        x-terminal-emulator -T 'Awesome WM Installer' -e bash -c "awesome-installer",                   applications-utilities
 Awesome Conky,    x-terminal-emulator -T 'Conky For Awesome Installer' -e bash -c "awesome-conky-installer",      applications-utilities
+Backports,        x-terminal-emulator -T 'Backports Installer' -e bash -c "backports-installer",                  applications-utilities
 Conky,            x-terminal-emulator -T 'Conky Installer' -e bash -c "conky-installer",                          applications-utilities
 Deb Optimizer,    x-terminal-emulator -T 'Debian sources.list Optimizer' -e bash -c "deb-source-location",        applications-utilities
 Ghostty Terminal, x-terminal-emulator -T 'Ghostty Installer' -e bash -c "ghostty-installer",                      applications-utilities
