@@ -262,9 +262,9 @@ _add_backports() {
 }
 
 _upgrade_kernel() {
-      _msg="Install backports kernel? (Also adds repositories)"
+      _msg="Install backports kernel? (Also adds backports sources)"
       do_it() { cp -f "/usr/share/lilidog/extras/backports/trixie-backports.sources" "/etc/apt/sources.list.d" &&  
-                apt-get update && apt-get install -y -t trixie-backports linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
+                apt-get update && apt-get install -y linux-image-amd64/trixie-backports linux-headers-amd64/trixie-backports libc6-dev firmware-linux ;}
         see_it
         no_see
         run_it
