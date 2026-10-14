@@ -2,6 +2,7 @@ Batsignal,        x-terminal-emulator -T 'Batsignal Installer' -e bash -c "batsi
 Bluetooth,        x-terminal-emulator -T 'Bluetooth Installer' -e bash -c "bluetooth-installer",                              applications-utilities
 Brightness Tray Icon,  x-terminal-emulator -T 'Brightness And Gamma Tray Icon Installer' -e bash -c "bright-gamma-installer", applications-utilities
 Element,          x-terminal-emulator -T 'Element Installer' -e bash -c "element-installer",                                  applications-utilities
+Gammy,            x-terminal-emulator -T 'Gammy Installer' -e bash -c "gammy-installer",                                      applications-utilities
 Gnome Boxes,      x-terminal-emulator -T 'Gnome Boxes Installer' -e bash -c "gnome-boxes-installer",                          applications-utilities
 Hblock,           x-terminal-emulator -T 'Hblock Installer' -e bash -c "hblock-installer",                                    applications-utilities
 HW-Probe,         x-terminal-emulator -T 'HW-Probe Installer' -e bash -c "hw-probe-installer",                                applications-utilities

@@ -1,0 +1,52 @@
+#!/bin/bash
+echo ""
+read -r -p "  [0;32m Gammy Installer[0m
+
+   Gammy's a tool for adjusting screen pixel brightness/temperature
+   automatically or manually.
+
+   It dims the screen if it's content is too bright or brightens it
+   otherwise. This can help your eyes adjust when switching between
+   dark and light windows, especially at night or in suboptimal
+   lighting conditions.
+    
+   [0;33mhttps://github.com/pkos98/gammy[0m
+   
+   [0;32m----------------------------------------------------------------
+   
+   Please press enter to install Gammy.
+   
+   ----------------------------------------------------------------[0m
+      
+   Or close this terminal window to quit the install." ;
+   if : >/dev/tcp/8.8.8.8/53; then
+echo ""
+echo ""
+cd /tmp || exit &&
+rm -f /tmp/gammy*
+wget --prefer-family=IPv4 https://raw.githubusercontent.com/sleekmason/packages/master/gammy_0.9.64-1~ld1_amd64.deb --show-progress -q
+echo ""
+echo ""
+sudo apt update && sudo apt install -y /tmp/./gammy_0.9.64-1~ld1_amd64.deb
+sed -i '/toggle.gammy.*/d' ~/.config/jgmenu/prepend.csv &&
+sed -i '/GXKB/i Gammy,               toggle.gammy,                                  org.xfce.settings.manager' ~/.config/jgmenu/prepend.csv
+killall -q jgmenu
+echo ""
+echo "[0;33m-------------------------------------------------------------------"
+echo ""
+echo "   All Finished!"
+echo "   You should find a new menu entry in the Toggles Menu."
+echo ""
+echo "-------------------------------------------------------------------[0m"
+echo ""
+echo ""
+else
+echo ""
+ echo "   -------------------------------------------------------"
+ echo ""
+ echo "   No Internet connection. Please connect and try again."
+ echo ""
+ echo "   -------------------------------------------------------"
+echo ""
+fi
+read -n1 -p " Press any key to quit this dialog ... "

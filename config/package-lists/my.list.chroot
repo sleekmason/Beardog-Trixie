@@ -63,6 +63,7 @@ gvfs
 gvfs-backends
 gvfs-fuse
 gxkb
+htop
 imagemagick
 intel-microcode
 inxi
