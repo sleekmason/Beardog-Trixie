@@ -34,10 +34,9 @@
 tint2 >/dev/null 2>&1 &
 nm-applet &
 mate-power-manager >/dev/null 2>&1 &
-xfsettingsd --daemon &
-pnmixer &
+xfsettingsd --daemon >/dev/null 2>&1 &
+pnmixer >/dev/null 2>&1 &
 sxhkd -c "$HOME/.config/openbox/sxhkdrc-open" &
-/usr/libexec/polkit-mate-authentication-agent-1 &
 
 ### Start Thunar Daemon if thunar is installed. Uncomment the three lines below to enable.
 # if type 'thunar' &> /dev/null; then
