@@ -9,8 +9,8 @@ if command -v lightdm >/dev/null; then
 GREETER=$(grep -E '^[[:space:]]*greeter-session=' /etc/lightdm/lightdm.conf | cut -d= -f2 | tail -n1)
 
 [[ -z "$GREETER" ]] && GREETER="lightdm-gtk-greeter"
-if [[ -f "/usr/share/backgrounds/wallpapers/Brokenglass.jpg" ]]; then
-    WALL="/usr/share/backgrounds/wallpapers/Brokenglass.jpg"
+if [[ -f "/usr/share/backgrounds/wallpapers/Seafence.jpg" ]]; then
+    WALL="/usr/share/backgrounds/wallpapers/Seafence.jpg"
 else
     WALL="/usr/share/backgrounds/wallpapers/Default.jpg"
 fi
