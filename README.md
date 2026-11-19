@@ -5,14 +5,15 @@ Lilidog is a lightweight Linux distro based on Debian. Lilidog uses the
 Openbox window manager with tint2, Thunar, and xfce4-terminal.
 
 Other window managers are also available through the Lilidog installers.
-These are Awesome, dwm, i3, jwm, and sowm.
+These are Awesome, i3 and jwm.
 
 ### Available Versions:
 
-There are currently 3 builds available: Lilidog, Beardog, and Waydog.  
+There are currently 4 versions available: Lilidog, Beardog, Waydog and
+Waydog Noctalia.
 
 - Lilidog - Comes with most everything necessary to get started. This
-includes Firefox, LibreOffice, Geany, Thunar, xfce4-terminal, Pragha,
+includes Firefox, LibreOffice, Geany, Thunar, xfce4-terminal, Audacious,
 Gpicview, Fastfetch, Jgmenu, and inxi among others.
 
 - Beardog - The 'bare' version of Lilidog. Beardog starts without a 
@@ -24,6 +25,14 @@ Labwc installed as default, with Waybar for the panel and  Waypaper to
 provide wallpapers. Fully customized Mango, Niri, Sway, and Wayfire
 WMs are available from the Waydog installers, and can be tried in a
 live environment.
+
+- Waydog Noctalia - A lightweight version utilizing Noctalia in place
+of most of the accessory programs. Try changing the wallpaper mode in
+settings for automatic theme changes.
+
+The Noctalia version does not allow for outside GTK themes. If wanting
+to use your own theme, install the other Waydog version which uses the
+expected traditional utilities for customization.
 
 ### Resources:
 - [DistroWatch](https://distrowatch.com/table.php?distribution=lilidog)
